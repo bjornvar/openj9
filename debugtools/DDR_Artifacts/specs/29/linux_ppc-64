@@ -321,6 +321,7 @@ C|OMR_PORT_ZOS_CEEHDLRSUPPORT
 C|OMR_TEST_COMPILER
 C|OMR_THR_FORK_SUPPORT
 C|OMR_THR_TRACING
+C|OMR_VALGRIND_MEMCHECK
 S|OmrcfgConstants|OmrcfgConstantsPointer|
 C|OMRTHREAD_LIB_UNIX
 C|OMR_ARCH_POWER
@@ -2411,6 +2412,8 @@ F|b_i2jTransition|b_i2jTransition|void*|void*
 F|promoteGPUCompile|promoteGPUCompile|void*|void*
 F|jitDiscardPendingCompilationsOfNatives|jitDiscardPendingCompilationsOfNatives|void*|void*
 F|jitGetExceptionCatcher|jitGetExceptionCatcher|void*|void*
+F|jitMethodBreakpointed|jitMethodBreakpointed|void*|void*
+F|jitMethodUnbreakpointed|jitMethodUnbreakpointed|void*|void*
 F|callbackFunctionTable|callbackFunctionTable|struct J9AOTCallbackFunctionTable*|struct J9AOTCallbackFunctionTable*
 F|virtualCodeBaseAddress|virtualCodeBaseAddress|UDATA|UDATA
 F|virtualDataBaseAddress|virtualDataBaseAddress|UDATA|UDATA
@@ -2750,6 +2753,7 @@ C|arch_x86
 C|build_SE6_package
 C|build_VS12AndHigher
 C|build_autobuild
+C|build_cmake
 C|build_dropToHursley
 C|build_dropToPhoenix
 C|build_dropToToronto
@@ -4329,6 +4333,7 @@ C|J9_JVMTI_METHOD_SELECTIVE_ENTRY_EXIT
 C|J9_LOOK_ALLOW_FWD
 C|J9_LOOK_CLCONSTRAINTS
 C|J9_LOOK_DIRECT_NAS
+C|J9_LOOK_HANDLE_DEFAULT_METHOD_CONFLICTS
 C|J9_LOOK_INTERFACE
 C|J9_LOOK_JNI
 C|J9_LOOK_NEW_INSTANCE
@@ -4485,7 +4490,6 @@ C|J9_RUNTIME_NO_PRIORITIES
 C|J9_RUNTIME_OMIT_STACK_TRACES
 C|J9_RUNTIME_PAINT_STACK
 C|J9_RUNTIME_REPORT_STACK_USE
-C|J9_RUNTIME_SELECTIVE_DEBUG_ENABLED
 C|J9_RUNTIME_SHOW_VERSION
 C|J9_RUNTIME_SHUTDOWN
 C|J9_RUNTIME_SHUTDOWN_STARTED
@@ -4493,6 +4497,7 @@ C|J9_RUNTIME_SNIFF_AND_WHACK
 C|J9_RUNTIME_STACK_FILL
 C|J9_RUNTIME_STRING_BYTE_ARRAY
 C|J9_RUNTIME_TUNE_VIRTUALIZED
+C|J9_RUNTIME_UNUSED_0x10000000
 C|J9_RUNTIME_VERIFY
 C|J9_RUNTIME_XFUTURE
 C|J9_SIGBYTE_ARRAY
@@ -4966,6 +4971,7 @@ F|javaLookupMethodImpl|javaLookupMethodImpl|void*|void*
 F|setCurrentException|setCurrentException|void*|void*
 F|setCurrentExceptionUTF|setCurrentExceptionUTF|void*|void*
 F|setCurrentExceptionNLS|setCurrentExceptionNLS|void*|void*
+F|setCurrentExceptionNLSWithArgs|setCurrentExceptionNLSWithArgs|void*|void*
 F|setCurrentExceptionWithCause|setCurrentExceptionWithCause|void*|void*
 F|objectMonitorEnter|objectMonitorEnter|void*|void*
 F|objectMonitorExit|objectMonitorExit|void*|void*
@@ -5576,6 +5582,8 @@ F|b_i2jTransition|b_i2jTransition|void*|void*
 F|promoteGPUCompile|promoteGPUCompile|void*|void*
 F|jitDiscardPendingCompilationsOfNatives|jitDiscardPendingCompilationsOfNatives|void*|void*
 F|jitGetExceptionCatcher|jitGetExceptionCatcher|void*|void*
+F|jitMethodBreakpointed|jitMethodBreakpointed|void*|void*
+F|jitMethodUnbreakpointed|jitMethodUnbreakpointed|void*|void*
 C|J9JIT_AOT
 C|J9JIT_AOT_ATTACHED
 C|J9JIT_ASSUME_STRICTFP
@@ -6014,7 +6022,6 @@ C|J9AccGetterMethod
 C|J9AccInterface
 C|J9AccMandated
 C|J9AccMethodCallerSensitive
-C|J9AccMethodDebuggable
 C|J9AccMethodFrameIteratorSkip
 C|J9AccMethodHasBackwardBranches
 C|J9AccMethodHasDebugInfo
@@ -6037,6 +6044,7 @@ C|J9AccMethodReturnD
 C|J9AccMethodReturnF
 C|J9AccMethodReturnMask
 C|J9AccMethodReturnShift
+C|J9AccMethodUnused0x1000000
 C|J9AccMethodVTable
 C|J9AccNative
 C|J9AccPrivate
@@ -8765,11 +8773,11 @@ C|J9RuntimeFlagOmitStackTraces
 C|J9RuntimeFlagPPC32On64
 C|J9RuntimeFlagPaintStack
 C|J9RuntimeFlagReportStackUse
-C|J9RuntimeFlagSelectiveDebugEnabled
 C|J9RuntimeFlagShowVersion
 C|J9RuntimeFlagShutdown
 C|J9RuntimeFlagShutdownStarted
 C|J9RuntimeFlagSniffAndWhack
+C|J9RuntimeFlagUnused0x10000000
 C|J9RuntimeFlagUnused0x80
 C|J9RuntimeFlagVerify
 C|J9RuntimeFlagXfuture
@@ -9170,9 +9178,7 @@ C|J9VMCONSTANTPOOL_JAVALANGINVOKEMETHODTYPE_STACKDESCRIPTIONBITS
 C|J9VMCONSTANTPOOL_JAVALANGINVOKEMUTABLECALLSITE
 C|J9VMCONSTANTPOOL_JAVALANGINVOKEMUTABLECALLSITE_TARGET
 C|J9VMCONSTANTPOOL_JAVALANGINVOKENATIVEMETHODHANDLE
-C|J9VMCONSTANTPOOL_JAVALANGINVOKENATIVEMETHODHANDLEPOINTERRETURN
-C|J9VMCONSTANTPOOL_JAVALANGINVOKENATIVEMETHODHANDLESTRUCTRETURN
-C|J9VMCONSTANTPOOL_JAVALANGINVOKENATIVEMETHODHANDLESTRUCTRETURN_LAYOUTSTRING
+C|J9VMCONSTANTPOOL_JAVALANGINVOKENATIVEMETHODHANDLE_J9NATIVECALLOUTDATAREF
 C|J9VMCONSTANTPOOL_JAVALANGINVOKEPASSTHROUGHHANDLE
 C|J9VMCONSTANTPOOL_JAVALANGINVOKEPASSTHROUGHHANDLE_EQUIVALENT
 C|J9VMCONSTANTPOOL_JAVALANGINVOKEPERMUTEHANDLE
@@ -14741,6 +14747,7 @@ F|_typeId|_typeId|U8*|const char*
 S|MM_BaseVirtual|MM_BaseVirtualPointer|MM_Base
 F|_typeId|_typeId|U8*|const char*
 S|MM_Bits|MM_BitsPointer|
+C|J9BITS_BITS_IN_SLOT
 C|conversionBitShift
 C|conversionObjectFieldBitShift
 S|MM_BumpAllocatedListPopulator|MM_BumpAllocatedListPopulatorPointer|MM_ObjectHeapBufferedIteratorPopulator
@@ -15366,16 +15373,6 @@ F|_concurrentWorkStackOverflowCount|_concurrentWorkStackOverflowCount|UDATA|uint
 F|_completedModes|_completedModes|U32|volatile uint32_t
 F|_kickoffReason|_kickoffReason|enum ConcurrentKickoffReason|enum ConcurrentKickoffReason
 F|_cardCleaningReason|_cardCleaningReason|enum ConcurrentCardCleaningReason|enum ConcurrentCardCleaningReason
-S|MM_ConcurrentGMPEndEvent|MM_ConcurrentGMPEndEventPointer|
-F|currentThread|currentThread|struct OMR_VMThread*|struct OMR_VMThread*
-F|timestamp|timestamp|U64|uint64_t
-F|eventid|eventid|UDATA|uintptr_t
-F|concurrentGMPStats|concurrentGMPStats|void*|void*
-S|MM_ConcurrentGMPStartEvent|MM_ConcurrentGMPStartEventPointer|
-F|currentThread|currentThread|struct OMR_VMThread*|struct OMR_VMThread*
-F|timestamp|timestamp|U64|uint64_t
-F|eventid|eventid|UDATA|uintptr_t
-F|concurrentGMPStats|concurrentGMPStats|void*|void*
 S|MM_ConcurrentGMPStats|MM_ConcurrentGMPStatsPointer|MM_Base
 F|_gmpCycleID|_gmpCycleID|UDATA|uintptr_t
 F|_scanTargetInBytes|_scanTargetInBytes|UDATA|uintptr_t
@@ -15416,6 +15413,21 @@ S|MM_ConcurrentOverflow|MM_ConcurrentOverflowPointer|MM_WorkPacketOverflow
 F|_extensions|_extensions|class MM_GCExtensionsBase*|class MM_GCExtensionsBase*
 F|_cardsClearingMonitor|_cardsClearingMonitor|struct J9ThreadMonitor*|omrthread_monitor_t
 F|_cardsForNewSpaceCleared|_cardsForNewSpaceCleared|bool|bool
+S|MM_ConcurrentPhaseEndEvent|MM_ConcurrentPhaseEndEventPointer|
+F|currentThread|currentThread|struct OMR_VMThread*|struct OMR_VMThread*
+F|timestamp|timestamp|U64|uint64_t
+F|eventid|eventid|UDATA|uintptr_t
+F|concurrentStats|concurrentStats|void*|void*
+S|MM_ConcurrentPhaseStartEvent|MM_ConcurrentPhaseStartEventPointer|
+F|currentThread|currentThread|struct OMR_VMThread*|struct OMR_VMThread*
+F|timestamp|timestamp|U64|uint64_t
+F|eventid|eventid|UDATA|uintptr_t
+F|concurrentStats|concurrentStats|void*|void*
+S|MM_ConcurrentPhaseStatsBase|MM_ConcurrentPhaseStatsBasePointer|MM_Base
+F|_cycleID|_cycleID|UDATA|uintptr_t
+F|_scanTargetInBytes|_scanTargetInBytes|UDATA|uintptr_t
+F|_bytesScanned|_bytesScanned|UDATA|uintptr_t
+F|_terminationWasRequested|_terminationWasRequested|bool|bool
 S|MM_ConcurrentPrepareCardTableTask|MM_ConcurrentPrepareCardTableTaskPointer|MM_ParallelTask
 F|_cardTable|_cardTable|class MM_ConcurrentCardTableForWC*|class MM_ConcurrentCardTableForWC*
 F|_firstCard|_firstCard|U8*|Card*
@@ -16057,7 +16069,6 @@ F|numaCommonThreadClassNamePatterns|numaCommonThreadClassNamePatterns|class MM_W
 F|userSpecifiedParameters$_Xmn|userSpecifiedParameters._Xmn|MM_UserSpecifiedParameterUDATA|MM_UserSpecifiedParameterUDATA
 F|userSpecifiedParameters$_Xmns|userSpecifiedParameters._Xmns|MM_UserSpecifiedParameterUDATA|MM_UserSpecifiedParameterUDATA
 F|userSpecifiedParameters$_Xmnx|userSpecifiedParameters._Xmnx|MM_UserSpecifiedParameterUDATA|MM_UserSpecifiedParameterUDATA
-F|_isMultiTenantGC|_isMultiTenantGC|bool|bool
 F|stringDedupPolicy|stringDedupPolicy|enum MM_GCExtensions$JitStringDeDupPolicy|enum MM_GCExtensions::JitStringDeDupPolicy
 F|_asyncCallbackKey|_asyncCallbackKey|IDATA|IDATA
 F|_TLHAsyncCallbackKey|_TLHAsyncCallbackKey|IDATA|IDATA
@@ -16075,7 +16086,7 @@ S|MM_GCExtensionsBase|MM_GCExtensionsBasePointer|MM_BaseVirtual
 F|_guaranteedNurseryStart|_guaranteedNurseryStart|void*|void*
 F|_guaranteedNurseryEnd|_guaranteedNurseryEnd|void*|void*
 F|_isRememberedSetInOverflow|_isRememberedSetInOverflow|bool|bool
-F|_backOutState|_backOutState|enum BackOutState|enum BackOutState
+F|_backOutState|_backOutState|enum BackOutState|volatile enum BackOutState
 F|_omrVM|_omrVM|struct OMR_VM*|struct OMR_VM*
 F|_forge|_forge|class MM_Forge|class MM_Forge
 F|_globalCollector|_globalCollector|class MM_Collector*|class MM_Collector*
@@ -16090,6 +16101,7 @@ F|scavenger|scavenger|class MM_Scavenger*|class MM_Scavenger*
 F|environments|environments|struct J9Pool*|struct J9Pool*
 F|excessiveGCStats|excessiveGCStats|class MM_ExcessiveGCStats|class MM_ExcessiveGCStats
 F|globalGCStats|globalGCStats|class MM_GlobalGCStats|class MM_GlobalGCStats
+F|incrementScavengerStats|incrementScavengerStats|class MM_ScavengerStats|class MM_ScavengerStats
 F|scavengerStats|scavengerStats|class MM_ScavengerStats|class MM_ScavengerStats
 F|copyScanRatio|copyScanRatio|class MM_ScavengerCopyScanRatio|class MM_ScavengerCopyScanRatio
 F|globalVLHGCStats|globalVLHGCStats|class MM_GlobalVLHGCStats|class MM_GlobalVLHGCStats
@@ -16925,6 +16937,7 @@ F|_collectionSetDelegate|_collectionSetDelegate|class MM_CollectionSetDelegate|c
 F|_projectedSurvivalCollectionSetDelegate|_projectedSurvivalCollectionSetDelegate|class MM_ProjectedSurvivalCollectionSetDelegate|class MM_ProjectedSurvivalCollectionSetDelegate
 F|_globalCollectionStatistics|_globalCollectionStatistics|class MM_CollectionStatisticsVLHGC|class MM_CollectionStatisticsVLHGC
 F|_partialCollectionStatistics|_partialCollectionStatistics|class MM_CollectionStatisticsVLHGC|class MM_CollectionStatisticsVLHGC
+F|_concurrentPhaseStats|_concurrentPhaseStats|class MM_ConcurrentPhaseStatsBase|class MM_ConcurrentPhaseStatsBase
 F|_workPacketsForPartialGC|_workPacketsForPartialGC|class MM_WorkPacketsVLHGC*|class MM_WorkPacketsVLHGC*
 F|_workPacketsForGlobalGC|_workPacketsForGlobalGC|class MM_WorkPacketsVLHGC*|class MM_WorkPacketsVLHGC*
 F|_taxationThreshold|_taxationThreshold|UDATA|UDATA
@@ -17058,10 +17071,14 @@ F|_nameBuf|_nameBuf|U8[]|char[]
 F|_tracing|_tracing|struct J9ThreadMonitorTracing*|struct J9ThreadMonitorTracing*
 F|_extensions|_extensions|class MM_GCExtensionsBase*|class MM_GCExtensionsBase*
 F|_spinlock|_spinlock|struct J9GCSpinlock|struct J9GCSpinlock
+C|MAX_LWNR_LOCK_NAME_SIZE
 S|MM_LightweightNonReentrantReaderWriterLock|MM_LightweightNonReentrantReaderWriterLockPointer|MM_BaseNonVirtual
 F|_spinCount|_spinCount|UDATA|uintptr_t
 F|_status|_status|U32|volatile uint32_t
+C|LWRW_FAILED_INIT
 C|LWRW_INCREMENTAL_BASE_READERS
+C|LWRW_OK
+C|LWRW_READER_MODE
 C|LWRW_WRITER_MODE
 S|MM_LocalGCEndEvent|MM_LocalGCEndEventPointer|
 F|currentThread|currentThread|struct OMR_VMThread*|struct OMR_VMThread*
@@ -17242,6 +17259,7 @@ F|_extensions|_extensions|class MM_GCExtensionsBase*|class MM_GCExtensionsBase*
 F|_largeObjectAllocateStats|_largeObjectAllocateStats|class MM_LargeObjectAllocateStats*|class MM_LargeObjectAllocateStats*
 F|_darkMatterBytes|_darkMatterBytes|UDATA|uintptr_t
 F|_darkMatterSamples|_darkMatterSamples|UDATA|uintptr_t
+C|HINT_ELEMENT_COUNT
 S|MM_MemoryPool$Cause|MM_MemoryPool$CausePointer|
 C|any
 C|forCompact
@@ -17699,8 +17717,6 @@ F|_dispatcher|_dispatcher|class MM_Dispatcher*|class MM_Dispatcher*
 F|_cycleState|_cycleState|class MM_CycleState|class MM_CycleState
 F|_collectionStatistics|_collectionStatistics|class MM_CollectionStatisticsStandard|class MM_CollectionStatisticsStandard
 F|_fixHeapForWalkCompleted|_fixHeapForWalkCompleted|bool|bool
-S|MM_ParallelGlobalGCTask|MM_ParallelGlobalGCTaskPointer|MM_ParallelTask
-F|_collector|_collector|class MM_ParallelGlobalGC*|class MM_ParallelGlobalGC*
 S|MM_ParallelGlobalMarkTask|MM_ParallelGlobalMarkTaskPointer|MM_ParallelTask
 F|_markingScheme|_markingScheme|class MM_GlobalMarkingScheme*|class MM_GlobalMarkingScheme*
 F|_action|_action|enum MarkAction|const enum MarkAction
@@ -18142,6 +18158,7 @@ F|currentThread|currentThread|struct OMR_VMThread*|struct OMR_VMThread*
 F|timestamp|timestamp|U64|uint64_t
 F|eventid|eventid|UDATA|uintptr_t
 F|subSpace|subSpace|void*|void*
+F|cycleEnd|cycleEnd|bool|bool
 S|MM_ScavengeStartEvent|MM_ScavengeStartEventPointer|
 F|currentThread|currentThread|struct OMR_VMThread*|struct OMR_VMThread*
 F|timestamp|timestamp|U64|uint64_t
@@ -18180,7 +18197,7 @@ F|_freeCacheMonitor|_freeCacheMonitor|struct J9ThreadMonitor*|omrthread_monitor_
 F|_waitingCount|_waitingCount|UDATA|volatile uintptr_t
 F|_cacheLineAlignment|_cacheLineAlignment|UDATA|uintptr_t
 F|_rescanThreadsForRememberedObjects|_rescanThreadsForRememberedObjects|bool|volatile bool
-F|_backOutDoneIndex|_backOutDoneIndex|UDATA|uintptr_t
+F|_backOutDoneIndex|_backOutDoneIndex|UDATA|volatile uintptr_t
 F|_heapBase|_heapBase|void*|void*
 F|_heapTop|_heapTop|void*|void*
 F|_regionManager|_regionManager|class MM_HeapRegionManager*|class MM_HeapRegionManager*
@@ -19299,10 +19316,10 @@ C|J9HOOK_MM_PRIVATE_CONCURRENT_COLLECTION_END
 C|J9HOOK_MM_PRIVATE_CONCURRENT_COLLECTION_START
 C|J9HOOK_MM_PRIVATE_CONCURRENT_COMPLETE_TRACING_END
 C|J9HOOK_MM_PRIVATE_CONCURRENT_COMPLETE_TRACING_START
-C|J9HOOK_MM_PRIVATE_CONCURRENT_GMP_END
-C|J9HOOK_MM_PRIVATE_CONCURRENT_GMP_START
 C|J9HOOK_MM_PRIVATE_CONCURRENT_HALTED
 C|J9HOOK_MM_PRIVATE_CONCURRENT_KICKOFF
+C|J9HOOK_MM_PRIVATE_CONCURRENT_PHASE_END
+C|J9HOOK_MM_PRIVATE_CONCURRENT_PHASE_START
 C|J9HOOK_MM_PRIVATE_CONCURRENT_REMEMBERED_SET_SCAN_END
 C|J9HOOK_MM_PRIVATE_CONCURRENT_REMEMBERED_SET_SCAN_START
 C|J9HOOK_MM_PRIVATE_COPY_FORWARD_ABORT
