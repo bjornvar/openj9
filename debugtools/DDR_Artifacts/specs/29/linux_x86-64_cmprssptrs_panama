@@ -2982,8 +2982,6 @@ C|jit_supportsDirectJNI
 C|jit_transactionDiagnosticThreadBlock
 C|math_directHelpers
 C|math_useDivRem
-C|math_useFdlibmMathLibrary
-C|math_useFdlibmScaling
 C|opt_annotations
 C|opt_bigInteger
 C|opt_cuda
