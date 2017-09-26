@@ -1,483 +1,1258 @@
-S|HyPortLibrary|HyPortLibraryPointer|
-F|portVersion|portVersion|struct HyPortLibraryVersion|struct HyPortLibraryVersion
-F|portGlobals|portGlobals|void*|struct HyPortLibraryGlobalData*
-F|port_shutdown_library|port_shutdown_library|void*|void*
-F|port_isFunctionOverridden|port_isFunctionOverridden|void*|void*
-F|port_tls_free|port_tls_free|void*|void*
-F|error_startup|error_startup|void*|void*
-F|error_shutdown|error_shutdown|void*|void*
-F|error_last_error_number|error_last_error_number|void*|void*
-F|error_last_error_message|error_last_error_message|void*|void*
-F|error_set_last_error|error_set_last_error|void*|void*
-F|error_set_last_error_with_message|error_set_last_error_with_message|void*|void*
-F|time_startup|time_startup|void*|void*
-F|time_shutdown|time_shutdown|void*|void*
-F|time_msec_clock|time_msec_clock|void*|void*
-F|time_usec_clock|time_usec_clock|void*|void*
-F|time_current_time_millis|time_current_time_millis|void*|void*
-F|time_hires_clock|time_hires_clock|void*|void*
-F|time_hires_frequency|time_hires_frequency|void*|void*
-F|time_hires_delta|time_hires_delta|void*|void*
-F|sysinfo_startup|sysinfo_startup|void*|void*
-F|sysinfo_shutdown|sysinfo_shutdown|void*|void*
-F|sysinfo_get_pid|sysinfo_get_pid|void*|void*
-F|sysinfo_get_physical_memory|sysinfo_get_physical_memory|void*|void*
-F|sysinfo_get_OS_version|sysinfo_get_OS_version|void*|void*
-F|sysinfo_get_env|sysinfo_get_env|void*|void*
-F|sysinfo_get_CPU_architecture|sysinfo_get_CPU_architecture|void*|void*
-F|sysinfo_get_OS_type|sysinfo_get_OS_type|void*|void*
-F|sysinfo_get_classpathSeparator|sysinfo_get_classpathSeparator|void*|void*
-F|sysinfo_get_executable_name|sysinfo_get_executable_name|void*|void*
-F|sysinfo_get_number_CPUs|sysinfo_get_number_CPUs|void*|void*
-F|sysinfo_get_username|sysinfo_get_username|void*|void*
-F|file_startup|file_startup|void*|void*
-F|file_shutdown|file_shutdown|void*|void*
-F|file_write|file_write|void*|void*
-F|file_write_text|file_write_text|void*|void*
-F|file_vprintf|file_vprintf|void*|void*
-F|file_printf|file_printf|void*|void*
-F|file_open|file_open|void*|void*
-F|file_close|file_close|void*|void*
-F|file_seek|file_seek|void*|void*
-F|file_read|file_read|void*|void*
-F|file_unlink|file_unlink|void*|void*
-F|file_attr|file_attr|void*|void*
-F|file_lastmod|file_lastmod|void*|void*
-F|file_length|file_length|void*|void*
-F|file_set_length|file_set_length|void*|void*
-F|file_sync|file_sync|void*|void*
-F|sl_startup|sl_startup|void*|void*
-F|sl_shutdown|sl_shutdown|void*|void*
-F|sl_close_shared_library|sl_close_shared_library|void*|void*
-F|sl_open_shared_library|sl_open_shared_library|void*|void*
-F|sl_lookup_name|sl_lookup_name|void*|void*
-F|tty_startup|tty_startup|void*|void*
-F|tty_shutdown|tty_shutdown|void*|void*
-F|tty_printf|tty_printf|void*|void*
-F|tty_vprintf|tty_vprintf|void*|void*
-F|tty_get_chars|tty_get_chars|void*|void*
-F|tty_err_printf|tty_err_printf|void*|void*
-F|tty_err_vprintf|tty_err_vprintf|void*|void*
-F|tty_available|tty_available|void*|void*
-F|mem_startup|mem_startup|void*|void*
-F|mem_shutdown|mem_shutdown|void*|void*
-F|mem_allocate_memory|mem_allocate_memory|void*|void*
-F|mem_allocate_memory_callSite|mem_allocate_memory_callSite|void*|void*
-F|mem_free_memory|mem_free_memory|void*|void*
-F|mem_reallocate_memory|mem_reallocate_memory|void*|void*
-F|cpu_startup|cpu_startup|void*|void*
-F|cpu_shutdown|cpu_shutdown|void*|void*
-F|cpu_flush_icache|cpu_flush_icache|void*|void*
-F|vmem_startup|vmem_startup|void*|void*
-F|vmem_shutdown|vmem_shutdown|void*|void*
-F|vmem_commit_memory|vmem_commit_memory|void*|void*
-F|vmem_decommit_memory|vmem_decommit_memory|void*|void*
-F|vmem_free_memory|vmem_free_memory|void*|void*
-F|vmem_reserve_memory|vmem_reserve_memory|void*|void*
-F|vmem_supported_page_sizes|vmem_supported_page_sizes|void*|void*
-F|sock_startup|sock_startup|void*|void*
-F|sock_shutdown|sock_shutdown|void*|void*
-F|sock_htons|sock_htons|void*|void*
-F|sock_write|sock_write|void*|void*
-F|sock_sockaddr|sock_sockaddr|void*|void*
-F|sock_read|sock_read|void*|void*
-F|sock_socket|sock_socket|void*|void*
-F|sock_close|sock_close|void*|void*
-F|sock_connect|sock_connect|void*|void*
-F|sock_inetaddr|sock_inetaddr|void*|void*
-F|sock_gethostbyname|sock_gethostbyname|void*|void*
-F|sock_hostent_addrlist|sock_hostent_addrlist|void*|void*
-F|sock_sockaddr_init|sock_sockaddr_init|void*|void*
-F|sock_linger_init|sock_linger_init|void*|void*
-F|sock_setopt_linger|sock_setopt_linger|void*|void*
-F|gp_startup|gp_startup|void*|void*
-F|gp_shutdown|gp_shutdown|void*|void*
-F|gp_protect|gp_protect|void*|void*
-F|gp_register_handler|gp_register_handler|void*|void*
-F|gp_info|gp_info|void*|void*
-F|gp_info_count|gp_info_count|void*|void*
-F|gp_handler_function|gp_handler_function|void*|void*
-F|str_startup|str_startup|void*|void*
-F|str_shutdown|str_shutdown|void*|void*
-F|str_printf|str_printf|void*|void*
-F|str_vprintf|str_vprintf|void*|void*
-F|exit_startup|exit_startup|void*|void*
-F|exit_shutdown|exit_shutdown|void*|void*
-F|exit_get_exit_code|exit_get_exit_code|void*|void*
-F|exit_shutdown_and_exit|exit_shutdown_and_exit|void*|void*
-F|self_handle|self_handle|void*|void*
-F|dump_create|dump_create|void*|void*
-F|nls_startup|nls_startup|void*|void*
-F|nls_shutdown|nls_shutdown|void*|void*
-F|nls_set_catalog|nls_set_catalog|void*|void*
-F|nls_set_locale|nls_set_locale|void*|void*
-F|nls_get_language|nls_get_language|void*|void*
-F|nls_get_region|nls_get_region|void*|void*
-F|nls_get_variant|nls_get_variant|void*|void*
-F|nls_printf|nls_printf|void*|void*
-F|nls_vprintf|nls_vprintf|void*|void*
-F|nls_lookup_message|nls_lookup_message|void*|void*
-F|ipcmutex_startup|ipcmutex_startup|void*|void*
-F|ipcmutex_shutdown|ipcmutex_shutdown|void*|void*
-F|ipcmutex_acquire|ipcmutex_acquire|void*|void*
-F|ipcmutex_release|ipcmutex_release|void*|void*
-F|port_control|port_control|void*|void*
-F|sig_startup|sig_startup|void*|void*
-F|sig_shutdown|sig_shutdown|void*|void*
-F|sig_protect|sig_protect|void*|void*
-F|sig_can_protect|sig_can_protect|void*|void*
-F|sig_set_async_signal_handler|sig_set_async_signal_handler|void*|void*
-F|sig_info|sig_info|void*|void*
-F|sig_info_count|sig_info_count|void*|void*
-F|sig_set_options|sig_set_options|void*|void*
-F|sig_get_options|sig_get_options|void*|void*
-F|attached_thread|attached_thread|struct J9Thread*|hythread_t
-F|sysinfo_DLPAR_enabled|sysinfo_DLPAR_enabled|void*|void*
-F|sysinfo_DLPAR_max_CPUs|sysinfo_DLPAR_max_CPUs|void*|void*
-F|sysinfo_weak_memory_consistency|sysinfo_weak_memory_consistency|void*|void*
-F|file_read_text|file_read_text|void*|void*
-F|file_mkdir|file_mkdir|void*|void*
-F|file_move|file_move|void*|void*
-F|file_unlinkdir|file_unlinkdir|void*|void*
-F|file_findfirst|file_findfirst|void*|void*
-F|file_findnext|file_findnext|void*|void*
-F|file_findclose|file_findclose|void*|void*
-F|file_error_message|file_error_message|void*|void*
-F|sock_htonl|sock_htonl|void*|void*
-F|sock_bind|sock_bind|void*|void*
-F|sock_accept|sock_accept|void*|void*
-F|sock_shutdown_input|sock_shutdown_input|void*|void*
-F|sock_shutdown_output|sock_shutdown_output|void*|void*
-F|sock_listen|sock_listen|void*|void*
-F|sock_ntohl|sock_ntohl|void*|void*
-F|sock_ntohs|sock_ntohs|void*|void*
-F|sock_getpeername|sock_getpeername|void*|void*
-F|sock_getsockname|sock_getsockname|void*|void*
-F|sock_readfrom|sock_readfrom|void*|void*
-F|sock_select|sock_select|void*|void*
-F|sock_writeto|sock_writeto|void*|void*
-F|sock_inetntoa|sock_inetntoa|void*|void*
-F|sock_gethostbyaddr|sock_gethostbyaddr|void*|void*
-F|sock_gethostname|sock_gethostname|void*|void*
-F|sock_hostent_aliaslist|sock_hostent_aliaslist|void*|void*
-F|sock_hostent_hostname|sock_hostent_hostname|void*|void*
-F|sock_sockaddr_port|sock_sockaddr_port|void*|void*
-F|sock_sockaddr_address|sock_sockaddr_address|void*|void*
-F|sock_fdset_init|sock_fdset_init|void*|void*
-F|sock_fdset_size|sock_fdset_size|void*|void*
-F|sock_timeval_init|sock_timeval_init|void*|void*
-F|sock_getopt_int|sock_getopt_int|void*|void*
-F|sock_setopt_int|sock_setopt_int|void*|void*
-F|sock_getopt_bool|sock_getopt_bool|void*|void*
-F|sock_setopt_bool|sock_setopt_bool|void*|void*
-F|sock_getopt_byte|sock_getopt_byte|void*|void*
-F|sock_setopt_byte|sock_setopt_byte|void*|void*
-F|sock_getopt_linger|sock_getopt_linger|void*|void*
-F|sock_getopt_sockaddr|sock_getopt_sockaddr|void*|void*
-F|sock_setopt_sockaddr|sock_setopt_sockaddr|void*|void*
-F|sock_setopt_ipmreq|sock_setopt_ipmreq|void*|void*
-F|sock_linger_enabled|sock_linger_enabled|void*|void*
-F|sock_linger_linger|sock_linger_linger|void*|void*
-F|sock_ipmreq_init|sock_ipmreq_init|void*|void*
-F|sock_setflag|sock_setflag|void*|void*
-F|sock_freeaddrinfo|sock_freeaddrinfo|void*|void*
-F|sock_getaddrinfo|sock_getaddrinfo|void*|void*
-F|sock_getaddrinfo_address|sock_getaddrinfo_address|void*|void*
-F|sock_getaddrinfo_create_hints|sock_getaddrinfo_create_hints|void*|void*
-F|sock_getaddrinfo_family|sock_getaddrinfo_family|void*|void*
-F|sock_getaddrinfo_length|sock_getaddrinfo_length|void*|void*
-F|sock_getaddrinfo_name|sock_getaddrinfo_name|void*|void*
-F|sock_getnameinfo|sock_getnameinfo|void*|void*
-F|sock_ipv6_mreq_init|sock_ipv6_mreq_init|void*|void*
-F|sock_setopt_ipv6_mreq|sock_setopt_ipv6_mreq|void*|void*
-F|sock_sockaddr_address6|sock_sockaddr_address6|void*|void*
-F|sock_sockaddr_family|sock_sockaddr_family|void*|void*
-F|sock_sockaddr_init6|sock_sockaddr_init6|void*|void*
-F|sock_socketIsValid|sock_socketIsValid|void*|void*
-F|sock_select_read|sock_select_read|void*|void*
-F|sock_set_nonblocking|sock_set_nonblocking|void*|void*
-F|sock_error_message|sock_error_message|void*|void*
-F|sock_get_network_interfaces|sock_get_network_interfaces|void*|void*
-F|sock_free_network_interface_struct|sock_free_network_interface_struct|void*|void*
-F|sock_connect_with_timeout|sock_connect_with_timeout|void*|void*
-F|str_ftime|str_ftime|void*|void*
-F|mmap_startup|mmap_startup|void*|void*
-F|mmap_shutdown|mmap_shutdown|void*|void*
-F|mmap_capabilities|mmap_capabilities|void*|void*
-F|mmap_map_file|mmap_map_file|void*|void*
-F|mmap_unmap_file|mmap_unmap_file|void*|void*
-F|shsem_startup|shsem_startup|void*|void*
-F|shsem_shutdown|shsem_shutdown|void*|void*
-F|shsem_open|shsem_open|void*|void*
-F|shsem_post|shsem_post|void*|void*
-F|shsem_wait|shsem_wait|void*|void*
-F|shsem_getVal|shsem_getVal|void*|void*
-F|shsem_setVal|shsem_setVal|void*|void*
-F|shsem_close|shsem_close|void*|void*
-F|shsem_destroy|shsem_destroy|void*|void*
-F|shmem_startup|shmem_startup|void*|void*
-F|shmem_shutdown|shmem_shutdown|void*|void*
-F|shmem_open|shmem_open|void*|void*
-F|shmem_attach|shmem_attach|void*|void*
-F|shmem_detach|shmem_detach|void*|void*
-F|shmem_close|shmem_close|void*|void*
-F|shmem_destroy|shmem_destroy|void*|void*
-F|shmem_findfirst|shmem_findfirst|void*|void*
-F|shmem_findnext|shmem_findnext|void*|void*
-F|shmem_findclose|shmem_findclose|void*|void*
-F|shmem_stat|shmem_stat|void*|void*
-F|sysinfo_get_processing_capacity|sysinfo_get_processing_capacity|void*|void*
-F|buf_write_text|buf_write_text|void*|void*
-F|port_get_thread_library|port_get_thread_library|void*|void*
-F|sock_fdset_zero|sock_fdset_zero|void*|void*
-F|sock_fdset_set|sock_fdset_set|void*|void*
-F|process_create|process_create|void*|void*
-F|process_getStream|process_getStream|void*|void*
-F|process_waitfor|process_waitfor|void*|void*
-F|process_close|process_close|void*|void*
-F|process_isComplete|process_isComplete|void*|void*
-F|process_terminate|process_terminate|void*|void*
-F|process_get_exitCode|process_get_exitCode|void*|void*
-F|process_get_available|process_get_available|void*|void*
-F|_hypadding039C|_hypadding039C|U8[]|char[]
-S|HyPortLibraryVersion|HyPortLibraryVersionPointer|
-F|majorVersionNumber|majorVersionNumber|U16|U16
-F|minorVersionNumber|minorVersionNumber|U16|U16
-F|padding|padding|U32|U32
-F|capabilities|capabilities|U64|U64
-S|HyPortShmemStatistic|HyPortShmemStatisticPointer|
-F|shmid|shmid|UDATA|UDATA
-F|nattach|nattach|UDATA|UDATA
-F|key|key|UDATA|UDATA
-F|perm|perm|UDATA|UDATA
-F|file|file|U8*|char*
-F|pad|pad|UDATA|UDATA
-F|atime|atime|I64|I64
-F|dtime|dtime|I64|I64
-F|chtime|chtime|I64|I64
-S|HyPortVmemIdentifier|HyPortVmemIdentifierPointer|
-F|address|address|void*|void*
-F|handle|handle|void*|void*
+S|AbstractMemoryPermission|AbstractMemoryPermissionPointer|
+S|AllocationStrategy|AllocationStrategyPointer|
+S|AllocationStrategy$AllocatedBuffers|AllocationStrategy$AllocatedBuffersPointer|
+F|romClassBuffer|romClassBuffer|U8*|U8*
+F|lineNumberBuffer|lineNumberBuffer|U8*|U8*
+F|variableInfoBuffer|variableInfoBuffer|U8*|U8*
+S|BufferManager|BufferManagerPointer|
+F|_portLibrary|_portLibrary|struct J9PortLibrary*|struct J9PortLibrary*
+F|_bufferSize|_bufferSize|UDATA|UDATA
+F|_buffer|_buffer|U8**|U8**
+F|_pos|_pos|UDATA|UDATA
+F|_lastAllocation|_lastAllocation|void*|void*
+F|_shouldFreeBuffer|_shouldFreeBuffer|bool|bool
+S|BuildResult|BuildResultPointer|
+C|BytecodeTranslationFailed
+C|ClassNameMismatch
+C|ClassRead
+C|GenericError
+C|IllegalPackageName
+C|InvalidAnnotation
+C|InvalidBytecode
+C|InvalidBytecodeSize
+C|LineNumberTableDecompressFailed
+C|NeedWideBranches
+C|OK
+C|OutOfMemory
+C|OutOfROM
+C|StackMapFailed
+C|UnknownAnnotation
+C|VerifyErrorInlining
+S|CacheLifecycleManagerConstants|CacheLifecycleManagerConstantsPointer|
+C|J9SH_DESTROYED_ALL_CACHE
+C|J9SH_DESTROYED_ALL_SNAPSHOT
+C|J9SH_DESTROYED_NONE
+C|J9SH_DESTROYED_OLDER_GEN_CACHE
+C|J9SH_DESTROYED_OLDER_GEN_SNAPSHOT
+C|J9SH_DESTROY_FAILED_CURRENT_GEN_CACHE
+C|J9SH_DESTROY_FAILED_CURRENT_GEN_SNAPSHOT
+C|J9SH_DESTROY_FAILED_OLDER_GEN_CACHE
+C|J9SH_DESTROY_FAILED_OLDER_GEN_SNAPSHOT
+S|CacheMapConstants|CacheMapConstantsPointer|
+C|CM_CACHE_CORRUPT
+C|CM_READ_CACHE_FAILED
+S|ClassDebugDataProvider|ClassDebugDataProviderPointer|
+F|_theca|_theca|struct J9SharedCacheHeader*|struct J9SharedCacheHeader*
+F|_storedLineNumberTableBytes|_storedLineNumberTableBytes|U32|U32
+F|_storedLocalVariableTableBytes|_storedLocalVariableTableBytes|U32|U32
+F|_lntLastUpdate|_lntLastUpdate|void*|void*
+F|_lvtLastUpdate|_lvtLastUpdate|void*|void*
+F|failureReason|failureReason|IDATA|IDATA
+F|failureValue|failureValue|UDATA|UDATA
+F|_verboseFlags|_verboseFlags|UDATA|UDATA
+F|_runtimeFlags|_runtimeFlags|U64*|U64*
+S|ClassFileOracle|ClassFileOraclePointer|
+F|_buildResult|_buildResult|enum BuildResult|enum BuildResult
+F|_bufferManager|_bufferManager|class BufferManager*|class BufferManager*
+F|_classFile|_classFile|struct J9CfrClassFile*|struct J9CfrClassFile*
+F|_constantPoolMap|_constantPoolMap|class ConstantPoolMap*|class ConstantPoolMap*
+F|_verifyExcludeAttribute|_verifyExcludeAttribute|U8*|U8*
+F|_bctFlags|_bctFlags|UDATA|UDATA
+F|_context|_context|class ROMClassCreationContext*|class ROMClassCreationContext*
+F|_singleScalarStaticCount|_singleScalarStaticCount|U16|U16
+F|_objectStaticCount|_objectStaticCount|U16|U16
+F|_doubleScalarStaticCount|_doubleScalarStaticCount|U16|U16
+F|_memberAccessFlags|_memberAccessFlags|U16|U16
+F|_innerClassCount|_innerClassCount|U16|U16
+F|_maxBranchCount|_maxBranchCount|U32|U32
+F|_outerClassNameIndex|_outerClassNameIndex|U16|U16
+F|_simpleNameIndex|_simpleNameIndex|U16|U16
+F|_hasEmptyFinalizeMethod|_hasEmptyFinalizeMethod|bool|bool
+F|_hasFinalFields|_hasFinalFields|bool|bool
+F|_hasNonStaticNonAbstractMethods|_hasNonStaticNonAbstractMethods|bool|bool
+F|_hasFinalizeMethod|_hasFinalizeMethod|bool|bool
+F|_isCloneable|_isCloneable|bool|bool
+F|_isSerializable|_isSerializable|bool|bool
+F|_isSynthetic|_isSynthetic|bool|bool
+F|_isClassContended|_isClassContended|bool|bool
+F|_hasVerifyExcludeAttribute|_hasVerifyExcludeAttribute|bool|bool
+F|_hasFrameIteratorSkipAnnotation|_hasFrameIteratorSkipAnnotation|bool|bool
+F|_hasClinit|_hasClinit|bool|bool
+F|_annotationRefersDoubleSlotEntry|_annotationRefersDoubleSlotEntry|bool|bool
+F|_isInnerClass|_isInnerClass|bool|bool
+F|_fieldsInfo|_fieldsInfo|struct ClassFileOracle$FieldInfo*|struct ClassFileOracle::FieldInfo*
+F|_methodsInfo|_methodsInfo|struct ClassFileOracle$MethodInfo*|struct ClassFileOracle::MethodInfo*
+F|_genericSignature|_genericSignature|struct J9CfrAttributeSignature*|struct J9CfrAttributeSignature*
+F|_enclosingMethod|_enclosingMethod|struct J9CfrAttributeEnclosingMethod*|struct J9CfrAttributeEnclosingMethod*
+F|_sourceFile|_sourceFile|struct J9CfrAttributeSourceFile*|struct J9CfrAttributeSourceFile*
+F|_sourceDebugExtension|_sourceDebugExtension|struct J9CfrAttributeUnknown*|struct J9CfrAttributeUnknown*
+F|_annotationsAttribute|_annotationsAttribute|struct J9CfrAttributeRuntimeVisibleAnnotations*|struct J9CfrAttributeRuntimeVisibleAnnotations*
+F|_typeAnnotationsAttribute|_typeAnnotationsAttribute|struct J9CfrAttributeRuntimeVisibleTypeAnnotations*|struct J9CfrAttributeRuntimeVisibleTypeAnnotations*
+F|_innerClasses|_innerClasses|struct J9CfrAttributeInnerClasses*|struct J9CfrAttributeInnerClasses*
+F|_bootstrapMethodsAttribute|_bootstrapMethodsAttribute|struct J9CfrAttributeBootstrapMethods*|struct J9CfrAttributeBootstrapMethods*
+C|CONTENDED_ANNOTATION
+C|FRAMEITERATORSKIP_ANNOTATION
+C|JAVA8_CONTENDED_ANNOTATION
+C|JDK_INTERNAL_REFLECT_CALLERSENSITIVE_ANNOTATION
+C|KNOWN_ANNOTATION_COUNT
+C|SUN_REFLECT_CALLERSENSITIVE_ANNOTATION
+S|ClassFileOracle$AnnotationAnnotationVisitor|ClassFileOracle$AnnotationAnnotationVisitorPointer|ClassFileOracle$AnnotationElementVisitor
+F|_annotationVisitor|_annotationVisitor|struct ClassFileOracle$AnnotationVisitor*|struct ClassFileOracle::AnnotationVisitor*
+F|_annotationElementVisitor|_annotationElementVisitor|struct ClassFileOracle$AnnotationElementVisitor*|struct ClassFileOracle::AnnotationElementVisitor*
+S|ClassFileOracle$AnnotationElementVisitor|ClassFileOracle$AnnotationElementVisitorPointer|
+S|ClassFileOracle$AnnotationVisitor|ClassFileOracle$AnnotationVisitorPointer|
+S|ClassFileOracle$AnnotationsAttributeVisitor|ClassFileOracle$AnnotationsAttributeVisitorPointer|
+S|ClassFileOracle$ArrayAnnotationElements|ClassFileOracle$ArrayAnnotationElementsPointer|
+F|_classFileOracle|_classFileOracle|class ClassFileOracle*|class ClassFileOracle*
+F|_annotationElementArray|_annotationElementArray|struct J9CfrAnnotationElementArray*|struct J9CfrAnnotationElementArray*
+S|ClassFileOracle$BootstrapMethodVisitor|ClassFileOracle$BootstrapMethodVisitorPointer|
+S|ClassFileOracle$BytecodeFixupEntry|ClassFileOracle$BytecodeFixupEntryPointer|
+F|type|type|U8|U8
+F|cpIndex|cpIndex|U16|U16
+F|codeIndex|codeIndex|U32|U32
+S|ClassFileOracle$ConstantPoolIndexVisitor|ClassFileOracle$ConstantPoolIndexVisitorPointer|
+S|ClassFileOracle$ExceptionHandlerVisitor|ClassFileOracle$ExceptionHandlerVisitorPointer|
+S|ClassFileOracle$FieldInfo|ClassFileOracle$FieldInfoPointer|
+F|isSynthetic|isSynthetic|bool|bool
+F|hasGenericSignature|hasGenericSignature|bool|bool
+F|genericSignatureIndex|genericSignatureIndex|U16|U16
+F|annotationsAttribute|annotationsAttribute|struct J9CfrAttributeRuntimeVisibleAnnotations*|struct J9CfrAttributeRuntimeVisibleAnnotations*
+F|typeAnnotationsAttribute|typeAnnotationsAttribute|struct J9CfrAttributeRuntimeVisibleTypeAnnotations*|struct J9CfrAttributeRuntimeVisibleTypeAnnotations*
+F|isFieldContended|isFieldContended|bool|bool
+S|ClassFileOracle$FieldIterator|ClassFileOracle$FieldIteratorPointer|
+F|_fieldsInfo|_fieldsInfo|struct ClassFileOracle$FieldInfo*|struct ClassFileOracle::FieldInfo*
+F|_classFile|_classFile|struct J9CfrClassFile*|struct J9CfrClassFile*
+F|_fields|_fields|struct J9CfrField*|struct J9CfrField*
+F|_index|_index|U16|U16
+S|ClassFileOracle$KnownAnnotation|ClassFileOracle$KnownAnnotationPointer|
+F|name|name|U8*|const char*
+F|size|size|size_t|size_t
+S|ClassFileOracle$LocalVariableInfo|ClassFileOracle$LocalVariableInfoPointer|
+F|localVariableTable|localVariableTable|struct J9CfrAttributeLocalVariableTable*|struct J9CfrAttributeLocalVariableTable*
+F|localVariableTypeTable|localVariableTypeTable|struct J9CfrAttributeLocalVariableTypeTable*|struct J9CfrAttributeLocalVariableTypeTable*
+S|ClassFileOracle$LocalVariablesIterator|ClassFileOracle$LocalVariablesIteratorPointer|
+F|_localVariableTableIndex|_localVariableTableIndex|U16|U16
+F|_index|_index|U16|U16
+F|_count|_count|U16|U16
+F|_localVariablesInfo|_localVariablesInfo|struct ClassFileOracle$LocalVariableInfo*|struct ClassFileOracle::LocalVariableInfo*
+F|_localVariableTable|_localVariableTable|struct J9CfrLocalVariableTableEntry*|struct J9CfrLocalVariableTableEntry*
+S|ClassFileOracle$MethodInfo|ClassFileOracle$MethodInfoPointer|
+F|hasFrameIteratorSkipAnnotation|hasFrameIteratorSkipAnnotation|bool|bool
+F|modifiers|modifiers|U32|U32
+F|extendedModifiers|extendedModifiers|U32|U32
+F|sendSlotCount|sendSlotCount|U8|U8
+F|exceptionsThrownCount|exceptionsThrownCount|U16|U16
+F|genericSignatureIndex|genericSignatureIndex|U16|U16
+F|stackMapFramesCount|stackMapFramesCount|U16|U16
+F|lineNumbersCount|lineNumbersCount|U32|U32
+F|lineNumbersInfoCompressedSize|lineNumbersInfoCompressedSize|U32|U32
+F|localVariablesCount|localVariablesCount|U32|U32
+F|stackMapFramesInfo|stackMapFramesInfo|struct ClassFileOracle$StackMapFrameInfo*|struct ClassFileOracle::StackMapFrameInfo*
+F|localVariablesInfo|localVariablesInfo|struct ClassFileOracle$LocalVariableInfo*|struct ClassFileOracle::LocalVariableInfo*
+F|lineNumbersInfoCompressed|lineNumbersInfoCompressed|U8*|U8*
+F|annotationsAttribute|annotationsAttribute|struct J9CfrAttributeRuntimeVisibleAnnotations*|struct J9CfrAttributeRuntimeVisibleAnnotations*
+F|parameterAnnotationsAttribute|parameterAnnotationsAttribute|struct J9CfrAttributeRuntimeVisibleParameterAnnotations*|struct J9CfrAttributeRuntimeVisibleParameterAnnotations*
+F|methodTypeAnnotationsAttribute|methodTypeAnnotationsAttribute|struct J9CfrAttributeRuntimeVisibleTypeAnnotations*|struct J9CfrAttributeRuntimeVisibleTypeAnnotations*
+F|codeTypeAnnotationsAttribute|codeTypeAnnotationsAttribute|struct J9CfrAttributeRuntimeVisibleTypeAnnotations*|struct J9CfrAttributeRuntimeVisibleTypeAnnotations*
+F|defaultAnnotationAttribute|defaultAnnotationAttribute|struct J9CfrAttributeAnnotationDefault*|struct J9CfrAttributeAnnotationDefault*
+F|byteCodeFixupCount|byteCodeFixupCount|U32|U32
+F|methodParametersAttribute|methodParametersAttribute|struct J9CfrAttributeMethodParameters*|struct J9CfrAttributeMethodParameters*
+F|byteCodeFixupTable|byteCodeFixupTable|struct ClassFileOracle$BytecodeFixupEntry*|struct ClassFileOracle::BytecodeFixupEntry*
+F|isByteCodeFixupDone|isByteCodeFixupDone|bool|bool
+S|ClassFileOracle$MethodIterator|ClassFileOracle$MethodIteratorPointer|
+F|_methodIndex|_methodIndex|U16|U16
+F|_methodsInfo|_methodsInfo|struct ClassFileOracle$MethodInfo*|struct ClassFileOracle::MethodInfo*
+F|_classFile|_classFile|struct J9CfrClassFile*|struct J9CfrClassFile*
+S|ClassFileOracle$MethodParametersVisitor|ClassFileOracle$MethodParametersVisitorPointer|
+S|ClassFileOracle$NameAndTypeIterator|ClassFileOracle$NameAndTypeIteratorPointer|
+F|_classFile|_classFile|struct J9CfrClassFile*|struct J9CfrClassFile*
+F|_cpIndex|_cpIndex|U16|U16
+F|_entry|_entry|struct J9CfrConstantPoolInfo*|struct J9CfrConstantPoolInfo*
+S|ClassFileOracle$NestedAnnotation|ClassFileOracle$NestedAnnotationPointer|
+F|_classFileOracle|_classFileOracle|class ClassFileOracle*|class ClassFileOracle*
+F|_annotation|_annotation|struct J9CfrAnnotation*|struct J9CfrAnnotation*
+S|ClassFileOracle$StackMapFrameInfo|ClassFileOracle$StackMapFrameInfoPointer|
+F|frameType|frameType|U8|U8
+F|offsetDelta|offsetDelta|U16|U16
+F|localsCount|localsCount|U16|U16
+F|stackItemsCount|stackItemsCount|U16|U16
+F|localsTypeInfo|localsTypeInfo|U8*|U8*
+F|stackItemsTypeInfo|stackItemsTypeInfo|U8*|U8*
+S|ClassFileOracle$StackMapFrameVisitor|ClassFileOracle$StackMapFrameVisitorPointer|
+S|ClassFileOracle$UTF8Iterator|ClassFileOracle$UTF8IteratorPointer|
+F|_classFile|_classFile|struct J9CfrClassFile*|struct J9CfrClassFile*
+F|_cpIndex|_cpIndex|U16|U16
+F|_entry|_entry|struct J9CfrConstantPoolInfo*|struct J9CfrConstantPoolInfo*
+S|ClassFileOracle$VerificationTypeInfo|ClassFileOracle$VerificationTypeInfoPointer|
+F|_stackMapFrameInfo|_stackMapFrameInfo|struct ClassFileOracle$StackMapFrameInfo*|struct ClassFileOracle::StackMapFrameInfo*
+F|_classFile|_classFile|struct J9CfrClassFile*|struct J9CfrClassFile*
+S|ClassFileOracle$VerificationTypeInfoVisitor|ClassFileOracle$VerificationTypeInfoVisitorPointer|
+S|ClassFileParser|ClassFileParserPointer|
+F|_portLibrary|_portLibrary|struct J9PortLibrary*|struct J9PortLibrary*
+F|_verifyClassFunction|_verifyClassFunction|void*|void*
+F|_j9CfrClassFile|_j9CfrClassFile|struct J9CfrClassFile*|struct J9CfrClassFile*
+S|ClassNameFilterData|ClassNameFilterDataPointer|
+F|classloader|classloader|struct J9ClassLoader*|struct J9ClassLoader*
+F|classname|classname|U8*|char*
+F|buffer|buffer|U8[]|char[]
+F|classnameLen|classnameLen|UDATA|UDATA
+S|ClasspathEntryItem|ClasspathEntryItemPointer|
+F|protocol|protocol|UDATA|UDATA
+F|timestamp|timestamp|I64|I64
+F|flags|flags|UDATA|UDATA
+F|pathLen|pathLen|UDATA|UDATA
+F|path|path|U8*|char*
+F|hashValue|hashValue|UDATA|UDATA
+S|ClasspathItem|ClasspathItemPointer|
+F|type|type|U16|U16
+F|flags|flags|U16|U16
+F|itemsAdded|itemsAdded|IDATA|IDATA
+F|hashValue|hashValue|UDATA|UDATA
+F|firstDirIndex|firstDirIndex|IDATA|IDATA
+F|entries|entries|IDATA|IDATA
+F|items|items|class ClasspathEntryItem**|class ClasspathEntryItem**
+F|portlib|portlib|struct J9PortLibrary*|struct J9PortLibrary*
+F|helperID|helperID|IDATA|IDATA
+F|jarsLockedToIndex|jarsLockedToIndex|IDATA|IDATA
+S|ClasspathManagerConstants|ClasspathManagerConstantsPointer|
+C|MAX_CLASS_PATH_ENTRIES
+S|ComparingCursor|ComparingCursorPointer|Cursor
+F|_javaVM|_javaVM|struct J9JavaVM*|struct J9JavaVM*
+F|_checkRangeInSharedCache|_checkRangeInSharedCache|bool|bool
+F|_classFileOracle|_classFileOracle|class ClassFileOracle*|class ClassFileOracle*
+F|_srpKeyProducer|_srpKeyProducer|class SRPKeyProducer*|class SRPKeyProducer*
+F|_romClass|_romClass|U8*|U8*
+F|_mode|_mode|enum Cursor$Mode|enum Cursor::Mode
+F|_storePointerToVariableInfo|_storePointerToVariableInfo|U8*|U8*
+F|_basePointerToVariableInfo|_basePointerToVariableInfo|U8*|U8*
+F|_mainHelper|_mainHelper|class ComparingCursorHelper|class ComparingCursorHelper
+F|_lineNumberHelper|_lineNumberHelper|class ComparingCursorHelper|class ComparingCursorHelper
+F|_varInfoHelper|_varInfoHelper|class ComparingCursorHelper|class ComparingCursorHelper
+F|_isEqual|_isEqual|bool|bool
+S|ComparingCursorHelper|ComparingCursorHelperPointer|Cursor
+F|_baseAddress|_baseAddress|U8*|U8*
+S|CompositeCacheImplConstants|CompositeCacheImplConstantsPointer|
+C|CC_MIN_SPACE_BEFORE_CACHE_FULL
+C|CC_STARTUP_CORRUPT
+C|CC_STARTUP_FAILED
+C|CC_STARTUP_NO_CACHE
+C|CC_STARTUP_NO_CACHELETS
+C|CC_STARTUP_OK
+C|CC_STARTUP_RESET
+C|CC_STARTUP_SOFT_RESET
+C|J9SHR_CRC_MAX_SAMPLES
+C|J9SHR_DUMMY_DATA_BYTE
+C|J9SHR_MIN_GAP_BEFORE_METADATA
+C|MAX_CC_SIZE
+C|MIN_CC_SIZE
+S|ConstantPoolMap|ConstantPoolMapPointer|
+F|_context|_context|class ROMClassCreationContext*|class ROMClassCreationContext*
+F|_classFileOracle|_classFileOracle|class ClassFileOracle*|class ClassFileOracle*
+F|_bufferManager|_bufferManager|class BufferManager*|class BufferManager*
+F|_constantPoolEntries|_constantPoolEntries|struct ConstantPoolMap$ConstantPoolEntry*|struct ConstantPoolMap::ConstantPoolEntry*
+F|_romConstantPoolEntries|_romConstantPoolEntries|U16*|U16*
+F|_romConstantPoolTypes|_romConstantPoolTypes|U8*|U8*
+F|_staticSplitEntries|_staticSplitEntries|U16*|U16*
+F|_specialSplitEntries|_specialSplitEntries|U16*|U16*
+F|_methodTypeCount|_methodTypeCount|U32|U32
+F|_varHandleMethodTypeCount|_varHandleMethodTypeCount|U16|U16
+F|_varHandleMethodTypeLookupTable|_varHandleMethodTypeLookupTable|U16*|U16*
+F|_callSiteCount|_callSiteCount|U32|U32
+F|_ramConstantPoolCount|_ramConstantPoolCount|U16|U16
+F|_romConstantPoolCount|_romConstantPoolCount|U16|U16
+F|_staticSplitEntryCount|_staticSplitEntryCount|U16|U16
+F|_specialSplitEntryCount|_specialSplitEntryCount|U16|U16
+F|_buildResult|_buildResult|enum BuildResult|enum BuildResult
+S|ConstantPoolMap$CallSiteVisitor|ConstantPoolMap$CallSiteVisitorPointer|
+S|ConstantPoolMap$ConstantPoolEntry|ConstantPoolMap$ConstantPoolEntryPointer|
+F|callSiteReferenceCount|callSiteReferenceCount|U32|U32
+F|currentCallSiteIndex|currentCallSiteIndex|U16|U16
+F|staticSplitTableIndex|staticSplitTableIndex|U16|U16
+F|specialSplitTableIndex|specialSplitTableIndex|U16|U16
+F|romCPIndex|romCPIndex|U16|U16
+F|isUsedBy|isUsedBy|bool[]|bool[]
+F|isReferenced|isReferenced|bool|bool
+F|isUsedByLDC|isUsedByLDC|bool|bool
+S|ConstantPoolMap$ConstantPoolEntryTypeVisitor|ConstantPoolMap$ConstantPoolEntryTypeVisitorPointer|
+S|ConstantPoolMap$ConstantPoolVisitor|ConstantPoolMap$ConstantPoolVisitorPointer|
+S|ConstantPoolMap$EntryFlags|ConstantPoolMap$EntryFlagsPointer|
+C|SPLIT1
+C|SPLIT2
+C|SPLIT3
+C|SPLIT4
+C|SPLIT5
+C|SPLIT_FLAG_COUNT
+S|ConstantPoolMap$EntryUseFlags|ConstantPoolMap$EntryUseFlagsPointer|
+C|ANEW_ARRAY
+C|ANNOTATION
+C|CHECK_CAST
+C|GET_FIELD
+C|GET_STATIC
+C|INSTANCE_OF
+C|INVOKE_DYNAMIC
+C|INVOKE_HANDLEEXACT
+C|INVOKE_HANDLEGENERIC
+C|INVOKE_INTERFACE
+C|INVOKE_SPECIAL
+C|INVOKE_STATIC
+C|INVOKE_VIRTUAL
+C|LDC
+C|LDC2W
+C|MULTI_ANEW_ARRAY
+C|NEW
+C|PUT_FIELD
+C|PUT_STATIC
+C|REFERENCED
+S|ConstantPoolMap$SplitEntryVisitor|ConstantPoolMap$SplitEntryVisitorPointer|
+S|Cursor|CursorPointer|
+F|_count|_count|UDATA|UDATA
+F|_context|_context|class ROMClassCreationContext*|class ROMClassCreationContext*
+F|_srpOffsetTable|_srpOffsetTable|class SRPOffsetTable*|class SRPOffsetTable*
+F|_tag|_tag|UDATA|UDATA
+S|Cursor$DataType|Cursor$DataTypePointer|
+C|BYTECODE
+C|GENERIC
+C|INTERMEDIATE_CLASS_DATA
+C|INTERMEDIATE_CLASS_DATA_LENGTH
+C|LINE_NUMBER_DATA
+C|LOCAL_VARIABLE_COUNT
+C|LOCAL_VARIABLE_DATA
+C|LOCAL_VARIABLE_DATA_SRP_TO_UTF8
+C|METHOD_DEBUG_SIZE
+C|OPTINFO_SOURCE_FILE_NAME
+C|OPTIONAL_FLAGS
+C|ROM_CLASS_MODIFIERS
+C|ROM_SIZE
+C|SOURCE_DEBUG_EXT_DATA
+C|SOURCE_DEBUG_EXT_LENGTH
+C|SRP_TO_DEBUG_DATA
+C|SRP_TO_GENERIC
+C|SRP_TO_INTERMEDIATE_CLASS_DATA
+C|SRP_TO_LOCAL_VARIABLE_DATA
+C|SRP_TO_NAME_AND_SIGNATURE
+C|SRP_TO_SOURCE_DEBUG_EXT
+C|SRP_TO_UTF8
+S|Cursor$Mode|Cursor$ModePointer|
+C|DEBUG_INFO
+C|MAIN_CURSOR
+C|VAR_INFO
+S|HookhelpersConstants|HookhelpersConstantsPointer|
+C|HELPER_NAMEBUF_SIZE
+S|J9InternSearchInfo|J9InternSearchInfoPointer|
+F|classloader|classloader|struct J9ClassLoader*|struct J9ClassLoader*
+F|stringData|stringData|U8*|U8*
+F|stringLength|stringLength|UDATA|UDATA
+F|romClassBaseAddr|romClassBaseAddr|U8*|U8*
+F|romClassEndAddr|romClassEndAddr|U8*|U8*
+F|sharedCacheSRPRangeInfo|sharedCacheSRPRangeInfo|enum SharedCacheRangeInfo|enum SharedCacheRangeInfo
+S|J9InternSearchResult|J9InternSearchResultPointer|
+F|utf8|utf8|struct J9UTF8*|struct J9UTF8*
+F|node|node|void*|void*
+F|isSharedNode|isSharedNode|bool|bool
+S|J9PortAllocationStrategy|J9PortAllocationStrategyPointer|AllocationStrategy
+F|_portLibrary|_portLibrary|struct J9PortLibrary*|struct J9PortLibrary*
+S|LastErrorInfo|LastErrorInfoPointer|
+F|lastErrorCode|lastErrorCode|I32|I32
+F|lastErrorMsg|lastErrorMsg|U8*|const char*
+S|LocateROMClassResult|LocateROMClassResultPointer|
+F|known|known|struct ROMClassWrapper*|struct ROMClassWrapper*
+F|knownItem|knownItem|struct ShcItem*|const struct ShcItem*
+F|foundAtIndex|foundAtIndex|IDATA|IDATA
+F|staleCPEI|staleCPEI|class ClasspathEntryItem*|class ClasspathEntryItem*
+S|ManagerConstants|ManagerConstantsPointer|
+C|MAX_TYPES_PER_MANAGER
+C|STACK_STRINGBUF_SIZE
+S|ManagerHintTable|ManagerHintTablePointer|
+F|_hinthash|_hinthash|struct J9HashTable*|struct J9HashTable*
+S|ManagerHintTable$HintItem|ManagerHintTable$HintItemPointer|
+F|_hashValue|_hashValue|UDATA|UDATA
+F|_cachelet|_cachelet|class SH_CompositeCache*|class SH_CompositeCache*
+S|ManagersConstants|ManagersConstantsPointer|
+C|NUM_MANAGERS
+S|MethodSpecTable|MethodSpecTablePointer|
+F|className|className|U8*|char*
+F|methodName|methodName|U8*|char*
+F|methodSig|methodSig|U8*|char*
+F|classNameMatchFlag|classNameMatchFlag|U32|U32
+F|methodNameMatchFlag|methodNameMatchFlag|U32|U32
+F|methodSigMatchFlag|methodSigMatchFlag|U32|U32
+F|classNameLength|classNameLength|UDATA|UDATA
+F|methodNameLength|methodNameLength|UDATA|UDATA
+F|methodSigLength|methodSigLength|UDATA|UDATA
+F|matchFlag|matchFlag|bool|bool
+S|OMR_Agent|OMR_AgentPointer|
+F|_handle|_handle|UDATA|uintptr_t
+F|_vm|_vm|struct OMR_VM*|struct OMR_VM*
+F|_onload|_onload|void*|void*
+F|_onunload|_onunload|void*|void*
+F|_dllpath|_dllpath|U8*|const char*
+F|_options|_options|U8*|const char*
+F|_state|_state|enum OMR_Agent$State|enum OMR_Agent::State
+F|_agentCallbacks|_agentCallbacks|struct OMR_AgentCallbacks|struct OMR_AgentCallbacks
+S|OMR_Agent$State|OMR_Agent$StatePointer|
+C|INITIALIZED
+C|LIBRARY_OPENED
+C|LOOKUP_ONLOAD_ERROR
+C|LOOKUP_ONUNLOAD_ERROR
+C|ONLOAD_COMPLETED
+C|ONLOAD_ERROR
+C|ONUNLOAD_SUCCESS
+C|OPEN_LIBRARY_ERROR
+C|UNINITIALIZED
+S|OMR_AgentCallbacks|OMR_AgentCallbacksPointer|
+F|version|version|U32|uint32_t
+F|onPreFork|onPreFork|void*|void*
+F|onPostForkParent|onPostForkParent|void*|void*
+F|onPostForkChild|onPostForkChild|void*|void*
+S|OMR_Base|OMR_BasePointer|
+S|OMR_BaseNonVirtual|OMR_BaseNonVirtualPointer|OMR_Base
+F|_typeId|_typeId|U8*|const char*
+S|OMR_BaseVirtual|OMR_BaseVirtualPointer|OMR_Base
+F|_typeId|_typeId|U8*|const char*
+S|OMR_ExclusiveVMAccessStats|OMR_ExclusiveVMAccessStatsPointer|
+F|startTime|startTime|U64|U64
+F|endTime|endTime|U64|U64
+F|totalResponseTime|totalResponseTime|U64|U64
+F|requester|requester|struct OMR_VMThread*|struct OMR_VMThread*
+F|lastResponder|lastResponder|struct OMR_VMThread*|struct OMR_VMThread*
+F|haltedThreads|haltedThreads|UDATA|UDATA
+S|OMR_Runtime|OMR_RuntimePointer|
+F|_initialized|_initialized|UDATA|uintptr_t
+F|_portLibrary|_portLibrary|struct OMRPortLibrary*|struct OMRPortLibrary*
+F|_vmList|_vmList|struct OMR_VM*|struct OMR_VM*
+F|_vmListMutex|_vmListMutex|struct J9ThreadMonitor*|omrthread_monitor_t
+F|_rootVM|_rootVM|struct OMR_VM*|struct OMR_VM*
+F|_configuration|_configuration|struct OMR_RuntimeConfiguration|struct OMR_RuntimeConfiguration
+F|_vmCount|_vmCount|UDATA|uintptr_t
+S|OMR_RuntimeConfiguration|OMR_RuntimeConfigurationPointer|
+F|_maximum_vm_count|_maximum_vm_count|UDATA|uintptr_t
+S|OMR_SampledMethodDescription|OMR_SampledMethodDescriptionPointer|
+F|reasonCode|reasonCode|enum omr_error_t|enum omr_error_t
+F|propertyValues|propertyValues|U8*[]|const char*[]
+S|OMR_TI|OMR_TIPointer|
+F|version|version|I32|int32_t
+F|internalData|internalData|void*|void*
+F|BindCurrentThread|BindCurrentThread|void*|void*
+F|UnbindCurrentThread|UnbindCurrentThread|void*|void*
+F|RegisterRecordSubscriber|RegisterRecordSubscriber|void*|void*
+F|DeregisterRecordSubscriber|DeregisterRecordSubscriber|void*|void*
+F|GetTraceMetadata|GetTraceMetadata|void*|void*
+F|SetTraceOptions|SetTraceOptions|void*|void*
+F|GetSystemCpuLoad|GetSystemCpuLoad|void*|void*
+F|GetProcessCpuLoad|GetProcessCpuLoad|void*|void*
+F|GetMemoryCategories|GetMemoryCategories|void*|void*
+F|FlushTraceData|FlushTraceData|void*|void*
+F|GetFreePhysicalMemorySize|GetFreePhysicalMemorySize|void*|void*
+F|GetProcessVirtualMemorySize|GetProcessVirtualMemorySize|void*|void*
+F|GetProcessPrivateMemorySize|GetProcessPrivateMemorySize|void*|void*
+F|GetProcessPhysicalMemorySize|GetProcessPhysicalMemorySize|void*|void*
+F|GetMethodDescriptions|GetMethodDescriptions|void*|void*
+F|GetMethodProperties|GetMethodProperties|void*|void*
+S|OMR_TI_MemoryCategory|OMR_TI_MemoryCategoryPointer|
+F|name|name|U8*|const char*
+F|liveBytesShallow|liveBytesShallow|I64|int64_t
+F|liveBytesDeep|liveBytesDeep|I64|int64_t
+F|liveAllocationsShallow|liveAllocationsShallow|I64|int64_t
+F|liveAllocationsDeep|liveAllocationsDeep|I64|int64_t
+F|firstChild|firstChild|struct OMR_TI_MemoryCategory*|struct OMR_TI_MemoryCategory*
+F|nextSibling|nextSibling|struct OMR_TI_MemoryCategory*|struct OMR_TI_MemoryCategory*
+F|parent|parent|struct OMR_TI_MemoryCategory*|struct OMR_TI_MemoryCategory*
+S|OMR_VM|OMR_VMPointer|
+F|_runtime|_runtime|struct OMR_Runtime*|struct OMR_Runtime*
+F|_language_vm|_language_vm|void*|void*
+F|_linkNext|_linkNext|struct OMR_VM*|struct OMR_VM*
+F|_linkPrevious|_linkPrevious|struct OMR_VM*|struct OMR_VM*
+F|_vmThreadList|_vmThreadList|struct OMR_VMThread*|struct OMR_VMThread*
+F|_vmThreadListMutex|_vmThreadListMutex|struct J9ThreadMonitor*|omrthread_monitor_t
+F|_vmThreadKey|_vmThreadKey|UDATA|omrthread_tls_key_t
+F|_arrayletLeafSize|_arrayletLeafSize|UDATA|uintptr_t
+F|_arrayletLeafLogSize|_arrayletLeafLogSize|UDATA|uintptr_t
+F|_compressedPointersShift|_compressedPointersShift|UDATA|uintptr_t
+F|_objectAlignmentInBytes|_objectAlignmentInBytes|UDATA|uintptr_t
+F|_objectAlignmentShift|_objectAlignmentShift|UDATA|uintptr_t
+F|_gcOmrVMExtensions|_gcOmrVMExtensions|void*|void*
+F|_configuration|_configuration|struct OMR_VMConfiguration|struct OMR_VMConfiguration
+F|_languageThreadCount|_languageThreadCount|UDATA|uintptr_t
+F|_internalThreadCount|_internalThreadCount|UDATA|uintptr_t
+F|exclusiveVMAccessStats|exclusiveVMAccessStats|struct OMR_ExclusiveVMAccessStats|struct OMR_ExclusiveVMAccessStats
+F|gcPolicy|gcPolicy|UDATA|uintptr_t
+F|sysInfo|sysInfo|struct OMR_SysInfo*|struct OMR_SysInfo*
+F|_sizeClasses|_sizeClasses|struct OMR_SizeClasses*|struct OMR_SizeClasses*
+F|utIntf|utIntf|struct UtInterface*|struct UtInterface*
+F|_hcAgent|_hcAgent|struct OMR_Agent*|struct OMR_Agent*
+F|_omrTIAccessMutex|_omrTIAccessMutex|struct J9ThreadMonitor*|omrthread_monitor_t
+F|_trcEngine|_trcEngine|struct OMRTraceEngine*|struct OMRTraceEngine*
+F|_methodDictionary|_methodDictionary|void*|void*
+S|OMR_VMConfiguration|OMR_VMConfigurationPointer|
+F|_maximum_thread_count|_maximum_thread_count|UDATA|uintptr_t
+S|OMR_VMThread|OMR_VMThreadPointer|
+F|_vm|_vm|struct OMR_VM*|struct OMR_VM*
+F|_sampleStackBackoff|_sampleStackBackoff|U32|uint32_t
+F|_language_vmthread|_language_vmthread|void*|void*
+F|_os_thread|_os_thread|struct J9Thread*|omrthread_t
+F|_linkNext|_linkNext|struct OMR_VMThread*|struct OMR_VMThread*
+F|_linkPrevious|_linkPrevious|struct OMR_VMThread*|struct OMR_VMThread*
+F|_internal|_internal|UDATA|uintptr_t
+F|_gcOmrVMThreadExtensions|_gcOmrVMThreadExtensions|void*|void*
+F|vmState|vmState|UDATA|uintptr_t
+F|exclusiveCount|exclusiveCount|UDATA|uintptr_t
+F|threadName|threadName|U8*|uint8_t*
+F|threadNameIsStatic|threadNameIsStatic|BOOLEAN|BOOLEAN
+F|threadNameMutex|threadNameMutex|struct J9ThreadMonitor*|omrthread_monitor_t
+F|_trace$uteThread|_trace.uteThread|UtThreadData*|UtThreadData*
+F|_trace$omrTraceThread|_trace.omrTraceThread|OMR_TraceThread*|OMR_TraceThread*
+F|lowTenureAddress|lowTenureAddress|void*|void*
+F|highTenureAddress|highTenureAddress|void*|void*
+F|heapBaseForBarrierRange0|heapBaseForBarrierRange0|void*|void*
+F|heapSizeForBarrierRange0|heapSizeForBarrierRange0|UDATA|uintptr_t
+F|memorySpace|memorySpace|void*|void*
+F|movedObjectHashCodeCache|movedObjectHashCodeCache|struct movedObjectHashCode|struct movedObjectHashCode
+F|_attachCount|_attachCount|I32|int32_t
+F|_savedObject1|_savedObject1|void*|void*
+F|_savedObject2|_savedObject2|void*|void*
+S|OSCacheConstants|OSCacheConstantsPointer|
+C|J9SH_OSCACHE_CORRUPT
+C|J9SH_OSCACHE_CREATE
+C|J9SH_OSCACHE_CREATED
+C|J9SH_OSCACHE_DIFF_BUILDID
+C|J9SH_OSCACHE_FAILURE
+C|J9SH_OSCACHE_HEADER_CORRUPT
+C|J9SH_OSCACHE_HEADER_DIFF_BUILDID
+C|J9SH_OSCACHE_HEADER_MISSING
+C|J9SH_OSCACHE_HEADER_OK
+C|J9SH_OSCACHE_HEADER_WRONG_VERSION
+C|J9SH_OSCACHE_INUSE
+C|J9SH_OSCACHE_NO_CACHE
+C|J9SH_OSCACHE_OPENED
+C|J9SH_OSCACHE_OPEXIST_DESTROY
+C|J9SH_OSCACHE_OPEXIST_DO_NOT_CREATE
+C|J9SH_OSCACHE_OPEXIST_STATS
+C|J9SH_OSCACHE_OUTOFMEMORY
+C|J9SH_OSCACHE_READONLY_RETRY_COUNT
+C|J9SH_OSCACHE_READONLY_RETRY_SLEEP_MILLIS
+C|J9SH_OSCACHE_SEMAPHORE_MISMATCH
+C|J9SH_OSCACHE_UNKNOWN
+C|OSCACHE_CURRENT_CACHE_GEN
+C|OSCACHE_HEADER_FIELD_BUILDID
+C|OSCACHE_HEADER_FIELD_CACHE_INIT_COMPLETE
+C|OSCACHE_HEADER_FIELD_DATA_LENGTH
+C|OSCACHE_HEADER_FIELD_DATA_START
+C|OSCACHE_HEADER_FIELD_GENERATION
+C|OSCACHE_HEADER_FIELD_SIZE
+C|OSCACHE_LOWEST_ACTIVE_GEN
+S|OSCacheFileConstants|OSCacheFileConstantsPointer|
+C|J9SH_OSCACHE_MMAP_EYECATCHER_LENGTH
+C|J9SH_OSCACHE_MMAP_LOCKID_READWRITELOCK
+C|J9SH_OSCACHE_MMAP_LOCKID_WRITELOCK
+C|J9SH_OSCACHE_MMAP_LOCK_COUNT
+C|OSCACHEMMAP_HEADER_FIELD_ATTACH_LOCK
+C|OSCACHEMMAP_HEADER_FIELD_CREATE_TIME
+C|OSCACHEMMAP_HEADER_FIELD_DATA_LOCKS
+C|OSCACHEMMAP_HEADER_FIELD_HEADER_LOCK
+C|OSCACHEMMAP_HEADER_FIELD_LAST_ATTACHED_TIME
+C|OSCACHEMMAP_HEADER_FIELD_LAST_DETACHED_TIME
+S|OSCache_header1|OSCache_header1Pointer|
+F|versionData|versionData|struct J9PortShcVersion|struct J9PortShcVersion
+F|size|size|U32|U32
+F|unused1|unused1|U32|U32
+F|unused2|unused2|U32|U32
+F|dataStart|dataStart|J9SRP|J9SRP
+F|dataLength|dataLength|U32|U32
+F|generation|generation|U32|U32
+F|buildID|buildID|U64|U64
+S|OSCache_header2|OSCache_header2Pointer|
+F|versionData|versionData|struct J9PortShcVersion|struct J9PortShcVersion
+F|size|size|U32|U32
+F|dataStart|dataStart|J9SRP|J9SRP
+F|dataLength|dataLength|U32|U32
+F|generation|generation|U32|U32
+F|cacheInitComplete|cacheInitComplete|U32|U32
+F|buildID|buildID|U64|U64
+F|unused32|unused32|U32[]|U32[]
+F|unused64|unused64|U64[]|U64[]
+S|OSCache_header_version_G03|OSCache_header_version_G03Pointer|
+F|versionData|versionData|struct J9PortShcVersion|struct J9PortShcVersion
+F|size|size|U32|U32
+F|unused1|unused1|U32|U32
+F|unused2|unused2|U32|U32
+F|dataStart|dataStart|J9SRP|J9SRP
+F|dataLength|dataLength|U32|U32
+F|generation|generation|U32|U32
+F|buildID|buildID|U64|U64
+S|OSCache_header_version_G04|OSCache_header_version_G04Pointer|
+F|versionData|versionData|struct J9PortShcVersion|struct J9PortShcVersion
+F|size|size|U32|U32
+F|dataStart|dataStart|J9SRP|J9SRP
+F|dataLength|dataLength|U32|U32
+F|generation|generation|U32|U32
+F|cacheInitComplete|cacheInitComplete|U32|U32
+F|buildID|buildID|U64|U64
+F|unused32|unused32|U32[]|U32[]
+F|unused64|unused64|U64[]|U64[]
+S|OSCache_header_version_current|OSCache_header_version_currentPointer|
+F|versionData|versionData|struct J9PortShcVersion|struct J9PortShcVersion
+F|size|size|U32|U32
+F|dataStart|dataStart|J9SRP|J9SRP
+F|dataLength|dataLength|U32|U32
+F|generation|generation|U32|U32
+F|cacheInitComplete|cacheInitComplete|U32|U32
+F|buildID|buildID|U64|U64
+F|unused32|unused32|U32[]|U32[]
+F|unused64|unused64|U64[]|U64[]
+S|OSCache_mmap_header1|OSCache_mmap_header1Pointer|
+F|eyecatcher|eyecatcher|U8[]|char[]
+F|oscHdr|oscHdr|struct OSCache_header1|struct OSCache_header1
+F|cacheInitComplete|cacheInitComplete|UDATA|UDATA
+F|unused|unused|UDATA[]|UDATA[]
+F|createTime|createTime|I64|I64
+F|lastAttachedTime|lastAttachedTime|I64|I64
+F|lastDetachedTime|lastDetachedTime|I64|I64
+F|headerLock|headerLock|I32|I32
+F|attachLock|attachLock|I32|I32
+F|dataLocks|dataLocks|I32[]|I32[]
+S|OSCache_mmap_header2|OSCache_mmap_header2Pointer|
+F|eyecatcher|eyecatcher|U8[]|char[]
+F|oscHdr|oscHdr|struct OSCache_header2|struct OSCache_header2
+F|createTime|createTime|I64|I64
+F|lastAttachedTime|lastAttachedTime|I64|I64
+F|lastDetachedTime|lastDetachedTime|I64|I64
+F|headerLock|headerLock|I32|I32
+F|attachLock|attachLock|I32|I32
+F|dataLocks|dataLocks|I32[]|I32[]
+F|unused32|unused32|U32[]|U32[]
+F|unused64|unused64|U64[]|U64[]
+S|OSCache_sysv_header1|OSCache_sysv_header1Pointer|
+F|eyecatcher|eyecatcher|U8[]|char[]
+F|version|version|UDATA|UDATA
+F|modlevel|modlevel|U64|U64
 F|size|size|UDATA|UDATA
-F|pageSize|pageSize|UDATA|UDATA
-F|mode|mode|UDATA|UDATA
-S|HyportConstants|HyportConstantsPointer|
-C|HYPORT_CAPABILITY_BASE
-C|HYPORT_CAPABILITY_FILESYSTEM
-C|HYPORT_CAPABILITY_LARGE_PAGE_SUPPORT
-C|HYPORT_CAPABILITY_SOCKETS
-C|HYPORT_CAPABILITY_STANDARD
-C|HYPORT_MAJOR_VERSION_NUMBER
-C|HYPORT_MINOR_VERSION_NUMBER
-C|HYPORT_TTY_ERR
-C|HYPORT_TTY_IN
-C|HYPORT_TTY_OUT
-C|HyIsDir
-C|HyIsFile
-C|HyMaxPath
-C|HyOpenAppend
-C|HyOpenCreate
-C|HyOpenCreateAlways
-C|HyOpenCreateNew
-C|HyOpenForInherit
-C|HyOpenRead
-C|HyOpenSync
-C|HyOpenText
-C|HyOpenTruncate
-C|HyOpenWrite
-C|HyPORT_INVALID_FD
-C|HyPORT_PROCESS_DO_NOT_CLOSE_STREAMS
-C|HyPORT_PROCESS_IGNORE_OUTPUT
-C|HyPORT_PROCESS_INHERIT_STDERR
-C|HyPORT_PROCESS_INHERIT_STDIN
-C|HyPORT_PROCESS_INHERIT_STDOUT
-C|HyPORT_PROCESS_NONBLOCKING_IO
-C|HyPORT_PROCESS_PIPE_TO_PARENT
-C|HyPORT_PROCESS_REDIRECT_STDERR_TO_STDOUT
-C|HyPORT_PROCESS_STDERR
-C|HyPORT_PROCESS_STDIN
-C|HyPORT_PROCESS_STDOUT
-S|OmrBuildFlags|OmrBuildFlagsPointer|
-C|OMRCFG_H_
-C|OMR_ARCH_ARM
-C|OMR_ARCH_POWER
-C|OMR_ARCH_X86
-C|OMR_ENV_GCC
-C|OMR_ENV_LITTLE_ENDIAN
-C|OMR_EXAMPLE
-C|OMR_GC_COMPRESSED_POINTERS
-C|OMR_GC_IDLE_HEAP_MANAGER
-C|OMR_GC_OBJECT_ALLOCATION_NOTIFY
-C|OMR_GC_OBJECT_MAP
-C|OMR_GC_TLH_PREFETCH_FTA
-C|OMR_INTERP_COMPRESSED_OBJECT_HEADER
-C|OMR_INTERP_SMALL_MONITOR_SLOT
-C|OMR_JIT
-C|OMR_JITBUILDER
-C|OMR_OPT_CUDA
-C|OMR_PORT_ALLOCATE_TOP_DOWN
-C|OMR_PORT_NUMA_SUPPORT
-C|OMR_PORT_ZOS_CEEHDLRSUPPORT
-C|OMR_TEST_COMPILER
-C|OMR_THR_FORK_SUPPORT
-C|OMR_THR_SPIN_WAKE_CONTROL
-C|OMR_THR_TRACING
-C|OMR_THR_YIELD_ALG
-C|OMR_VALGRIND_MEMCHECK
-S|OmrcfgConstants|OmrcfgConstantsPointer|
-C|OMRTHREAD_LIB_ZOS
-C|OMR_ARCH_S390
-C|OMR_ENV_DATA64
-C|OMR_GC
-C|OMR_GC_ALLOCATION_TAX
-C|OMR_GC_ARRAYLETS
-C|OMR_GC_BATCH_CLEAR_TLH
-C|OMR_GC_COMBINATION_SPEC
-C|OMR_GC_CONCURRENT_SCAVENGER
-C|OMR_GC_CONCURRENT_SWEEP
-C|OMR_GC_DEBUG_ASSERTS
-C|OMR_GC_HEAP_CARD_TABLE
-C|OMR_GC_HYBRID_ARRAYLETS
-C|OMR_GC_LARGE_OBJECT_AREA
-C|OMR_GC_LEAF_BITS
-C|OMR_GC_MINIMUM_OBJECT_SIZE
-C|OMR_GC_MODRON_COMPACTION
-C|OMR_GC_MODRON_CONCURRENT_MARK
-C|OMR_GC_MODRON_SCAVENGER
-C|OMR_GC_MODRON_STANDARD
-C|OMR_GC_NON_ZERO_TLH
-C|OMR_GC_REALTIME
-C|OMR_GC_SEGREGATED_HEAP
-C|OMR_GC_STACCATO
-C|OMR_GC_THREAD_LOCAL_HEAP
-C|OMR_GC_VLHGC
-C|OMR_INTERP_HAS_SEMAPHORES
-C|OMR_NOTIFY_POLICY_CONTROL
-C|OMR_OMRSIG
-C|OMR_PORT
-C|OMR_PORT_ASYNC_HANDLER
-C|OMR_PORT_CAN_RESERVE_SPECIFIC_ADDRESS
-C|OMR_RAS_TDF_TRACE
-C|OMR_THREAD
-C|OMR_THR_ADAPTIVE_SPIN
-C|OMR_THR_CUSTOM_SPIN_OPTIONS
-C|OMR_THR_JLM
-C|OMR_THR_JLM_HOLD_TIMES
-C|OMR_THR_LOCK_NURSERY
-C|OMR_THR_THREE_TIER_LOCKING
-S|J9StackWalkConstants|J9StackWalkConstantsPointer|
-C|J9SW_ARGUMENT_REGISTER_COUNT
-C|J9SW_JIT_CALLEE_PRESERVED_SIZE
-C|J9SW_JIT_FIRST_RESOLVE_PARM_REGISTER
-C|J9SW_JIT_FLOATS_PASSED_AS_DOUBLES
-C|J9SW_JIT_FLOAT_ARGUMENT_REGISTER_COUNT
-C|J9SW_JIT_LOOKUP_INTERFACE_RESOLVE_OFFSET_TO_SAVED_RECEIVER
-C|J9SW_JIT_RECOMPILATION_RESOLVE_OFFSET_TO_SAVED_RECEIVER
-C|J9SW_JIT_RETURN_TABLE_SIZE
-C|J9SW_JIT_STACK_SLOTS_USED_BY_CALL
-C|J9SW_JIT_VIRTUAL_METHOD_RESOLVE_OFFSET_TO_SAVED_RECEIVER
-C|J9SW_POTENTIAL_SAVED_REGISTERS
-C|J9SW_REGISTER_MAP_MASK
-C|J9_JNI_PUSHED_REFERENCE_COUNT_MASK
-C|J9_STACK_FLAGS_ARGS_ALIGNED
-C|J9_STACK_FLAGS_CALL_OUT_FRAME_ALLOCATED
-C|J9_STACK_FLAGS_EXIT_TRACEPOINT_LEVEL3
-C|J9_STACK_FLAGS_J2_IFRAME
-C|J9_STACK_FLAGS_JIT_ALLOCATION_RESOLVE
-C|J9_STACK_FLAGS_JIT_ARGS_ALIGNED
-C|J9_STACK_FLAGS_JIT_BEFORE_ANEWARRAY_RESOLVE
-C|J9_STACK_FLAGS_JIT_BEFORE_MULTIANEWARRAY_RESOLVE
-C|J9_STACK_FLAGS_JIT_CALL_IN_FRAME
-C|J9_STACK_FLAGS_JIT_CALL_IN_TYPE_J2_I
-C|J9_STACK_FLAGS_JIT_CALL_IN_TYPE_METHODTYPE
-C|J9_STACK_FLAGS_JIT_DATA_RESOLVE
-C|J9_STACK_FLAGS_JIT_EXCEPTION_CATCH_RESOLVE
-C|J9_STACK_FLAGS_JIT_FAILED_METHOD_MONITOR_ENTER_RESOLVE
-C|J9_STACK_FLAGS_JIT_FRAME_SUB_TYPE_MASK
-C|J9_STACK_FLAGS_JIT_GENERIC_RESOLVE
-C|J9_STACK_FLAGS_JIT_INDUCE_OSR_RESOLVE
-C|J9_STACK_FLAGS_JIT_INTERFACE_METHOD_RESOLVE
-C|J9_STACK_FLAGS_JIT_JNI_CALL_OUT_FRAME
-C|J9_STACK_FLAGS_JIT_LOOKUP_RESOLVE
-C|J9_STACK_FLAGS_JIT_METHOD_MONITOR_ENTER_RESOLVE
-C|J9_STACK_FLAGS_JIT_MONITOR_ENTER_RESOLVE
-C|J9_STACK_FLAGS_JIT_NATIVE_TRANSITION
-C|J9_STACK_FLAGS_JIT_RECOMPILATION_RESOLVE
-C|J9_STACK_FLAGS_JIT_RESOLVE_FRAME
-C|J9_STACK_FLAGS_JIT_RUNTIME_HELPER_RESOLVE
-C|J9_STACK_FLAGS_JIT_SPECIAL_METHOD_RESOLVE
-C|J9_STACK_FLAGS_JIT_STACK_OVERFLOW_RESOLVE_FRAME
-C|J9_STACK_FLAGS_JIT_STATIC_METHOD_RESOLVE
-C|J9_STACK_FLAGS_JIT_TRANSITION_TO_INTERPRETER_MASK
-C|J9_STACK_FLAGS_JIT_VIRTUAL_METHOD_RESOLVE
-C|J9_STACK_FLAGS_JNI_REFS_REDIRECTED
-C|J9_STACK_FLAGS_METHOD_ENTRY
-C|J9_STACK_FLAGS_RELEASE_VMACCESS
-C|J9_STACK_FLAGS_RETURNS_OBJECT
-C|J9_STACK_FLAGS_UNUSED_0x80000000
-C|J9_STACK_FLAGS_USE_SPECIFIED_CLASS_LOADER
-C|J9_STACK_INVISIBLE_FRAME
-C|J9_STACK_REPORT_FRAME_POP
-S|J9StackWalkFlags|J9StackWalkFlagsPointer|
-C|DONT_REDIRECT_SRP_DEFINED
-C|J9SW_ARGUMENT_REGISTER_COUNT_DEFINED
-C|J9SW_JIT_CALLEE_PRESERVED_SIZE_DEFINED
-C|J9SW_JIT_FIRST_RESOLVE_PARM_REGISTER_DEFINED
-C|J9SW_JIT_FLOATS_PASSED_AS_DOUBLES_DEFINED
-C|J9SW_JIT_FLOAT_ARGUMENT_REGISTER_COUNT_DEFINED
-C|J9SW_JIT_HELPERS_PASS_PARAMETERS_ON_STACK
-C|J9SW_JIT_LOOKUP_INTERFACE_RESOLVE_OFFSET_TO_SAVED_RECEIVER_DEFINED
-C|J9SW_JIT_RECOMPILATION_RESOLVE_OFFSET_TO_SAVED_RECEIVER_DEFINED
-C|J9SW_JIT_RETURN_TABLE_SIZE_DEFINED
-C|J9SW_JIT_STACK_SLOTS_USED_BY_CALL_DEFINED
-C|J9SW_JIT_VIRTUAL_METHOD_RESOLVE_OFFSET_TO_SAVED_RECEIVER_DEFINED
-C|J9SW_NEEDS_JIT_2_INTERP_CALLEE_ARG_POP
-C|J9SW_NEEDS_JIT_2_INTERP_THUNKS
-C|J9SW_PARAMETERS_IN_REGISTERS
-C|J9SW_POTENTIAL_SAVED_REGISTERS_DEFINED
-C|J9SW_REGISTER_MAP_MASK_DEFINED
-C|J9SW_REGISTER_MAP_WALK_REGISTERS_LOW_TO_HIGH
-C|J9_JNI_PUSHED_REFERENCE_COUNT_MASK_DEFINED
-C|J9_STACK_FLAGS_ARGS_ALIGNED_DEFINED
-C|J9_STACK_FLAGS_CALL_OUT_FRAME_ALLOCATED_DEFINED
-C|J9_STACK_FLAGS_EXIT_TRACEPOINT_LEVEL3_DEFINED
-C|J9_STACK_FLAGS_J2_IFRAME_DEFINED
-C|J9_STACK_FLAGS_JIT_ALLOCATION_RESOLVE_DEFINED
-C|J9_STACK_FLAGS_JIT_ARGS_ALIGNED_DEFINED
-C|J9_STACK_FLAGS_JIT_BEFORE_ANEWARRAY_RESOLVE_DEFINED
-C|J9_STACK_FLAGS_JIT_BEFORE_MULTIANEWARRAY_RESOLVE_DEFINED
-C|J9_STACK_FLAGS_JIT_CALL_IN_FRAME_DEFINED
-C|J9_STACK_FLAGS_JIT_CALL_IN_TYPE_J2_I_DEFINED
-C|J9_STACK_FLAGS_JIT_CALL_IN_TYPE_METHODTYPE_DEFINED
-C|J9_STACK_FLAGS_JIT_DATA_RESOLVE_DEFINED
-C|J9_STACK_FLAGS_JIT_EXCEPTION_CATCH_RESOLVE_DEFINED
-C|J9_STACK_FLAGS_JIT_FAILED_METHOD_MONITOR_ENTER_RESOLVE_DEFINED
-C|J9_STACK_FLAGS_JIT_FRAME_SUB_TYPE_MASK_DEFINED
-C|J9_STACK_FLAGS_JIT_GENERIC_RESOLVE_DEFINED
-C|J9_STACK_FLAGS_JIT_INDUCE_OSR_RESOLVE_DEFINED
-C|J9_STACK_FLAGS_JIT_INTERFACE_METHOD_RESOLVE_DEFINED
-C|J9_STACK_FLAGS_JIT_JNI_CALL_OUT_FRAME_DEFINED
-C|J9_STACK_FLAGS_JIT_LOOKUP_RESOLVE_DEFINED
-C|J9_STACK_FLAGS_JIT_METHOD_MONITOR_ENTER_RESOLVE_DEFINED
-C|J9_STACK_FLAGS_JIT_MONITOR_ENTER_RESOLVE_DEFINED
-C|J9_STACK_FLAGS_JIT_NATIVE_TRANSITION_DEFINED
-C|J9_STACK_FLAGS_JIT_RECOMPILATION_RESOLVE_DEFINED
-C|J9_STACK_FLAGS_JIT_RESOLVE_FRAME_DEFINED
-C|J9_STACK_FLAGS_JIT_RUNTIME_HELPER_RESOLVE_DEFINED
-C|J9_STACK_FLAGS_JIT_SPECIAL_METHOD_RESOLVE_DEFINED
-C|J9_STACK_FLAGS_JIT_STACK_OVERFLOW_RESOLVE_FRAME_DEFINED
-C|J9_STACK_FLAGS_JIT_STATIC_METHOD_RESOLVE_DEFINED
-C|J9_STACK_FLAGS_JIT_TRANSITION_TO_INTERPRETER_MASK_DEFINED
-C|J9_STACK_FLAGS_JIT_VIRTUAL_METHOD_RESOLVE_DEFINED
-C|J9_STACK_FLAGS_JNI_REFS_REDIRECTED_DEFINED
-C|J9_STACK_FLAGS_METHOD_ENTRY_DEFINED
-C|J9_STACK_FLAGS_RELEASE_VMACCESS_DEFINED
-C|J9_STACK_FLAGS_RETURNS_OBJECT_DEFINED
-C|J9_STACK_FLAGS_UNUSED_0x80000000_DEFINED
-C|J9_STACK_FLAGS_USE_SPECIFIED_CLASS_LOADER_DEFINED
-C|J9_STACK_INVISIBLE_FRAME_DEFINED
-C|J9_STACK_REPORT_FRAME_POP_DEFINED
-C|STACKWALK_H_DEFINED
+F|maxGeneration|maxGeneration|UDATA|UDATA
+F|available|available|UDATA|UDATA
+S|OSCache_sysv_header2|OSCache_sysv_header2Pointer|
+F|eyecatcher|eyecatcher|U8[]|char[]
+F|oscHdr|oscHdr|struct OSCache_header1|struct OSCache_header1
+F|inDefaultControlDir|inDefaultControlDir|UDATA|UDATA
+F|cacheInitComplete|cacheInitComplete|UDATA|UDATA
+F|unused|unused|UDATA[]|UDATA[]
+S|OSCache_sysv_header3|OSCache_sysv_header3Pointer|
+F|eyecatcher|eyecatcher|U8[]|char[]
+F|oscHdr|oscHdr|struct OSCache_header2|struct OSCache_header2
+F|inDefaultControlDir|inDefaultControlDir|U32|U32
+F|attachedSemid|attachedSemid|I32|I32
+F|unused32|unused32|U32[]|U32[]
+F|unused64|unused64|U64[]|U64[]
+S|OSCache_vmem_header1|OSCache_vmem_header1Pointer|
+F|oscHdr|oscHdr|struct OSCache_header2|struct OSCache_header2
+F|unused32|unused32|U32[]|U32[]
+F|unused64|unused64|U64[]|U64[]
+S|OSCache_vmem_header2|OSCache_vmem_header2Pointer|
+F|oscHdr|oscHdr|struct OSCache_header2|struct OSCache_header2
+F|unused32|unused32|U32[]|U32[]
+F|unused64|unused64|U64[]|U64[]
+S|OSCachemmapConstants|OSCachemmapConstantsPointer|
+C|J9SH_OSCACHE_MMAP_HEADER_LOCK_RETRY_COUNT
+C|J9SH_OSCACHE_MMAP_HEADER_LOCK_RETRY_SLEEP_MILLIS
+S|OSCachemmap_header_version_G03|OSCachemmap_header_version_G03Pointer|
+F|eyecatcher|eyecatcher|U8[]|char[]
+F|oscHdr|oscHdr|struct OSCache_header1|struct OSCache_header1
+F|cacheInitComplete|cacheInitComplete|UDATA|UDATA
+F|unused|unused|UDATA[]|UDATA[]
+F|createTime|createTime|I64|I64
+F|lastAttachedTime|lastAttachedTime|I64|I64
+F|lastDetachedTime|lastDetachedTime|I64|I64
+F|headerLock|headerLock|I32|I32
+F|attachLock|attachLock|I32|I32
+F|dataLocks|dataLocks|I32[]|I32[]
+S|OSCachemmap_header_version_G04|OSCachemmap_header_version_G04Pointer|
+F|eyecatcher|eyecatcher|U8[]|char[]
+F|oscHdr|oscHdr|struct OSCache_header2|struct OSCache_header2
+F|createTime|createTime|I64|I64
+F|lastAttachedTime|lastAttachedTime|I64|I64
+F|lastDetachedTime|lastDetachedTime|I64|I64
+F|headerLock|headerLock|I32|I32
+F|attachLock|attachLock|I32|I32
+F|dataLocks|dataLocks|I32[]|I32[]
+F|unused32|unused32|U32[]|U32[]
+F|unused64|unused64|U64[]|U64[]
+S|OSCachemmap_header_version_current|OSCachemmap_header_version_currentPointer|
+F|eyecatcher|eyecatcher|U8[]|char[]
+F|oscHdr|oscHdr|struct OSCache_header2|struct OSCache_header2
+F|createTime|createTime|I64|I64
+F|lastAttachedTime|lastAttachedTime|I64|I64
+F|lastDetachedTime|lastDetachedTime|I64|I64
+F|headerLock|headerLock|I32|I32
+F|attachLock|attachLock|I32|I32
+F|dataLocks|dataLocks|I32[]|I32[]
+F|unused32|unused32|U32[]|U32[]
+F|unused64|unused64|U64[]|U64[]
+S|OSCachesysvConstants|OSCachesysvConstantsPointer|
+C|OSCACHESYSV_HEADER_FIELD_CACHE_INIT_COMPLETE
+C|OSCACHESYSV_HEADER_FIELD_IN_DEFAULT_CONTROL_DIR
+S|OSCachesysv_header_version_G01|OSCachesysv_header_version_G01Pointer|
+F|eyecatcher|eyecatcher|U8[]|char[]
+F|version|version|UDATA|UDATA
+F|modlevel|modlevel|U64|U64
+F|size|size|UDATA|UDATA
+F|maxGeneration|maxGeneration|UDATA|UDATA
+F|available|available|UDATA|UDATA
+S|OSCachesysv_header_version_G03|OSCachesysv_header_version_G03Pointer|
+F|eyecatcher|eyecatcher|U8[]|char[]
+F|oscHdr|oscHdr|struct OSCache_header1|struct OSCache_header1
+F|inDefaultControlDir|inDefaultControlDir|UDATA|UDATA
+F|cacheInitComplete|cacheInitComplete|UDATA|UDATA
+F|unused|unused|UDATA[]|UDATA[]
+S|OSCachesysv_header_version_G04|OSCachesysv_header_version_G04Pointer|
+F|eyecatcher|eyecatcher|U8[]|char[]
+F|oscHdr|oscHdr|struct OSCache_header2|struct OSCache_header2
+F|inDefaultControlDir|inDefaultControlDir|U32|U32
+F|attachedSemid|attachedSemid|I32|I32
+F|unused32|unused32|U32[]|U32[]
+F|unused64|unused64|U64[]|U64[]
+S|OSCachesysv_header_version_current|OSCachesysv_header_version_currentPointer|
+F|eyecatcher|eyecatcher|U8[]|char[]
+F|oscHdr|oscHdr|struct OSCache_header2|struct OSCache_header2
+F|inDefaultControlDir|inDefaultControlDir|U32|U32
+F|attachedSemid|attachedSemid|I32|I32
+F|unused32|unused32|U32[]|U32[]
+F|unused64|unused64|U64[]|U64[]
+S|OSCachevmemConstants|OSCachevmemConstantsPointer|
+C|J9SH_OSCACHE_VMEM_LOCK_COUNT
+S|OSCachevmem_header_version_current|OSCachevmem_header_version_currentPointer|
+F|oscHdr|oscHdr|struct OSCache_header2|struct OSCache_header2
+F|unused32|unused32|U32[]|U32[]
+F|unused64|unused64|U64[]|U64[]
+S|OmragentConstants|OmragentConstantsPointer|
+C|OMR_TI_VERSION_0
+S|ROMClassBuilder|ROMClassBuilderPointer|
+F|_javaVM|_javaVM|struct J9JavaVM*|struct J9JavaVM*
+F|_portLibrary|_portLibrary|struct J9PortLibrary*|struct J9PortLibrary*
+F|_verifyExcludeAttribute|_verifyExcludeAttribute|U8*|U8*
+F|_verifyClassFunction|_verifyClassFunction|void*|void*
+F|_classFileParserBufferSize|_classFileParserBufferSize|UDATA|UDATA
+F|_bufferManagerSize|_bufferManagerSize|UDATA|UDATA
+F|_classFileBuffer|_classFileBuffer|U8*|U8*
+F|_bufferManagerBuffer|_bufferManagerBuffer|U8*|U8*
+F|_stringInternTable|_stringInternTable|class StringInternTable|class StringInternTable
+S|ROMClassBuilder$CursorTag|ROMClassBuilder$CursorTagPointer|
+C|INTERMEDIATE_TAG
+C|LINE_NUMBER_TAG
+C|MAX_TAG
+C|RC_TAG
+C|UTF8_TAG
+C|VARIABLE_INFO_TAG
+S|ROMClassBuilder$SizeInformation|ROMClassBuilder$SizeInformationPointer|
+F|rcWithOutUTF8sSize|rcWithOutUTF8sSize|UDATA|UDATA
+F|lineNumberSize|lineNumberSize|UDATA|UDATA
+F|variableInfoSize|variableInfoSize|UDATA|UDATA
+F|utf8sSize|utf8sSize|UDATA|UDATA
+F|rawClassDataSize|rawClassDataSize|UDATA|UDATA
+F|varHandleMethodTypeLookupTableSize|varHandleMethodTypeLookupTableSize|UDATA|UDATA
+S|ROMClassCreationContext|ROMClassCreationContextPointer|
+F|_portLibrary|_portLibrary|struct J9PortLibrary*|struct J9PortLibrary*
+F|_javaVM|_javaVM|struct J9JavaVM*|struct J9JavaVM*
+F|_classFileBytes|_classFileBytes|U8*|U8*
+F|_classFileSize|_classFileSize|UDATA|UDATA
+F|_bctFlags|_bctFlags|UDATA|UDATA
+F|_bcuFlags|_bcuFlags|UDATA|UDATA
+F|_findClassFlags|_findClassFlags|UDATA|UDATA
+F|_allocationStrategy|_allocationStrategy|class AllocationStrategy*|class AllocationStrategy*
+F|_romClass|_romClass|struct J9ROMClass*|struct J9ROMClass*
+F|_clazz|_clazz|struct J9Class*|struct J9Class*
+F|_className|_className|U8*|U8*
+F|_classNameLength|_classNameLength|UDATA|UDATA
+F|_intermediateClassData|_intermediateClassData|U8*|U8*
+F|_intermediateClassDataLength|_intermediateClassDataLength|U32|U32
+F|_classLoader|_classLoader|struct J9ClassLoader*|struct J9ClassLoader*
+F|_cpIndex|_cpIndex|UDATA|UDATA
+F|_loadLocation|_loadLocation|UDATA|UDATA
+F|_dynamicLoadStats|_dynamicLoadStats|struct J9DynamicLoadStats*|struct J9DynamicLoadStats*
+F|_sharedStringInternTable|_sharedStringInternTable|struct J9SharedInvariantInternTable*|struct J9SharedInvariantInternTable*
+F|_classFileBytesReplaced|_classFileBytesReplaced|bool|bool
+F|_retransformAllowed|_retransformAllowed|bool|bool
+F|_interningEnabled|_interningEnabled|bool|bool
+F|_verboseROMClass|_verboseROMClass|bool|bool
+F|_verboseLastBufferSizeExceeded|_verboseLastBufferSizeExceeded|UDATA|UDATA
+F|_verboseOutOfMemoryCount|_verboseOutOfMemoryCount|UDATA|UDATA
+F|_verboseCurrentPhase|_verboseCurrentPhase|enum ROMClassCreationPhase|enum ROMClassCreationPhase
+F|_buildResult|_buildResult|enum BuildResult|enum BuildResult
+F|_verboseRecords|_verboseRecords|struct ROMClassCreationContext$VerboseRecord[]|struct ROMClassCreationContext::VerboseRecord[]
+F|_forceDebugDataInLine|_forceDebugDataInLine|bool|bool
+F|_doDebugCompare|_doDebugCompare|bool|bool
+F|_existingRomMethod|_existingRomMethod|struct J9ROMMethod*|struct J9ROMMethod*
+F|_reusingIntermediateClassData|_reusingIntermediateClassData|bool|bool
+F|_creatingIntermediateROMClass|_creatingIntermediateROMClass|bool|bool
+S|ROMClassCreationContext$VerboseRecord|ROMClassCreationContext$VerboseRecordPointer|
+F|lastStartTime|lastStartTime|UDATA|UDATA
+F|accumulatedTime|accumulatedTime|UDATA|UDATA
+F|failureTime|failureTime|UDATA|UDATA
+F|buildResult|buildResult|enum BuildResult|enum BuildResult
+F|parentPhase|parentPhase|enum ROMClassCreationPhase|enum ROMClassCreationPhase
+S|ROMClassCreationPhase|ROMClassCreationPhasePointer|
+C|CheckForLoop
+C|ClassFileAnalysis
+C|ClassFileAnnotationElementAnalysis
+C|ClassFileAnnotationsAnalysis
+C|ClassFileAttributesAnalysis
+C|ClassFileFieldsAnalysis
+C|ClassFileHeaderAnalysis
+C|ClassFileInterfacesAnalysis
+C|ClassFileMethodAttributesAnalysis
+C|ClassFileMethodCodeAttributeAnalysis
+C|ClassFileMethodCodeAttributeAttributesAnalysis
+C|ClassFileMethodCodeAttributeCaughtExceptionsAnalysis
+C|ClassFileMethodCodeAttributeCodeAnalysis
+C|ClassFileMethodMethodParametersAttributeAnalysis
+C|ClassFileMethodThrownExceptionsAnalysis
+C|ClassFileMethodsAnalysis
+C|ClassFileStackMapSlotsAnalysis
+C|CompareHashtableROMClass
+C|CompareSharedROMClass
+C|CompressLineNumbers
+C|ComputeExtraModifiers
+C|ComputeOptionalFlags
+C|ComputeSendSlotCount
+C|ConstantPoolMapping
+C|CreateSharedClass
+C|LayDownROMClass
+C|MarkAndCountUTF8s
+C|MethodIsEmpty
+C|MethodIsFinalize
+C|MethodIsForwarder
+C|MethodIsGetter
+C|MethodIsNonStaticNonAbstract
+C|MethodIsObjectConstructor
+C|MethodIsVirtual
+C|ParseClassFile
+C|ParseClassFileAttributes
+C|ParseClassFileCheckClass
+C|ParseClassFileConstantPool
+C|ParseClassFileFields
+C|ParseClassFileInlineJSRs
+C|ParseClassFileMethods
+C|ParseClassFileVerifyClass
+C|PrepareROMClass
+C|PrepareUTF8sAfterInternsMarked
+C|ROMClassCreation
+C|ROMClassCreationPhaseCount
+C|ROMClassPrepareAndLayDown
+C|ROMClassTranslation
+C|SRPOffsetTableCreation
+C|ShouldConvertInvokeVirtualToInvokeSpecial
+C|VisitUTF8Block
+C|WalkUTF8sAndMarkInterns
+C|WriteUTF8s
+S|ROMClassManagerConstants|ROMClassManagerConstantsPointer|
+C|LOCATE_ROMCLASS_RETURN_DO_MARK_CPEI_STALE
+C|LOCATE_ROMCLASS_RETURN_DO_TRY_WAIT
+C|LOCATE_ROMCLASS_RETURN_FOUND
+C|LOCATE_ROMCLASS_RETURN_FOUND_SHADOW
+C|LOCATE_ROMCLASS_RETURN_MARKED_ITEM_STALE
+C|LOCATE_ROMCLASS_RETURN_NOTFOUND
+S|ROMClassSegmentAllocationStrategy|ROMClassSegmentAllocationStrategyPointer|AllocationStrategy
+F|_javaVM|_javaVM|struct J9JavaVM*|struct J9JavaVM*
+F|_classLoader|_classLoader|struct J9ClassLoader*|struct J9ClassLoader*
+F|_segment|_segment|struct J9MemorySegment*|struct J9MemorySegment*
+F|_bytesRequested|_bytesRequested|UDATA|UDATA
+S|ROMClassStringInternManager|ROMClassStringInternManagerPointer|
+F|_context|_context|class ROMClassCreationContext*|class ROMClassCreationContext*
+F|_stringInternTable|_stringInternTable|class StringInternTable*|class StringInternTable*
+F|_srpOffsetTable|_srpOffsetTable|class SRPOffsetTable*|class SRPOffsetTable*
+F|_srpKeyProducer|_srpKeyProducer|class SRPKeyProducer*|class SRPKeyProducer*
+F|_baseAddress|_baseAddress|IDATA|IDATA
+F|_endAddress|_endAddress|IDATA|IDATA
+F|_hasStringTableLock|_hasStringTableLock|bool|bool
+F|_isSharedROMClass|_isSharedROMClass|bool|bool
+S|ROMClassVerbosePhase|ROMClassVerbosePhasePointer|
+F|_context|_context|class ROMClassCreationContext*|class ROMClassCreationContext*
+F|_phase|_phase|enum ROMClassCreationPhase|enum ROMClassCreationPhase
+F|_result|_result|enum BuildResult*|enum BuildResult*
+S|ROMClassVerbosePhaseConstants|ROMClassVerbosePhaseConstantsPointer|
+C|RECORD_HOT_PHASES
+S|ROMClassWriter|ROMClassWriterPointer|
+F|_bufferManager|_bufferManager|class BufferManager*|class BufferManager*
+F|_classFileOracle|_classFileOracle|class ClassFileOracle*|class ClassFileOracle*
+F|_srpKeyProducer|_srpKeyProducer|class SRPKeyProducer*|class SRPKeyProducer*
+F|_constantPoolMap|_constantPoolMap|class ConstantPoolMap*|class ConstantPoolMap*
+F|_srpOffsetTable|_srpOffsetTable|class SRPOffsetTable*|class SRPOffsetTable*
+F|_context|_context|class ROMClassCreationContext*|class ROMClassCreationContext*
+F|_methodNotes|_methodNotes|struct ROMClassWriter$MethodNotes*|struct ROMClassWriter::MethodNotes*
+F|_buildResult|_buildResult|enum BuildResult|enum BuildResult
+F|_interfacesSRPKey|_interfacesSRPKey|UDATA|UDATA
+F|_methodsSRPKey|_methodsSRPKey|UDATA|UDATA
+F|_fieldsSRPKey|_fieldsSRPKey|UDATA|UDATA
+F|_cpDescriptionShapeSRPKey|_cpDescriptionShapeSRPKey|UDATA|UDATA
+F|_innerClassesSRPKey|_innerClassesSRPKey|UDATA|UDATA
+F|_optionalInfoSRPKey|_optionalInfoSRPKey|UDATA|UDATA
+F|_stackMapsSRPKey|_stackMapsSRPKey|UDATA|UDATA
+F|_enclosingMethodSRPKey|_enclosingMethodSRPKey|UDATA|UDATA
+F|_sourceDebugExtensionSRPKey|_sourceDebugExtensionSRPKey|UDATA|UDATA
+F|_intermediateClassDataSRPKey|_intermediateClassDataSRPKey|UDATA|UDATA
+F|_annotationInfoClassSRPKey|_annotationInfoClassSRPKey|UDATA|UDATA
+F|_typeAnnotationInfoSRPKey|_typeAnnotationInfoSRPKey|UDATA|UDATA
+F|_callSiteDataSRPKey|_callSiteDataSRPKey|UDATA|UDATA
+F|_varHandleMethodTypeLookupTableSRPKey|_varHandleMethodTypeLookupTableSRPKey|UDATA|UDATA
+F|_staticSplitTableSRPKey|_staticSplitTableSRPKey|UDATA|UDATA
+F|_specialSplitTableSRPKey|_specialSplitTableSRPKey|UDATA|UDATA
+S|ROMClassWriter$MarkOrWrite|ROMClassWriter$MarkOrWritePointer|
+C|MARK_AND_COUNT_ONLY
+C|WRITE
+S|ROMClassWriter$MethodNotes|ROMClassWriter$MethodNotesPointer|
+F|debugInfoSize|debugInfoSize|U32|U32
+F|stackMapSize|stackMapSize|U32|U32
+S|SH_AttachedDataManager|SH_AttachedDataManagerPointer|SH_ROMClassResourceManager
+S|SH_AttachedDataManager$SH_AttachedDataResourceDescriptor|SH_AttachedDataManager$SH_AttachedDataResourceDescriptorPointer|SH_ROMClassResourceManager$SH_ResourceDescriptor
+F|_dataStart|_dataStart|U8*|const U8*
+F|_dataSize|_dataSize|U32|const U32
+F|_type|_type|U16|const U16
+S|SH_AttachedDataManagerImpl|SH_AttachedDataManagerImplPointer|SH_AttachedDataManager
+F|_numBytesByType|_numBytesByType|UDATA[]|UDATA[]
+F|_bytesByType|_bytesByType|UDATA[]|UDATA[]
+S|SH_ByteDataManager|SH_ByteDataManagerPointer|SH_Manager
+S|SH_ByteDataManagerImpl|SH_ByteDataManagerImplPointer|SH_ByteDataManager
+F|_linkedListImplPool|_linkedListImplPool|struct J9Pool*|struct J9Pool*
+F|_unindexedBytes|_unindexedBytes|UDATA|UDATA
+F|_indexedBytesByType|_indexedBytesByType|UDATA[]|UDATA[]
+F|_numIndexedBytesByType|_numIndexedBytesByType|UDATA[]|UDATA[]
+S|SH_ByteDataManagerImpl$BdLinkedListImpl|SH_ByteDataManagerImpl$BdLinkedListImplPointer|SH_Manager$HashLinkedListImpl
+S|SH_CacheFileAccess|SH_CacheFileAccessPointer|
+C|J9SH_CACHE_FILE_ACCESS_ALLOWED
+C|J9SH_CACHE_FILE_ACCESS_CANNOT_BE_DETERMINED
+C|J9SH_CACHE_FILE_ACCESS_GROUP_ACCESS_REQUIRED
+C|J9SH_CACHE_FILE_ACCESS_OTHERS_NOT_ALLOWED
+S|SH_CacheMap|SH_CacheMapPointer|SH_CacheMapStats
+F|_cc|_cc|class SH_CompositeCacheImpl*|class SH_CompositeCacheImpl*
+F|_writeHashStartTime|_writeHashStartTime|U64|U64
+F|_sharedClassConfig|_sharedClassConfig|struct J9SharedClassConfig*|struct J9SharedClassConfig*
+F|_ccHead|_ccHead|class SH_CompositeCacheImpl*|class SH_CompositeCacheImpl*
+F|_cacheletHead|_cacheletHead|class SH_CompositeCacheImpl*|class SH_CompositeCacheImpl*
+F|_ccCacheletHead|_ccCacheletHead|class SH_CompositeCacheImpl*|class SH_CompositeCacheImpl*
+F|_cacheletTail|_cacheletTail|class SH_CompositeCacheImpl*|class SH_CompositeCacheImpl*
+F|_prevCClastCachelet|_prevCClastCachelet|class SH_CompositeCacheImpl*|class SH_CompositeCacheImpl*
+F|_cpm|_cpm|class SH_ClasspathManager*|class SH_ClasspathManager*
+F|_tsm|_tsm|class SH_TimestampManager*|class SH_TimestampManager*
+F|_rcm|_rcm|class SH_ROMClassManager*|class SH_ROMClassManager*
+F|_scm|_scm|class SH_ScopeManager*|class SH_ScopeManager*
+F|_cmm|_cmm|class SH_CompiledMethodManager*|class SH_CompiledMethodManager*
+F|_bdm|_bdm|class SH_ByteDataManager*|class SH_ByteDataManager*
+F|_adm|_adm|class SH_AttachedDataManager*|class SH_AttachedDataManager*
+F|_portlib|_portlib|struct J9PortLibrary*|struct J9PortLibrary*
+F|_refreshMutex|_refreshMutex|struct J9ThreadMonitor*|omrthread_monitor_t
+F|_cacheCorruptReported|_cacheCorruptReported|bool|bool
+F|_runtimeFlags|_runtimeFlags|U64*|U64*
+F|_cacheName|_cacheName|U8*|const char*
+F|_cacheDir|_cacheDir|U8*|const char*
+F|_localCrashCntr|_localCrashCntr|UDATA|UDATA
+F|_writeHashAverageTimeMicros|_writeHashAverageTimeMicros|UDATA|UDATA
+F|_writeHashMaxWaitMicros|_writeHashMaxWaitMicros|UDATA|UDATA
+F|_writeHashSavedMaxWaitMicros|_writeHashSavedMaxWaitMicros|UDATA|UDATA
+F|_writeHashContendedResetHash|_writeHashContendedResetHash|UDATA|UDATA
+F|_verboseFlags|_verboseFlags|UDATA|UDATA
+F|_bytesRead|_bytesRead|UDATA|UDATA
+F|_actualSize|_actualSize|U32|U32
+F|_cacheletCntr|_cacheletCntr|UDATA|UDATA
+F|_ccPool|_ccPool|struct J9Pool*|struct J9Pool*
+F|_minimumAccessedShrCacheMetadata|_minimumAccessedShrCacheMetadata|UDATA|uintptr_t
+F|_maximumAccessedShrCacheMetadata|_maximumAccessedShrCacheMetadata|UDATA|uintptr_t
+F|_metadataReleased|_metadataReleased|bool|bool
+F|_runningNested|_runningNested|bool|bool
+F|_growEnabled|_growEnabled|bool|bool
+F|_isSerialized|_isSerialized|bool|bool
+F|_isAssertEnabled|_isAssertEnabled|bool|bool
+F|_managers|_managers|class SH_Managers*|class SH_Managers*
+S|SH_CacheMapStats|SH_CacheMapStatsPointer|
+S|SH_ClasspathManager|SH_ClasspathManagerPointer|SH_Manager
+S|SH_ClasspathManagerImpl2|SH_ClasspathManagerImpl2Pointer|SH_ClasspathManager
+F|_tsm|_tsm|class SH_TimestampManager*|class SH_TimestampManager*
+F|_identifiedMutex|_identifiedMutex|struct J9ThreadMonitor*|omrthread_monitor_t
+F|_linkedListImplPool|_linkedListImplPool|struct J9Pool*|struct J9Pool*
+F|_identifiedClasspaths|_identifiedClasspaths|struct J9ClasspathByIDArray*|struct J9ClasspathByIDArray*
+F|_classpathCount|_classpathCount|UDATA|UDATA
+F|_urlCount|_urlCount|UDATA|UDATA
+F|_tokenCount|_tokenCount|UDATA|UDATA
+F|_allCacheletsStarted|_allCacheletsStarted|bool|bool
+S|SH_ClasspathManagerImpl2$CpLinkedListHdr|SH_ClasspathManagerImpl2$CpLinkedListHdrPointer|
+F|_isToken|_isToken|U8|U8
+F|_flags|_flags|U8|U8
+F|_keySize|_keySize|U16|U16
+F|_key|_key|U8*|const char*
+F|_list|_list|class SH_ClasspathManagerImpl2$CpLinkedListImpl*|class SH_ClasspathManagerImpl2::CpLinkedListImpl*
+S|SH_ClasspathManagerImpl2$CpLinkedListImpl|SH_ClasspathManagerImpl2$CpLinkedListImplPointer|SH_Manager$LinkedListImpl
+F|_CPEIndex|_CPEIndex|I16|I16
+S|SH_CompiledMethodManager|SH_CompiledMethodManagerPointer|SH_ROMClassResourceManager
+S|SH_CompiledMethodManager$SH_CompiledMethodResourceDescriptor|SH_CompiledMethodManager$SH_CompiledMethodResourceDescriptorPointer|SH_ROMClassResourceManager$SH_ResourceDescriptor
+F|_dataStart|_dataStart|U8*|const U8*
+F|_codeStart|_codeStart|U8*|const U8*
+F|_dataSize|_dataSize|U32|const U32
+F|_codeSize|_codeSize|U32|const U32
+S|SH_CompiledMethodManagerImpl|SH_CompiledMethodManagerImplPointer|SH_CompiledMethodManager
+S|SH_CompositeCache|SH_CompositeCachePointer|
+S|SH_CompositeCacheImpl|SH_CompositeCacheImplPointer|AbstractMemoryPermission
+F|_sharedClassConfig|_sharedClassConfig|struct J9SharedClassConfig*|struct J9SharedClassConfig*
+F|_oscache|_oscache|class SH_OSCache*|class SH_OSCache*
+F|_utMutex|_utMutex|struct J9ThreadMonitor*|omrthread_monitor_t
+F|_headerProtectMutex|_headerProtectMutex|struct J9ThreadMonitor*|omrthread_monitor_t
+F|_runtimeFlagsProtectMutex|_runtimeFlagsProtectMutex|struct J9ThreadMonitor*|omrthread_monitor_t
+F|_portlib|_portlib|struct J9PortLibrary*|struct J9PortLibrary*
+F|_theca|_theca|struct J9SharedCacheHeader*|struct J9SharedCacheHeader*
+F|_started|_started|bool|bool
+F|_cacheName|_cacheName|U8*|const char*
+F|_next|_next|class SH_CompositeCacheImpl*|class SH_CompositeCacheImpl*
+F|_parent|_parent|class SH_CompositeCacheImpl*|class SH_CompositeCacheImpl*
+F|_ccHead|_ccHead|class SH_CompositeCacheImpl*|class SH_CompositeCacheImpl*
+F|_scan|_scan|struct ShcItemHdr*|struct ShcItemHdr*
+F|_prevScan|_prevScan|struct ShcItemHdr*|struct ShcItemHdr*
+F|_storedScan|_storedScan|struct ShcItemHdr*|struct ShcItemHdr*
+F|_storedPrevScan|_storedPrevScan|struct ShcItemHdr*|struct ShcItemHdr*
+F|_romClassProtectEnd|_romClassProtectEnd|SH_CompositeCacheImpl$BlockPtr|SH_CompositeCacheImpl::BlockPtr
+F|_oldUpdateCount|_oldUpdateCount|UDATA|UDATA
+F|_storedSegmentUsedBytes|_storedSegmentUsedBytes|U32|U32
+F|_storedMetaUsedBytes|_storedMetaUsedBytes|U32|U32
+F|_storedAOTUsedBytes|_storedAOTUsedBytes|U32|U32
+F|_storedJITUsedBytes|_storedJITUsedBytes|U32|U32
+F|_storedReadWriteUsedBytes|_storedReadWriteUsedBytes|U32|U32
+F|_softmxUnstoredBytes|_softmxUnstoredBytes|U32|U32
+F|_maxAOTUnstoredBytes|_maxAOTUnstoredBytes|U32|U32
+F|_maxJITUnstoredBytes|_maxJITUnstoredBytes|U32|U32
+F|_maxAOT|_maxAOT|I32|I32
+F|_maxJIT|_maxJIT|I32|I32
+F|_runtimeFlags|_runtimeFlags|U64*|U64*
+F|_verboseFlags|_verboseFlags|UDATA|UDATA
+F|_cacheFullFlags|_cacheFullFlags|UDATA|UDATA
+F|_totalStoredBytes|_totalStoredBytes|U32|U32
+F|_lastFailedWriteHash|_lastFailedWriteHash|UDATA|UDATA
+F|_lastFailedWHCount|_lastFailedWHCount|U32|U32
+F|_readWriteAreaStart|_readWriteAreaStart|SH_CompositeCacheImpl$BlockPtr|SH_CompositeCacheImpl::BlockPtr
+F|_readWriteAreaBytes|_readWriteAreaBytes|U32|U32
+F|_readWriteAreaPageStart|_readWriteAreaPageStart|SH_CompositeCacheImpl$BlockPtr|SH_CompositeCacheImpl::BlockPtr
+F|_readWriteAreaPageBytes|_readWriteAreaPageBytes|U32|U32
+F|_cacheHeaderPageStart|_cacheHeaderPageStart|SH_CompositeCacheImpl$BlockPtr|SH_CompositeCacheImpl::BlockPtr
+F|_cacheHeaderPageBytes|_cacheHeaderPageBytes|U32|U32
+F|_osPageSize|_osPageSize|UDATA|UDATA
+F|_nestedSize|_nestedSize|UDATA|UDATA
+F|_nestedMemory|_nestedMemory|SH_CompositeCacheImpl$BlockPtr|SH_CompositeCacheImpl::BlockPtr
+F|_localReadWriteCrashCntr|_localReadWriteCrashCntr|UDATA|UDATA
+F|_metadataSegmentPtr|_metadataSegmentPtr|struct J9MemorySegment**|struct J9MemorySegment**
+F|_currentROMSegment|_currentROMSegment|struct J9MemorySegment*|struct J9MemorySegment*
+F|_doReadWriteSync|_doReadWriteSync|bool|bool
+F|_doHeaderReadWriteProtect|_doHeaderReadWriteProtect|bool|bool
+F|_readWriteAreaHeaderIsReadOnly|_readWriteAreaHeaderIsReadOnly|bool|bool
+F|_doHeaderProtect|_doHeaderProtect|bool|bool
+F|_doSegmentProtect|_doSegmentProtect|bool|bool
+F|_doMetaProtect|_doMetaProtect|bool|bool
+F|_doPartialPagesProtect|_doPartialPagesProtect|bool|bool
+F|_readOnlyOSCache|_readOnlyOSCache|bool|bool
+F|_headerProtectCntr|_headerProtectCntr|IDATA|IDATA
+F|_readWriteProtectCntr|_readWriteProtectCntr|IDATA|IDATA
+F|_readOnlyReaderCount|_readOnlyReaderCount|IDATA|IDATA
+F|_incrementedRWCrashCntr|_incrementedRWCrashCntr|bool|bool
+F|_useWriteHash|_useWriteHash|bool|bool
+F|_canStoreClasspaths|_canStoreClasspaths|bool|bool
+F|_reduceStoreContentionDisabled|_reduceStoreContentionDisabled|bool|bool
+F|_debugData|_debugData|class ClassDebugDataProvider*|class ClassDebugDataProvider*
+F|_commonCCInfo|_commonCCInfo|struct J9ShrCompositeCacheCommonInfo*|struct J9ShrCompositeCacheCommonInfo*
+F|_newHdrPtr|_newHdrPtr|class SH_CompositeCacheImpl$SH_SharedCacheHeaderInit*|class SH_CompositeCacheImpl::SH_SharedCacheHeaderInit*
+S|SH_CompositeCacheImpl$SH_SharedCacheHeaderInit|SH_CompositeCacheImpl$SH_SharedCacheHeaderInitPointer|SH_OSCache$SH_OSCacheInitialiser
+S|SH_Manager|SH_ManagerPointer|
+F|_hashTable|_hashTable|struct J9HashTable*|struct J9HashTable*
+F|_cache|_cache|class SH_SharedCache*|class SH_SharedCache*
+F|_htMutex|_htMutex|struct J9ThreadMonitor*|omrthread_monitor_t
+F|_htMutexName|_htMutexName|U8*|const char*
+F|_portlib|_portlib|struct J9PortLibrary*|struct J9PortLibrary*
+F|_htEntries|_htEntries|U32|U32
+F|_runtimeFlagsPtr|_runtimeFlagsPtr|U64*|U64*
+F|_verboseFlags|_verboseFlags|UDATA|UDATA
+F|_hashTableGetNumItemsDoFn|_hashTableGetNumItemsDoFn|void*|void*
+F|_isRunningNested|_isRunningNested|bool|bool
+F|_dataTypesRepresented|_dataTypesRepresented|UDATA[]|UDATA[]
+F|_state|_state|UDATA|UDATA
+F|_allCacheletsStarted|_allCacheletsStarted|bool|bool
+F|_managerType|_managerType|U8*|const char*
+S|SH_Manager$CountData|SH_Manager$CountDataPointer|
+F|_nonStaleItems|_nonStaleItems|UDATA|UDATA
+F|_staleItems|_staleItems|UDATA|UDATA
+F|_cache|_cache|class SH_SharedCache*|class SH_SharedCache*
+S|SH_Manager$HashLinkedListImpl|SH_Manager$HashLinkedListImplPointer|SH_Manager$LinkedListImpl
+F|_key|_key|U8*|U8*
+F|_keySize|_keySize|U16|U16
+F|_hashValue|_hashValue|UDATA|UDATA
+S|SH_Manager$LinkedListImpl|SH_Manager$LinkedListImplPointer|
+F|_item|_item|struct ShcItem*|const struct ShcItem*
+F|_next|_next|class SH_Manager$LinkedListImpl*|class SH_Manager::LinkedListImpl*
+S|SH_Managers|SH_ManagersPointer|
+F|_initializedManagers|_initializedManagers|class SH_Manager*[]|class SH_Manager*[]
+F|_initializedManagersCntr|_initializedManagersCntr|UDATA|UDATA
+S|SH_Managers$ManagerWalkState|SH_Managers$ManagerWalkStatePointer|
+F|currentThread|currentThread|struct J9VMThread*|struct J9VMThread*
+F|limitState|limitState|UDATA|UDATA
+F|index|index|UDATA|UDATA
+S|SH_OSCache|SH_OSCachePointer|
+F|_cacheName|_cacheName|U8*|char*
+F|_runtimeFlags|_runtimeFlags|U64|U64
+F|_cacheSize|_cacheSize|U32|U32
+F|_headerStart|_headerStart|void*|void*
+F|_dataStart|_dataStart|void*|void*
+F|_dataLength|_dataLength|U32|U32
+F|_cacheNameWithVGen|_cacheNameWithVGen|U8*|char*
+F|_cachePathName|_cachePathName|U8*|char*
+F|_activeGeneration|_activeGeneration|UDATA|UDATA
+F|_createFlags|_createFlags|UDATA|UDATA
+F|_verboseFlags|_verboseFlags|UDATA|UDATA
+F|_errorCode|_errorCode|IDATA|IDATA
+F|_config|_config|struct J9SharedClassPreinitConfig*|const struct J9SharedClassPreinitConfig*
+F|_openMode|_openMode|I32|I32
+F|_runningReadOnly|_runningReadOnly|bool|bool
+F|_portLibrary|_portLibrary|struct J9PortLibrary*|struct J9PortLibrary*
+F|_cacheDirName|_cacheDirName|U8*|char*
+F|_startupCompleted|_startupCompleted|bool|bool
+F|_doCheckBuildID|_doCheckBuildID|bool|bool
+F|_corruptionCode|_corruptionCode|IDATA|IDATA
+F|_corruptValue|_corruptValue|UDATA|UDATA
+F|_isUserSpecifiedCacheDir|_isUserSpecifiedCacheDir|bool|bool
+S|SH_OSCache$SH_OSCacheInitialiser|SH_OSCache$SH_OSCacheInitialiserPointer|
+S|SH_OSCacheFile|SH_OSCacheFilePointer|SH_OSCache
+F|_fileHandle|_fileHandle|IDATA|IDATA
+S|SH_OSCache_Info|SH_OSCache_InfoPointer|
+F|name|name|U8[]|char[]
+F|os_shmid|os_shmid|UDATA|UDATA
+F|os_semid|os_semid|UDATA|UDATA
+F|lastattach|lastattach|I64|I64
+F|lastdetach|lastdetach|I64|I64
+F|createtime|createtime|I64|I64
+F|nattach|nattach|IDATA|IDATA
+F|versionData|versionData|struct J9PortShcVersion|struct J9PortShcVersion
+F|generation|generation|UDATA|UDATA
+F|isCompatible|isCompatible|UDATA|UDATA
+F|isCorrupt|isCorrupt|UDATA|UDATA
+F|isJavaCorePopulated|isJavaCorePopulated|UDATA|UDATA
+F|javacoreData|javacoreData|struct J9SharedClassJavacoreDataDescriptor|struct J9SharedClassJavacoreDataDescriptor
+S|SH_OSCachemmap|SH_OSCachemmapPointer|SH_OSCacheFile
+F|_actualFileLength|_actualFileLength|I64|I64
+F|_mapFileHandle|_mapFileHandle|struct J9MmapHandle*|struct J9MmapHandle*
+F|_finalised|_finalised|UDATA|UDATA
+F|_lockMutex|_lockMutex|struct J9ThreadMonitor*[]|omrthread_monitor_t[]
+F|_cacheFileAccess|_cacheFileAccess|enum SH_CacheFileAccess|enum SH_CacheFileAccess
+S|SH_OSCachesysv|SH_OSCachesysvPointer|SH_OSCache
+F|_shmhandle|_shmhandle|struct j9shmem_handle*|struct j9shmem_handle*
+F|_semhandle|_semhandle|struct j9shsem_handle*|struct j9shsem_handle*
+F|_attach_count|_attach_count|IDATA|IDATA
+F|_totalNumSems|_totalNumSems|UDATA|UDATA
+F|_userSemCntr|_userSemCntr|UDATA|UDATA
+F|_shmFileName|_shmFileName|U8*|char*
+F|_semFileName|_semFileName|U8*|char*
+F|_openSharedMemory|_openSharedMemory|bool|bool
+F|_storageKeyTesting|_storageKeyTesting|UDATA|UDATA
+F|config|config|struct J9SharedClassPreinitConfig*|const struct J9SharedClassPreinitConfig*
+F|_initialiser|_initialiser|class SH_OSCache$SH_OSCacheInitialiser*|class SH_OSCache::SH_OSCacheInitialiser*
+F|_groupPerm|_groupPerm|UDATA|UDATA
+F|_semid|_semid|I32|I32
+F|_semAccess|_semAccess|enum SH_SysvSemAccess|enum SH_SysvSemAccess
+F|_shmAccess|_shmAccess|enum SH_SysvShmAccess|enum SH_SysvShmAccess
+F|_controlFileStatus|_controlFileStatus|struct J9ControlFileStatus|struct J9ControlFileStatus
+S|SH_OSCachevmem|SH_OSCachevmemPointer|SH_OSCacheFile
+F|_actualFileLength|_actualFileLength|I64|I64
+F|_writeLockCounter|_writeLockCounter|UDATA|UDATA
+F|_lockMutex|_lockMutex|struct J9ThreadMonitor*[]|omrthread_monitor_t[]
+S|SH_ROMClassManager|SH_ROMClassManagerPointer|SH_Manager
+S|SH_ROMClassManagerImpl|SH_ROMClassManagerImplPointer|SH_ROMClassManager
+F|_tsm|_tsm|class SH_TimestampManager*|class SH_TimestampManager*
+F|_linkedListImplPool|_linkedListImplPool|struct J9Pool*|struct J9Pool*
+S|SH_ROMClassManagerImpl$RcLinkedListImpl|SH_ROMClassManagerImpl$RcLinkedListImplPointer|SH_Manager$HashLinkedListImpl
+F|_isOrphan|_isOrphan|bool|bool
+S|SH_ROMClassResourceManager|SH_ROMClassResourceManagerPointer|SH_Manager
+F|_rrmHashTableName|_rrmHashTableName|U8*|const char*
+F|_rrmLookupFnName|_rrmLookupFnName|U8*|const char*
+F|_rrmAddFnName|_rrmAddFnName|U8*|const char*
+F|_rrmRemoveFnName|_rrmRemoveFnName|U8*|const char*
+F|_accessPermitted|_accessPermitted|bool|bool
+F|_dataBytes|_dataBytes|UDATA|UDATA
+S|SH_ROMClassResourceManager$HashTableEntry|SH_ROMClassResourceManager$HashTableEntryPointer|
+F|_key|_key|UDATA|UDATA
+F|_item|_item|struct ShcItem*|const struct ShcItem*
+S|SH_ROMClassResourceManager$SH_ResourceDescriptor|SH_ROMClassResourceManager$SH_ResourceDescriptorPointer|
+S|SH_ScopeManager|SH_ScopeManagerPointer|SH_Manager
+S|SH_ScopeManagerImpl|SH_ScopeManagerImplPointer|SH_ScopeManager
+F|_allCacheletsStarted|_allCacheletsStarted|bool|bool
+S|SH_ScopeManagerImpl$HashEntry|SH_ScopeManagerImpl$HashEntryPointer|
+F|_value|_value|struct J9UTF8*|const struct J9UTF8*
+S|SH_SharedCache|SH_SharedCachePointer|
+S|SH_SysvSemAccess|SH_SysvSemAccessPointer|
+C|J9SH_SEM_ACCESS_ALLOWED
+C|J9SH_SEM_ACCESS_CANNOT_BE_DETERMINED
+C|J9SH_SEM_ACCESS_GROUP_ACCESS_REQUIRED
+C|J9SH_SEM_ACCESS_OTHERS_NOT_ALLOWED
+C|J9SH_SEM_ACCESS_OWNER_NOT_CREATOR
+S|SH_SysvShmAccess|SH_SysvShmAccessPointer|
+C|J9SH_SHM_ACCESS_ALLOWED
+C|J9SH_SHM_ACCESS_CANNOT_BE_DETERMINED
+C|J9SH_SHM_ACCESS_GROUP_ACCESS_READONLY_REQUIRED
+C|J9SH_SHM_ACCESS_GROUP_ACCESS_REQUIRED
+C|J9SH_SHM_ACCESS_OTHERS_NOT_ALLOWED
+C|J9SH_SHM_ACCESS_OWNER_NOT_CREATOR
+S|SH_TimestampManager|SH_TimestampManagerPointer|
+S|SH_TimestampManagerImpl|SH_TimestampManagerImplPointer|SH_TimestampManager
+F|_sharedClassConfig|_sharedClassConfig|struct J9SharedClassConfig*|struct J9SharedClassConfig*
+S|SRPKeyProducer|SRPKeyProducerPointer|
+F|_cfrConstantPoolCount|_cfrConstantPoolCount|U16|U16
+F|_methodCount|_methodCount|U16|U16
+F|_startStackMapKeys|_startStackMapKeys|UDATA|UDATA
+F|_startMethodDebugInfoKeys|_startMethodDebugInfoKeys|UDATA|UDATA
+F|_startVariableInfoKeys|_startVariableInfoKeys|UDATA|UDATA
+F|_maxKey|_maxKey|UDATA|UDATA
+F|_getMaxKeyWasCalled|_getMaxKeyWasCalled|bool|bool
+S|SRPOffsetTable|SRPOffsetTablePointer|
+F|_maxKey|_maxKey|UDATA|UDATA
+F|_maxTag|_maxTag|UDATA|UDATA
+F|_table|_table|struct SRPOffsetTable$Entry*|struct SRPOffsetTable::Entry*
+F|_baseAddresses|_baseAddresses|U8**|U8**
+F|_bufferManager|_bufferManager|class BufferManager*|class BufferManager*
+F|_buildResult|_buildResult|enum BuildResult|enum BuildResult
+S|SRPOffsetTable$Entry|SRPOffsetTable$EntryPointer|
+F|tag|tag|UDATA|UDATA
+F|offset|offset|UDATA|UDATA
+F|marked|marked|bool|bool
+F|interned|interned|bool|bool
+S|SharedCacheRangeInfo|SharedCacheRangeInfoPointer|
+C|SC_COMPLETELY_IN_THE_SRP_RANGE
+C|SC_COMPLETELY_OUT_OF_THE_SRP_RANGE
+C|SC_NO_RANGE_INFO
+C|SC_PARTIALLY_IN_THE_SRP_RANGE
+S|StringInternTable|StringInternTablePointer|
+F|_vm|_vm|struct J9JavaVM*|struct J9JavaVM*
+F|_portLibrary|_portLibrary|struct J9PortLibrary*|struct J9PortLibrary*
+F|_internHashTable|_internHashTable|struct J9HashTable*|struct J9HashTable*
+F|_headNode|_headNode|struct J9InternHashTableEntry*|struct J9InternHashTableEntry*
+F|_tailNode|_tailNode|struct J9InternHashTableEntry*|struct J9InternHashTableEntry*
+F|_nodeCount|_nodeCount|UDATA|UDATA
+F|_maximumNodeCount|_maximumNodeCount|UDATA|UDATA
+S|SuppliedBufferAllocationStrategy|SuppliedBufferAllocationStrategyPointer|AllocationStrategy
+F|_buffer|_buffer|U8*|U8*
+F|_bufferSize|_bufferSize|UDATA|UDATA
+F|_lineNumberBuffer|_lineNumberBuffer|U8*|U8*
+F|_lineNumberBufferSize|_lineNumberBufferSize|UDATA|UDATA
+F|_variableInfoBuffer|_variableInfoBuffer|U8*|U8*
+F|_variableInfoBufferSize|_variableInfoBufferSize|UDATA|UDATA
+S|WritingCursor|WritingCursorPointer|Cursor
+F|_baseAddress|_baseAddress|U8*|U8*
+F|_internManager|_internManager|class ROMClassStringInternManager*|class ROMClassStringInternManager*
+S|movedObjectHashCode|movedObjectHashCodePointer|
+F|originalHashCode|originalHashCode|U32|uint32_t
+F|hasBeenMoved|hasBeenMoved|BOOLEAN|BOOLEAN
+F|hasBeenHashed|hasBeenHashed|BOOLEAN|BOOLEAN
+S|omr_error_t|omr_error_tPointer|
+C|OMR_ERROR_FAILED_TO_ALLOCATE_MONITOR
+C|OMR_ERROR_FAILED_TO_ATTACH_NATIVE_THREAD
+C|OMR_ERROR_FILE_UNAVAILABLE
+C|OMR_ERROR_ILLEGAL_ARGUMENT
+C|OMR_ERROR_INTERNAL
+C|OMR_ERROR_MAXIMUM_THREAD_COUNT_EXCEEDED
+C|OMR_ERROR_MAXIMUM_VM_COUNT_EXCEEDED
+C|OMR_ERROR_NONE
+C|OMR_ERROR_NOT_AVAILABLE
+C|OMR_ERROR_OUT_OF_NATIVE_MEMORY
+C|OMR_ERROR_RETRY
+C|OMR_THREAD_NOT_ATTACHED
+C|OMR_THREAD_STILL_ATTACHED
+C|OMR_VM_STILL_ATTACHED
 S|J9CacheInfoQuery|J9CacheInfoQueryPointer|
 F|cmd|cmd|J9CacheQueryCommand|J9CacheQueryCommand
 F|cpu|cpu|I32|int32_t
@@ -1832,1261 +2607,486 @@ F|_currentStackMap|_currentStackMap|U8*|U8*
 F|_currentInlineMap|_currentInlineMap|U8*|U8*
 F|_nextMap|_nextMap|U8*|U8*
 F|_mapIndex|_mapIndex|U32|U32
-S|AbstractMemoryPermission|AbstractMemoryPermissionPointer|
-S|AllocationStrategy|AllocationStrategyPointer|
-S|AllocationStrategy$AllocatedBuffers|AllocationStrategy$AllocatedBuffersPointer|
-F|romClassBuffer|romClassBuffer|U8*|U8*
-F|lineNumberBuffer|lineNumberBuffer|U8*|U8*
-F|variableInfoBuffer|variableInfoBuffer|U8*|U8*
-S|BufferManager|BufferManagerPointer|
-F|_portLibrary|_portLibrary|struct J9PortLibrary*|struct J9PortLibrary*
-F|_bufferSize|_bufferSize|UDATA|UDATA
-F|_buffer|_buffer|U8**|U8**
-F|_pos|_pos|UDATA|UDATA
-F|_lastAllocation|_lastAllocation|void*|void*
-F|_shouldFreeBuffer|_shouldFreeBuffer|bool|bool
-S|BuildResult|BuildResultPointer|
-C|BytecodeTranslationFailed
-C|ClassNameMismatch
-C|ClassRead
-C|GenericError
-C|IllegalPackageName
-C|InvalidAnnotation
-C|InvalidBytecode
-C|InvalidBytecodeSize
-C|LineNumberTableDecompressFailed
-C|NeedWideBranches
-C|OK
-C|OutOfMemory
-C|OutOfROM
-C|StackMapFailed
-C|UnknownAnnotation
-C|VerifyErrorInlining
-S|CacheLifecycleManagerConstants|CacheLifecycleManagerConstantsPointer|
-C|J9SH_DESTROYED_ALL_CACHE
-C|J9SH_DESTROYED_ALL_SNAPSHOT
-C|J9SH_DESTROYED_NONE
-C|J9SH_DESTROYED_OLDER_GEN_CACHE
-C|J9SH_DESTROYED_OLDER_GEN_SNAPSHOT
-C|J9SH_DESTROY_FAILED_CURRENT_GEN_CACHE
-C|J9SH_DESTROY_FAILED_CURRENT_GEN_SNAPSHOT
-C|J9SH_DESTROY_FAILED_OLDER_GEN_CACHE
-C|J9SH_DESTROY_FAILED_OLDER_GEN_SNAPSHOT
-S|CacheMapConstants|CacheMapConstantsPointer|
-C|CM_CACHE_CORRUPT
-C|CM_READ_CACHE_FAILED
-S|ClassDebugDataProvider|ClassDebugDataProviderPointer|
-F|_theca|_theca|struct J9SharedCacheHeader*|struct J9SharedCacheHeader*
-F|_storedLineNumberTableBytes|_storedLineNumberTableBytes|U32|U32
-F|_storedLocalVariableTableBytes|_storedLocalVariableTableBytes|U32|U32
-F|_lntLastUpdate|_lntLastUpdate|void*|void*
-F|_lvtLastUpdate|_lvtLastUpdate|void*|void*
-F|failureReason|failureReason|IDATA|IDATA
-F|failureValue|failureValue|UDATA|UDATA
-F|_verboseFlags|_verboseFlags|UDATA|UDATA
-F|_runtimeFlags|_runtimeFlags|U64*|U64*
-S|ClassFileOracle|ClassFileOraclePointer|
-F|_buildResult|_buildResult|enum BuildResult|enum BuildResult
-F|_bufferManager|_bufferManager|class BufferManager*|class BufferManager*
-F|_classFile|_classFile|struct J9CfrClassFile*|struct J9CfrClassFile*
-F|_constantPoolMap|_constantPoolMap|class ConstantPoolMap*|class ConstantPoolMap*
-F|_verifyExcludeAttribute|_verifyExcludeAttribute|U8*|U8*
-F|_bctFlags|_bctFlags|UDATA|UDATA
-F|_context|_context|class ROMClassCreationContext*|class ROMClassCreationContext*
-F|_singleScalarStaticCount|_singleScalarStaticCount|U16|U16
-F|_objectStaticCount|_objectStaticCount|U16|U16
-F|_doubleScalarStaticCount|_doubleScalarStaticCount|U16|U16
-F|_memberAccessFlags|_memberAccessFlags|U16|U16
-F|_innerClassCount|_innerClassCount|U16|U16
-F|_maxBranchCount|_maxBranchCount|U32|U32
-F|_outerClassNameIndex|_outerClassNameIndex|U16|U16
-F|_simpleNameIndex|_simpleNameIndex|U16|U16
-F|_hasEmptyFinalizeMethod|_hasEmptyFinalizeMethod|bool|bool
-F|_hasFinalFields|_hasFinalFields|bool|bool
-F|_hasNonStaticNonAbstractMethods|_hasNonStaticNonAbstractMethods|bool|bool
-F|_hasFinalizeMethod|_hasFinalizeMethod|bool|bool
-F|_isCloneable|_isCloneable|bool|bool
-F|_isSerializable|_isSerializable|bool|bool
-F|_isSynthetic|_isSynthetic|bool|bool
-F|_isClassContended|_isClassContended|bool|bool
-F|_hasVerifyExcludeAttribute|_hasVerifyExcludeAttribute|bool|bool
-F|_hasFrameIteratorSkipAnnotation|_hasFrameIteratorSkipAnnotation|bool|bool
-F|_hasClinit|_hasClinit|bool|bool
-F|_annotationRefersDoubleSlotEntry|_annotationRefersDoubleSlotEntry|bool|bool
-F|_isInnerClass|_isInnerClass|bool|bool
-F|_fieldsInfo|_fieldsInfo|struct ClassFileOracle$FieldInfo*|struct ClassFileOracle::FieldInfo*
-F|_methodsInfo|_methodsInfo|struct ClassFileOracle$MethodInfo*|struct ClassFileOracle::MethodInfo*
-F|_genericSignature|_genericSignature|struct J9CfrAttributeSignature*|struct J9CfrAttributeSignature*
-F|_enclosingMethod|_enclosingMethod|struct J9CfrAttributeEnclosingMethod*|struct J9CfrAttributeEnclosingMethod*
-F|_sourceFile|_sourceFile|struct J9CfrAttributeSourceFile*|struct J9CfrAttributeSourceFile*
-F|_sourceDebugExtension|_sourceDebugExtension|struct J9CfrAttributeUnknown*|struct J9CfrAttributeUnknown*
-F|_annotationsAttribute|_annotationsAttribute|struct J9CfrAttributeRuntimeVisibleAnnotations*|struct J9CfrAttributeRuntimeVisibleAnnotations*
-F|_typeAnnotationsAttribute|_typeAnnotationsAttribute|struct J9CfrAttributeRuntimeVisibleTypeAnnotations*|struct J9CfrAttributeRuntimeVisibleTypeAnnotations*
-F|_innerClasses|_innerClasses|struct J9CfrAttributeInnerClasses*|struct J9CfrAttributeInnerClasses*
-F|_bootstrapMethodsAttribute|_bootstrapMethodsAttribute|struct J9CfrAttributeBootstrapMethods*|struct J9CfrAttributeBootstrapMethods*
-C|CONTENDED_ANNOTATION
-C|FRAMEITERATORSKIP_ANNOTATION
-C|JAVA8_CONTENDED_ANNOTATION
-C|JDK_INTERNAL_REFLECT_CALLERSENSITIVE_ANNOTATION
-C|KNOWN_ANNOTATION_COUNT
-C|SUN_REFLECT_CALLERSENSITIVE_ANNOTATION
-S|ClassFileOracle$AnnotationAnnotationVisitor|ClassFileOracle$AnnotationAnnotationVisitorPointer|ClassFileOracle$AnnotationElementVisitor
-F|_annotationVisitor|_annotationVisitor|struct ClassFileOracle$AnnotationVisitor*|struct ClassFileOracle::AnnotationVisitor*
-F|_annotationElementVisitor|_annotationElementVisitor|struct ClassFileOracle$AnnotationElementVisitor*|struct ClassFileOracle::AnnotationElementVisitor*
-S|ClassFileOracle$AnnotationElementVisitor|ClassFileOracle$AnnotationElementVisitorPointer|
-S|ClassFileOracle$AnnotationVisitor|ClassFileOracle$AnnotationVisitorPointer|
-S|ClassFileOracle$AnnotationsAttributeVisitor|ClassFileOracle$AnnotationsAttributeVisitorPointer|
-S|ClassFileOracle$ArrayAnnotationElements|ClassFileOracle$ArrayAnnotationElementsPointer|
-F|_classFileOracle|_classFileOracle|class ClassFileOracle*|class ClassFileOracle*
-F|_annotationElementArray|_annotationElementArray|struct J9CfrAnnotationElementArray*|struct J9CfrAnnotationElementArray*
-S|ClassFileOracle$BootstrapMethodVisitor|ClassFileOracle$BootstrapMethodVisitorPointer|
-S|ClassFileOracle$BytecodeFixupEntry|ClassFileOracle$BytecodeFixupEntryPointer|
-F|type|type|U8|U8
-F|cpIndex|cpIndex|U16|U16
-F|codeIndex|codeIndex|U32|U32
-S|ClassFileOracle$ConstantPoolIndexVisitor|ClassFileOracle$ConstantPoolIndexVisitorPointer|
-S|ClassFileOracle$ExceptionHandlerVisitor|ClassFileOracle$ExceptionHandlerVisitorPointer|
-S|ClassFileOracle$FieldInfo|ClassFileOracle$FieldInfoPointer|
-F|isSynthetic|isSynthetic|bool|bool
-F|hasGenericSignature|hasGenericSignature|bool|bool
-F|genericSignatureIndex|genericSignatureIndex|U16|U16
-F|annotationsAttribute|annotationsAttribute|struct J9CfrAttributeRuntimeVisibleAnnotations*|struct J9CfrAttributeRuntimeVisibleAnnotations*
-F|typeAnnotationsAttribute|typeAnnotationsAttribute|struct J9CfrAttributeRuntimeVisibleTypeAnnotations*|struct J9CfrAttributeRuntimeVisibleTypeAnnotations*
-F|isFieldContended|isFieldContended|bool|bool
-S|ClassFileOracle$FieldIterator|ClassFileOracle$FieldIteratorPointer|
-F|_fieldsInfo|_fieldsInfo|struct ClassFileOracle$FieldInfo*|struct ClassFileOracle::FieldInfo*
-F|_classFile|_classFile|struct J9CfrClassFile*|struct J9CfrClassFile*
-F|_fields|_fields|struct J9CfrField*|struct J9CfrField*
-F|_index|_index|U16|U16
-S|ClassFileOracle$KnownAnnotation|ClassFileOracle$KnownAnnotationPointer|
-F|name|name|U8*|const char*
-F|size|size|size_t|size_t
-S|ClassFileOracle$LocalVariableInfo|ClassFileOracle$LocalVariableInfoPointer|
-F|localVariableTable|localVariableTable|struct J9CfrAttributeLocalVariableTable*|struct J9CfrAttributeLocalVariableTable*
-F|localVariableTypeTable|localVariableTypeTable|struct J9CfrAttributeLocalVariableTypeTable*|struct J9CfrAttributeLocalVariableTypeTable*
-S|ClassFileOracle$LocalVariablesIterator|ClassFileOracle$LocalVariablesIteratorPointer|
-F|_localVariableTableIndex|_localVariableTableIndex|U16|U16
-F|_index|_index|U16|U16
-F|_count|_count|U16|U16
-F|_localVariablesInfo|_localVariablesInfo|struct ClassFileOracle$LocalVariableInfo*|struct ClassFileOracle::LocalVariableInfo*
-F|_localVariableTable|_localVariableTable|struct J9CfrLocalVariableTableEntry*|struct J9CfrLocalVariableTableEntry*
-S|ClassFileOracle$MethodInfo|ClassFileOracle$MethodInfoPointer|
-F|hasFrameIteratorSkipAnnotation|hasFrameIteratorSkipAnnotation|bool|bool
-F|modifiers|modifiers|U32|U32
-F|extendedModifiers|extendedModifiers|U32|U32
-F|sendSlotCount|sendSlotCount|U8|U8
-F|exceptionsThrownCount|exceptionsThrownCount|U16|U16
-F|genericSignatureIndex|genericSignatureIndex|U16|U16
-F|stackMapFramesCount|stackMapFramesCount|U16|U16
-F|lineNumbersCount|lineNumbersCount|U32|U32
-F|lineNumbersInfoCompressedSize|lineNumbersInfoCompressedSize|U32|U32
-F|localVariablesCount|localVariablesCount|U32|U32
-F|stackMapFramesInfo|stackMapFramesInfo|struct ClassFileOracle$StackMapFrameInfo*|struct ClassFileOracle::StackMapFrameInfo*
-F|localVariablesInfo|localVariablesInfo|struct ClassFileOracle$LocalVariableInfo*|struct ClassFileOracle::LocalVariableInfo*
-F|lineNumbersInfoCompressed|lineNumbersInfoCompressed|U8*|U8*
-F|annotationsAttribute|annotationsAttribute|struct J9CfrAttributeRuntimeVisibleAnnotations*|struct J9CfrAttributeRuntimeVisibleAnnotations*
-F|parameterAnnotationsAttribute|parameterAnnotationsAttribute|struct J9CfrAttributeRuntimeVisibleParameterAnnotations*|struct J9CfrAttributeRuntimeVisibleParameterAnnotations*
-F|methodTypeAnnotationsAttribute|methodTypeAnnotationsAttribute|struct J9CfrAttributeRuntimeVisibleTypeAnnotations*|struct J9CfrAttributeRuntimeVisibleTypeAnnotations*
-F|codeTypeAnnotationsAttribute|codeTypeAnnotationsAttribute|struct J9CfrAttributeRuntimeVisibleTypeAnnotations*|struct J9CfrAttributeRuntimeVisibleTypeAnnotations*
-F|defaultAnnotationAttribute|defaultAnnotationAttribute|struct J9CfrAttributeAnnotationDefault*|struct J9CfrAttributeAnnotationDefault*
-F|byteCodeFixupCount|byteCodeFixupCount|U32|U32
-F|methodParametersAttribute|methodParametersAttribute|struct J9CfrAttributeMethodParameters*|struct J9CfrAttributeMethodParameters*
-F|byteCodeFixupTable|byteCodeFixupTable|struct ClassFileOracle$BytecodeFixupEntry*|struct ClassFileOracle::BytecodeFixupEntry*
-F|isByteCodeFixupDone|isByteCodeFixupDone|bool|bool
-S|ClassFileOracle$MethodIterator|ClassFileOracle$MethodIteratorPointer|
-F|_methodIndex|_methodIndex|U16|U16
-F|_methodsInfo|_methodsInfo|struct ClassFileOracle$MethodInfo*|struct ClassFileOracle::MethodInfo*
-F|_classFile|_classFile|struct J9CfrClassFile*|struct J9CfrClassFile*
-S|ClassFileOracle$MethodParametersVisitor|ClassFileOracle$MethodParametersVisitorPointer|
-S|ClassFileOracle$NameAndTypeIterator|ClassFileOracle$NameAndTypeIteratorPointer|
-F|_classFile|_classFile|struct J9CfrClassFile*|struct J9CfrClassFile*
-F|_cpIndex|_cpIndex|U16|U16
-F|_entry|_entry|struct J9CfrConstantPoolInfo*|struct J9CfrConstantPoolInfo*
-S|ClassFileOracle$NestedAnnotation|ClassFileOracle$NestedAnnotationPointer|
-F|_classFileOracle|_classFileOracle|class ClassFileOracle*|class ClassFileOracle*
-F|_annotation|_annotation|struct J9CfrAnnotation*|struct J9CfrAnnotation*
-S|ClassFileOracle$StackMapFrameInfo|ClassFileOracle$StackMapFrameInfoPointer|
-F|frameType|frameType|U8|U8
-F|offsetDelta|offsetDelta|U16|U16
-F|localsCount|localsCount|U16|U16
-F|stackItemsCount|stackItemsCount|U16|U16
-F|localsTypeInfo|localsTypeInfo|U8*|U8*
-F|stackItemsTypeInfo|stackItemsTypeInfo|U8*|U8*
-S|ClassFileOracle$StackMapFrameVisitor|ClassFileOracle$StackMapFrameVisitorPointer|
-S|ClassFileOracle$UTF8Iterator|ClassFileOracle$UTF8IteratorPointer|
-F|_classFile|_classFile|struct J9CfrClassFile*|struct J9CfrClassFile*
-F|_cpIndex|_cpIndex|U16|U16
-F|_entry|_entry|struct J9CfrConstantPoolInfo*|struct J9CfrConstantPoolInfo*
-S|ClassFileOracle$VerificationTypeInfo|ClassFileOracle$VerificationTypeInfoPointer|
-F|_stackMapFrameInfo|_stackMapFrameInfo|struct ClassFileOracle$StackMapFrameInfo*|struct ClassFileOracle::StackMapFrameInfo*
-F|_classFile|_classFile|struct J9CfrClassFile*|struct J9CfrClassFile*
-S|ClassFileOracle$VerificationTypeInfoVisitor|ClassFileOracle$VerificationTypeInfoVisitorPointer|
-S|ClassFileParser|ClassFileParserPointer|
-F|_portLibrary|_portLibrary|struct J9PortLibrary*|struct J9PortLibrary*
-F|_verifyClassFunction|_verifyClassFunction|void*|void*
-F|_j9CfrClassFile|_j9CfrClassFile|struct J9CfrClassFile*|struct J9CfrClassFile*
-S|ClassNameFilterData|ClassNameFilterDataPointer|
-F|classloader|classloader|struct J9ClassLoader*|struct J9ClassLoader*
-F|classname|classname|U8*|char*
-F|buffer|buffer|U8[]|char[]
-F|classnameLen|classnameLen|UDATA|UDATA
-S|ClasspathEntryItem|ClasspathEntryItemPointer|
-F|protocol|protocol|UDATA|UDATA
-F|timestamp|timestamp|I64|I64
-F|flags|flags|UDATA|UDATA
-F|pathLen|pathLen|UDATA|UDATA
-F|path|path|U8*|char*
-F|hashValue|hashValue|UDATA|UDATA
-S|ClasspathItem|ClasspathItemPointer|
-F|type|type|U16|U16
-F|flags|flags|U16|U16
-F|itemsAdded|itemsAdded|IDATA|IDATA
-F|hashValue|hashValue|UDATA|UDATA
-F|firstDirIndex|firstDirIndex|IDATA|IDATA
-F|entries|entries|IDATA|IDATA
-F|items|items|class ClasspathEntryItem**|class ClasspathEntryItem**
-F|portlib|portlib|struct J9PortLibrary*|struct J9PortLibrary*
-F|helperID|helperID|IDATA|IDATA
-F|jarsLockedToIndex|jarsLockedToIndex|IDATA|IDATA
-S|ClasspathManagerConstants|ClasspathManagerConstantsPointer|
-C|MAX_CLASS_PATH_ENTRIES
-S|ComparingCursor|ComparingCursorPointer|Cursor
-F|_javaVM|_javaVM|struct J9JavaVM*|struct J9JavaVM*
-F|_checkRangeInSharedCache|_checkRangeInSharedCache|bool|bool
-F|_classFileOracle|_classFileOracle|class ClassFileOracle*|class ClassFileOracle*
-F|_srpKeyProducer|_srpKeyProducer|class SRPKeyProducer*|class SRPKeyProducer*
-F|_romClass|_romClass|U8*|U8*
-F|_mode|_mode|enum Cursor$Mode|enum Cursor::Mode
-F|_storePointerToVariableInfo|_storePointerToVariableInfo|U8*|U8*
-F|_basePointerToVariableInfo|_basePointerToVariableInfo|U8*|U8*
-F|_mainHelper|_mainHelper|class ComparingCursorHelper|class ComparingCursorHelper
-F|_lineNumberHelper|_lineNumberHelper|class ComparingCursorHelper|class ComparingCursorHelper
-F|_varInfoHelper|_varInfoHelper|class ComparingCursorHelper|class ComparingCursorHelper
-F|_isEqual|_isEqual|bool|bool
-S|ComparingCursorHelper|ComparingCursorHelperPointer|Cursor
-F|_baseAddress|_baseAddress|U8*|U8*
-S|CompositeCacheImplConstants|CompositeCacheImplConstantsPointer|
-C|CC_MIN_SPACE_BEFORE_CACHE_FULL
-C|CC_STARTUP_CORRUPT
-C|CC_STARTUP_FAILED
-C|CC_STARTUP_NO_CACHE
-C|CC_STARTUP_NO_CACHELETS
-C|CC_STARTUP_OK
-C|CC_STARTUP_RESET
-C|CC_STARTUP_SOFT_RESET
-C|J9SHR_CRC_MAX_SAMPLES
-C|J9SHR_DUMMY_DATA_BYTE
-C|J9SHR_MIN_GAP_BEFORE_METADATA
-C|MAX_CC_SIZE
-C|MIN_CC_SIZE
-S|ConstantPoolMap|ConstantPoolMapPointer|
-F|_context|_context|class ROMClassCreationContext*|class ROMClassCreationContext*
-F|_classFileOracle|_classFileOracle|class ClassFileOracle*|class ClassFileOracle*
-F|_bufferManager|_bufferManager|class BufferManager*|class BufferManager*
-F|_constantPoolEntries|_constantPoolEntries|struct ConstantPoolMap$ConstantPoolEntry*|struct ConstantPoolMap::ConstantPoolEntry*
-F|_romConstantPoolEntries|_romConstantPoolEntries|U16*|U16*
-F|_romConstantPoolTypes|_romConstantPoolTypes|U8*|U8*
-F|_staticSplitEntries|_staticSplitEntries|U16*|U16*
-F|_specialSplitEntries|_specialSplitEntries|U16*|U16*
-F|_methodTypeCount|_methodTypeCount|U32|U32
-F|_varHandleMethodTypeCount|_varHandleMethodTypeCount|U16|U16
-F|_varHandleMethodTypeLookupTable|_varHandleMethodTypeLookupTable|U16*|U16*
-F|_callSiteCount|_callSiteCount|U32|U32
-F|_ramConstantPoolCount|_ramConstantPoolCount|U16|U16
-F|_romConstantPoolCount|_romConstantPoolCount|U16|U16
-F|_staticSplitEntryCount|_staticSplitEntryCount|U16|U16
-F|_specialSplitEntryCount|_specialSplitEntryCount|U16|U16
-F|_buildResult|_buildResult|enum BuildResult|enum BuildResult
-S|ConstantPoolMap$CallSiteVisitor|ConstantPoolMap$CallSiteVisitorPointer|
-S|ConstantPoolMap$ConstantPoolEntry|ConstantPoolMap$ConstantPoolEntryPointer|
-F|callSiteReferenceCount|callSiteReferenceCount|U32|U32
-F|currentCallSiteIndex|currentCallSiteIndex|U16|U16
-F|staticSplitTableIndex|staticSplitTableIndex|U16|U16
-F|specialSplitTableIndex|specialSplitTableIndex|U16|U16
-F|romCPIndex|romCPIndex|U16|U16
-F|isUsedBy|isUsedBy|bool[]|bool[]
-F|isReferenced|isReferenced|bool|bool
-F|isUsedByLDC|isUsedByLDC|bool|bool
-S|ConstantPoolMap$ConstantPoolEntryTypeVisitor|ConstantPoolMap$ConstantPoolEntryTypeVisitorPointer|
-S|ConstantPoolMap$ConstantPoolVisitor|ConstantPoolMap$ConstantPoolVisitorPointer|
-S|ConstantPoolMap$EntryFlags|ConstantPoolMap$EntryFlagsPointer|
-C|SPLIT1
-C|SPLIT2
-C|SPLIT3
-C|SPLIT4
-C|SPLIT5
-C|SPLIT_FLAG_COUNT
-S|ConstantPoolMap$EntryUseFlags|ConstantPoolMap$EntryUseFlagsPointer|
-C|ANEW_ARRAY
-C|ANNOTATION
-C|CHECK_CAST
-C|GET_FIELD
-C|GET_STATIC
-C|INSTANCE_OF
-C|INVOKE_DYNAMIC
-C|INVOKE_HANDLEEXACT
-C|INVOKE_HANDLEGENERIC
-C|INVOKE_INTERFACE
-C|INVOKE_SPECIAL
-C|INVOKE_STATIC
-C|INVOKE_VIRTUAL
-C|LDC
-C|LDC2W
-C|MULTI_ANEW_ARRAY
-C|NEW
-C|PUT_FIELD
-C|PUT_STATIC
-C|REFERENCED
-S|ConstantPoolMap$SplitEntryVisitor|ConstantPoolMap$SplitEntryVisitorPointer|
-S|Cursor|CursorPointer|
-F|_count|_count|UDATA|UDATA
-F|_context|_context|class ROMClassCreationContext*|class ROMClassCreationContext*
-F|_srpOffsetTable|_srpOffsetTable|class SRPOffsetTable*|class SRPOffsetTable*
-F|_tag|_tag|UDATA|UDATA
-S|Cursor$DataType|Cursor$DataTypePointer|
-C|BYTECODE
-C|GENERIC
-C|INTERMEDIATE_CLASS_DATA
-C|INTERMEDIATE_CLASS_DATA_LENGTH
-C|LINE_NUMBER_DATA
-C|LOCAL_VARIABLE_COUNT
-C|LOCAL_VARIABLE_DATA
-C|LOCAL_VARIABLE_DATA_SRP_TO_UTF8
-C|METHOD_DEBUG_SIZE
-C|OPTINFO_SOURCE_FILE_NAME
-C|OPTIONAL_FLAGS
-C|ROM_CLASS_MODIFIERS
-C|ROM_SIZE
-C|SOURCE_DEBUG_EXT_DATA
-C|SOURCE_DEBUG_EXT_LENGTH
-C|SRP_TO_DEBUG_DATA
-C|SRP_TO_GENERIC
-C|SRP_TO_INTERMEDIATE_CLASS_DATA
-C|SRP_TO_LOCAL_VARIABLE_DATA
-C|SRP_TO_NAME_AND_SIGNATURE
-C|SRP_TO_SOURCE_DEBUG_EXT
-C|SRP_TO_UTF8
-S|Cursor$Mode|Cursor$ModePointer|
-C|DEBUG_INFO
-C|MAIN_CURSOR
-C|VAR_INFO
-S|HookhelpersConstants|HookhelpersConstantsPointer|
-C|HELPER_NAMEBUF_SIZE
-S|J9InternSearchInfo|J9InternSearchInfoPointer|
-F|classloader|classloader|struct J9ClassLoader*|struct J9ClassLoader*
-F|stringData|stringData|U8*|U8*
-F|stringLength|stringLength|UDATA|UDATA
-F|romClassBaseAddr|romClassBaseAddr|U8*|U8*
-F|romClassEndAddr|romClassEndAddr|U8*|U8*
-F|sharedCacheSRPRangeInfo|sharedCacheSRPRangeInfo|enum SharedCacheRangeInfo|enum SharedCacheRangeInfo
-S|J9InternSearchResult|J9InternSearchResultPointer|
-F|utf8|utf8|struct J9UTF8*|struct J9UTF8*
-F|node|node|void*|void*
-F|isSharedNode|isSharedNode|bool|bool
-S|J9PortAllocationStrategy|J9PortAllocationStrategyPointer|AllocationStrategy
-F|_portLibrary|_portLibrary|struct J9PortLibrary*|struct J9PortLibrary*
-S|LastErrorInfo|LastErrorInfoPointer|
-F|lastErrorCode|lastErrorCode|I32|I32
-F|lastErrorMsg|lastErrorMsg|U8*|const char*
-S|LocateROMClassResult|LocateROMClassResultPointer|
-F|known|known|struct ROMClassWrapper*|struct ROMClassWrapper*
-F|knownItem|knownItem|struct ShcItem*|const struct ShcItem*
-F|foundAtIndex|foundAtIndex|IDATA|IDATA
-F|staleCPEI|staleCPEI|class ClasspathEntryItem*|class ClasspathEntryItem*
-S|ManagerConstants|ManagerConstantsPointer|
-C|MAX_TYPES_PER_MANAGER
-C|STACK_STRINGBUF_SIZE
-S|ManagerHintTable|ManagerHintTablePointer|
-F|_hinthash|_hinthash|struct J9HashTable*|struct J9HashTable*
-S|ManagerHintTable$HintItem|ManagerHintTable$HintItemPointer|
-F|_hashValue|_hashValue|UDATA|UDATA
-F|_cachelet|_cachelet|class SH_CompositeCache*|class SH_CompositeCache*
-S|ManagersConstants|ManagersConstantsPointer|
-C|NUM_MANAGERS
-S|MethodSpecTable|MethodSpecTablePointer|
-F|className|className|U8*|char*
-F|methodName|methodName|U8*|char*
-F|methodSig|methodSig|U8*|char*
-F|classNameMatchFlag|classNameMatchFlag|U32|U32
-F|methodNameMatchFlag|methodNameMatchFlag|U32|U32
-F|methodSigMatchFlag|methodSigMatchFlag|U32|U32
-F|classNameLength|classNameLength|UDATA|UDATA
-F|methodNameLength|methodNameLength|UDATA|UDATA
-F|methodSigLength|methodSigLength|UDATA|UDATA
-F|matchFlag|matchFlag|bool|bool
-S|OMR_Agent|OMR_AgentPointer|
-F|_handle|_handle|UDATA|uintptr_t
-F|_vm|_vm|struct OMR_VM*|struct OMR_VM*
-F|_onload|_onload|void*|void*
-F|_onunload|_onunload|void*|void*
-F|_dllpath|_dllpath|U8*|const char*
-F|_options|_options|U8*|const char*
-F|_state|_state|enum OMR_Agent$State|enum OMR_Agent::State
-F|_agentCallbacks|_agentCallbacks|struct OMR_AgentCallbacks|struct OMR_AgentCallbacks
-S|OMR_Agent$State|OMR_Agent$StatePointer|
-C|INITIALIZED
-C|LIBRARY_OPENED
-C|LOOKUP_ONLOAD_ERROR
-C|LOOKUP_ONUNLOAD_ERROR
-C|ONLOAD_COMPLETED
-C|ONLOAD_ERROR
-C|ONUNLOAD_SUCCESS
-C|OPEN_LIBRARY_ERROR
-C|UNINITIALIZED
-S|OMR_AgentCallbacks|OMR_AgentCallbacksPointer|
-F|version|version|U32|uint32_t
-F|onPreFork|onPreFork|void*|void*
-F|onPostForkParent|onPostForkParent|void*|void*
-F|onPostForkChild|onPostForkChild|void*|void*
-S|OMR_Base|OMR_BasePointer|
-S|OMR_BaseNonVirtual|OMR_BaseNonVirtualPointer|OMR_Base
-F|_typeId|_typeId|U8*|const char*
-S|OMR_BaseVirtual|OMR_BaseVirtualPointer|OMR_Base
-F|_typeId|_typeId|U8*|const char*
-S|OMR_ExclusiveVMAccessStats|OMR_ExclusiveVMAccessStatsPointer|
-F|startTime|startTime|U64|U64
-F|endTime|endTime|U64|U64
-F|totalResponseTime|totalResponseTime|U64|U64
-F|requester|requester|struct OMR_VMThread*|struct OMR_VMThread*
-F|lastResponder|lastResponder|struct OMR_VMThread*|struct OMR_VMThread*
-F|haltedThreads|haltedThreads|UDATA|UDATA
-S|OMR_Runtime|OMR_RuntimePointer|
-F|_initialized|_initialized|UDATA|uintptr_t
-F|_portLibrary|_portLibrary|struct OMRPortLibrary*|struct OMRPortLibrary*
-F|_vmList|_vmList|struct OMR_VM*|struct OMR_VM*
-F|_vmListMutex|_vmListMutex|struct J9ThreadMonitor*|omrthread_monitor_t
-F|_rootVM|_rootVM|struct OMR_VM*|struct OMR_VM*
-F|_configuration|_configuration|struct OMR_RuntimeConfiguration|struct OMR_RuntimeConfiguration
-F|_vmCount|_vmCount|UDATA|uintptr_t
-S|OMR_RuntimeConfiguration|OMR_RuntimeConfigurationPointer|
-F|_maximum_vm_count|_maximum_vm_count|UDATA|uintptr_t
-S|OMR_SampledMethodDescription|OMR_SampledMethodDescriptionPointer|
-F|reasonCode|reasonCode|enum omr_error_t|enum omr_error_t
-F|propertyValues|propertyValues|U8*[]|const char*[]
-S|OMR_TI|OMR_TIPointer|
-F|version|version|I32|int32_t
-F|internalData|internalData|void*|void*
-F|BindCurrentThread|BindCurrentThread|void*|void*
-F|UnbindCurrentThread|UnbindCurrentThread|void*|void*
-F|RegisterRecordSubscriber|RegisterRecordSubscriber|void*|void*
-F|DeregisterRecordSubscriber|DeregisterRecordSubscriber|void*|void*
-F|GetTraceMetadata|GetTraceMetadata|void*|void*
-F|SetTraceOptions|SetTraceOptions|void*|void*
-F|GetSystemCpuLoad|GetSystemCpuLoad|void*|void*
-F|GetProcessCpuLoad|GetProcessCpuLoad|void*|void*
-F|GetMemoryCategories|GetMemoryCategories|void*|void*
-F|FlushTraceData|FlushTraceData|void*|void*
-F|GetFreePhysicalMemorySize|GetFreePhysicalMemorySize|void*|void*
-F|GetProcessVirtualMemorySize|GetProcessVirtualMemorySize|void*|void*
-F|GetProcessPrivateMemorySize|GetProcessPrivateMemorySize|void*|void*
-F|GetProcessPhysicalMemorySize|GetProcessPhysicalMemorySize|void*|void*
-F|GetMethodDescriptions|GetMethodDescriptions|void*|void*
-F|GetMethodProperties|GetMethodProperties|void*|void*
-S|OMR_TI_MemoryCategory|OMR_TI_MemoryCategoryPointer|
-F|name|name|U8*|const char*
-F|liveBytesShallow|liveBytesShallow|I64|int64_t
-F|liveBytesDeep|liveBytesDeep|I64|int64_t
-F|liveAllocationsShallow|liveAllocationsShallow|I64|int64_t
-F|liveAllocationsDeep|liveAllocationsDeep|I64|int64_t
-F|firstChild|firstChild|struct OMR_TI_MemoryCategory*|struct OMR_TI_MemoryCategory*
-F|nextSibling|nextSibling|struct OMR_TI_MemoryCategory*|struct OMR_TI_MemoryCategory*
-F|parent|parent|struct OMR_TI_MemoryCategory*|struct OMR_TI_MemoryCategory*
-S|OMR_VM|OMR_VMPointer|
-F|_runtime|_runtime|struct OMR_Runtime*|struct OMR_Runtime*
-F|_language_vm|_language_vm|void*|void*
-F|_linkNext|_linkNext|struct OMR_VM*|struct OMR_VM*
-F|_linkPrevious|_linkPrevious|struct OMR_VM*|struct OMR_VM*
-F|_vmThreadList|_vmThreadList|struct OMR_VMThread*|struct OMR_VMThread*
-F|_vmThreadListMutex|_vmThreadListMutex|struct J9ThreadMonitor*|omrthread_monitor_t
-F|_vmThreadKey|_vmThreadKey|UDATA|omrthread_tls_key_t
-F|_arrayletLeafSize|_arrayletLeafSize|UDATA|uintptr_t
-F|_arrayletLeafLogSize|_arrayletLeafLogSize|UDATA|uintptr_t
-F|_compressedPointersShift|_compressedPointersShift|UDATA|uintptr_t
-F|_objectAlignmentInBytes|_objectAlignmentInBytes|UDATA|uintptr_t
-F|_objectAlignmentShift|_objectAlignmentShift|UDATA|uintptr_t
-F|_gcOmrVMExtensions|_gcOmrVMExtensions|void*|void*
-F|_configuration|_configuration|struct OMR_VMConfiguration|struct OMR_VMConfiguration
-F|_languageThreadCount|_languageThreadCount|UDATA|uintptr_t
-F|_internalThreadCount|_internalThreadCount|UDATA|uintptr_t
-F|exclusiveVMAccessStats|exclusiveVMAccessStats|struct OMR_ExclusiveVMAccessStats|struct OMR_ExclusiveVMAccessStats
-F|gcPolicy|gcPolicy|UDATA|uintptr_t
-F|sysInfo|sysInfo|struct OMR_SysInfo*|struct OMR_SysInfo*
-F|_sizeClasses|_sizeClasses|struct OMR_SizeClasses*|struct OMR_SizeClasses*
-F|utIntf|utIntf|struct UtInterface*|struct UtInterface*
-F|_hcAgent|_hcAgent|struct OMR_Agent*|struct OMR_Agent*
-F|_omrTIAccessMutex|_omrTIAccessMutex|struct J9ThreadMonitor*|omrthread_monitor_t
-F|_trcEngine|_trcEngine|struct OMRTraceEngine*|struct OMRTraceEngine*
-F|_methodDictionary|_methodDictionary|void*|void*
-S|OMR_VMConfiguration|OMR_VMConfigurationPointer|
-F|_maximum_thread_count|_maximum_thread_count|UDATA|uintptr_t
-S|OMR_VMThread|OMR_VMThreadPointer|
-F|_vm|_vm|struct OMR_VM*|struct OMR_VM*
-F|_sampleStackBackoff|_sampleStackBackoff|U32|uint32_t
-F|_language_vmthread|_language_vmthread|void*|void*
-F|_os_thread|_os_thread|struct J9Thread*|omrthread_t
-F|_linkNext|_linkNext|struct OMR_VMThread*|struct OMR_VMThread*
-F|_linkPrevious|_linkPrevious|struct OMR_VMThread*|struct OMR_VMThread*
-F|_internal|_internal|UDATA|uintptr_t
-F|_gcOmrVMThreadExtensions|_gcOmrVMThreadExtensions|void*|void*
-F|vmState|vmState|UDATA|uintptr_t
-F|exclusiveCount|exclusiveCount|UDATA|uintptr_t
-F|threadName|threadName|U8*|uint8_t*
-F|threadNameIsStatic|threadNameIsStatic|BOOLEAN|BOOLEAN
-F|threadNameMutex|threadNameMutex|struct J9ThreadMonitor*|omrthread_monitor_t
-F|_trace$uteThread|_trace.uteThread|UtThreadData*|UtThreadData*
-F|_trace$omrTraceThread|_trace.omrTraceThread|OMR_TraceThread*|OMR_TraceThread*
-F|lowTenureAddress|lowTenureAddress|void*|void*
-F|highTenureAddress|highTenureAddress|void*|void*
-F|heapBaseForBarrierRange0|heapBaseForBarrierRange0|void*|void*
-F|heapSizeForBarrierRange0|heapSizeForBarrierRange0|UDATA|uintptr_t
-F|memorySpace|memorySpace|void*|void*
-F|movedObjectHashCodeCache|movedObjectHashCodeCache|struct movedObjectHashCode|struct movedObjectHashCode
-F|_attachCount|_attachCount|I32|int32_t
-F|_savedObject1|_savedObject1|void*|void*
-F|_savedObject2|_savedObject2|void*|void*
-S|OSCacheConstants|OSCacheConstantsPointer|
-C|J9SH_OSCACHE_CORRUPT
-C|J9SH_OSCACHE_CREATE
-C|J9SH_OSCACHE_CREATED
-C|J9SH_OSCACHE_DIFF_BUILDID
-C|J9SH_OSCACHE_FAILURE
-C|J9SH_OSCACHE_HEADER_CORRUPT
-C|J9SH_OSCACHE_HEADER_DIFF_BUILDID
-C|J9SH_OSCACHE_HEADER_MISSING
-C|J9SH_OSCACHE_HEADER_OK
-C|J9SH_OSCACHE_HEADER_WRONG_VERSION
-C|J9SH_OSCACHE_INUSE
-C|J9SH_OSCACHE_NO_CACHE
-C|J9SH_OSCACHE_OPENED
-C|J9SH_OSCACHE_OPEXIST_DESTROY
-C|J9SH_OSCACHE_OPEXIST_DO_NOT_CREATE
-C|J9SH_OSCACHE_OPEXIST_STATS
-C|J9SH_OSCACHE_OUTOFMEMORY
-C|J9SH_OSCACHE_READONLY_RETRY_COUNT
-C|J9SH_OSCACHE_READONLY_RETRY_SLEEP_MILLIS
-C|J9SH_OSCACHE_SEMAPHORE_MISMATCH
-C|J9SH_OSCACHE_UNKNOWN
-C|OSCACHE_CURRENT_CACHE_GEN
-C|OSCACHE_HEADER_FIELD_BUILDID
-C|OSCACHE_HEADER_FIELD_CACHE_INIT_COMPLETE
-C|OSCACHE_HEADER_FIELD_DATA_LENGTH
-C|OSCACHE_HEADER_FIELD_DATA_START
-C|OSCACHE_HEADER_FIELD_GENERATION
-C|OSCACHE_HEADER_FIELD_SIZE
-C|OSCACHE_LOWEST_ACTIVE_GEN
-S|OSCacheFileConstants|OSCacheFileConstantsPointer|
-C|J9SH_OSCACHE_MMAP_EYECATCHER_LENGTH
-C|J9SH_OSCACHE_MMAP_LOCKID_READWRITELOCK
-C|J9SH_OSCACHE_MMAP_LOCKID_WRITELOCK
-C|J9SH_OSCACHE_MMAP_LOCK_COUNT
-C|OSCACHEMMAP_HEADER_FIELD_ATTACH_LOCK
-C|OSCACHEMMAP_HEADER_FIELD_CREATE_TIME
-C|OSCACHEMMAP_HEADER_FIELD_DATA_LOCKS
-C|OSCACHEMMAP_HEADER_FIELD_HEADER_LOCK
-C|OSCACHEMMAP_HEADER_FIELD_LAST_ATTACHED_TIME
-C|OSCACHEMMAP_HEADER_FIELD_LAST_DETACHED_TIME
-S|OSCache_header1|OSCache_header1Pointer|
-F|versionData|versionData|struct J9PortShcVersion|struct J9PortShcVersion
-F|size|size|U32|U32
-F|unused1|unused1|U32|U32
-F|unused2|unused2|U32|U32
-F|dataStart|dataStart|J9SRP|J9SRP
-F|dataLength|dataLength|U32|U32
-F|generation|generation|U32|U32
-F|buildID|buildID|U64|U64
-S|OSCache_header2|OSCache_header2Pointer|
-F|versionData|versionData|struct J9PortShcVersion|struct J9PortShcVersion
-F|size|size|U32|U32
-F|dataStart|dataStart|J9SRP|J9SRP
-F|dataLength|dataLength|U32|U32
-F|generation|generation|U32|U32
-F|cacheInitComplete|cacheInitComplete|U32|U32
-F|buildID|buildID|U64|U64
-F|unused32|unused32|U32[]|U32[]
-F|unused64|unused64|U64[]|U64[]
-S|OSCache_header_version_G03|OSCache_header_version_G03Pointer|
-F|versionData|versionData|struct J9PortShcVersion|struct J9PortShcVersion
-F|size|size|U32|U32
-F|unused1|unused1|U32|U32
-F|unused2|unused2|U32|U32
-F|dataStart|dataStart|J9SRP|J9SRP
-F|dataLength|dataLength|U32|U32
-F|generation|generation|U32|U32
-F|buildID|buildID|U64|U64
-S|OSCache_header_version_G04|OSCache_header_version_G04Pointer|
-F|versionData|versionData|struct J9PortShcVersion|struct J9PortShcVersion
-F|size|size|U32|U32
-F|dataStart|dataStart|J9SRP|J9SRP
-F|dataLength|dataLength|U32|U32
-F|generation|generation|U32|U32
-F|cacheInitComplete|cacheInitComplete|U32|U32
-F|buildID|buildID|U64|U64
-F|unused32|unused32|U32[]|U32[]
-F|unused64|unused64|U64[]|U64[]
-S|OSCache_header_version_current|OSCache_header_version_currentPointer|
-F|versionData|versionData|struct J9PortShcVersion|struct J9PortShcVersion
-F|size|size|U32|U32
-F|dataStart|dataStart|J9SRP|J9SRP
-F|dataLength|dataLength|U32|U32
-F|generation|generation|U32|U32
-F|cacheInitComplete|cacheInitComplete|U32|U32
-F|buildID|buildID|U64|U64
-F|unused32|unused32|U32[]|U32[]
-F|unused64|unused64|U64[]|U64[]
-S|OSCache_mmap_header1|OSCache_mmap_header1Pointer|
-F|eyecatcher|eyecatcher|U8[]|char[]
-F|oscHdr|oscHdr|struct OSCache_header1|struct OSCache_header1
-F|cacheInitComplete|cacheInitComplete|UDATA|UDATA
-F|unused|unused|UDATA[]|UDATA[]
-F|createTime|createTime|I64|I64
-F|lastAttachedTime|lastAttachedTime|I64|I64
-F|lastDetachedTime|lastDetachedTime|I64|I64
-F|headerLock|headerLock|I32|I32
-F|attachLock|attachLock|I32|I32
-F|dataLocks|dataLocks|I32[]|I32[]
-S|OSCache_mmap_header2|OSCache_mmap_header2Pointer|
-F|eyecatcher|eyecatcher|U8[]|char[]
-F|oscHdr|oscHdr|struct OSCache_header2|struct OSCache_header2
-F|createTime|createTime|I64|I64
-F|lastAttachedTime|lastAttachedTime|I64|I64
-F|lastDetachedTime|lastDetachedTime|I64|I64
-F|headerLock|headerLock|I32|I32
-F|attachLock|attachLock|I32|I32
-F|dataLocks|dataLocks|I32[]|I32[]
-F|unused32|unused32|U32[]|U32[]
-F|unused64|unused64|U64[]|U64[]
-S|OSCache_sysv_header1|OSCache_sysv_header1Pointer|
-F|eyecatcher|eyecatcher|U8[]|char[]
-F|version|version|UDATA|UDATA
-F|modlevel|modlevel|U64|U64
+S|OmrBuildFlags|OmrBuildFlagsPointer|
+C|OMRCFG_H_
+C|OMR_ARCH_ARM
+C|OMR_ARCH_POWER
+C|OMR_ARCH_X86
+C|OMR_ENV_GCC
+C|OMR_ENV_LITTLE_ENDIAN
+C|OMR_EXAMPLE
+C|OMR_GC_COMPRESSED_POINTERS
+C|OMR_GC_IDLE_HEAP_MANAGER
+C|OMR_GC_OBJECT_ALLOCATION_NOTIFY
+C|OMR_GC_OBJECT_MAP
+C|OMR_GC_TLH_PREFETCH_FTA
+C|OMR_INTERP_COMPRESSED_OBJECT_HEADER
+C|OMR_INTERP_SMALL_MONITOR_SLOT
+C|OMR_JIT
+C|OMR_JITBUILDER
+C|OMR_OPT_CUDA
+C|OMR_PORT_ALLOCATE_TOP_DOWN
+C|OMR_PORT_NUMA_SUPPORT
+C|OMR_PORT_ZOS_CEEHDLRSUPPORT
+C|OMR_TEST_COMPILER
+C|OMR_THR_FORK_SUPPORT
+C|OMR_THR_SPIN_WAKE_CONTROL
+C|OMR_THR_TRACING
+C|OMR_THR_YIELD_ALG
+C|OMR_VALGRIND_MEMCHECK
+S|OmrcfgConstants|OmrcfgConstantsPointer|
+C|OMRTHREAD_LIB_ZOS
+C|OMR_ARCH_S390
+C|OMR_ENV_DATA64
+C|OMR_GC
+C|OMR_GC_ALLOCATION_TAX
+C|OMR_GC_ARRAYLETS
+C|OMR_GC_BATCH_CLEAR_TLH
+C|OMR_GC_COMBINATION_SPEC
+C|OMR_GC_CONCURRENT_SCAVENGER
+C|OMR_GC_CONCURRENT_SWEEP
+C|OMR_GC_DEBUG_ASSERTS
+C|OMR_GC_HEAP_CARD_TABLE
+C|OMR_GC_HYBRID_ARRAYLETS
+C|OMR_GC_LARGE_OBJECT_AREA
+C|OMR_GC_LEAF_BITS
+C|OMR_GC_MINIMUM_OBJECT_SIZE
+C|OMR_GC_MODRON_COMPACTION
+C|OMR_GC_MODRON_CONCURRENT_MARK
+C|OMR_GC_MODRON_SCAVENGER
+C|OMR_GC_MODRON_STANDARD
+C|OMR_GC_NON_ZERO_TLH
+C|OMR_GC_REALTIME
+C|OMR_GC_SEGREGATED_HEAP
+C|OMR_GC_STACCATO
+C|OMR_GC_THREAD_LOCAL_HEAP
+C|OMR_GC_VLHGC
+C|OMR_INTERP_HAS_SEMAPHORES
+C|OMR_NOTIFY_POLICY_CONTROL
+C|OMR_OMRSIG
+C|OMR_PORT
+C|OMR_PORT_ASYNC_HANDLER
+C|OMR_PORT_CAN_RESERVE_SPECIFIC_ADDRESS
+C|OMR_RAS_TDF_TRACE
+C|OMR_THREAD
+C|OMR_THR_ADAPTIVE_SPIN
+C|OMR_THR_CUSTOM_SPIN_OPTIONS
+C|OMR_THR_JLM
+C|OMR_THR_JLM_HOLD_TIMES
+C|OMR_THR_LOCK_NURSERY
+C|OMR_THR_THREE_TIER_LOCKING
+S|HyPortLibrary|HyPortLibraryPointer|
+F|portVersion|portVersion|struct HyPortLibraryVersion|struct HyPortLibraryVersion
+F|portGlobals|portGlobals|void*|struct HyPortLibraryGlobalData*
+F|port_shutdown_library|port_shutdown_library|void*|void*
+F|port_isFunctionOverridden|port_isFunctionOverridden|void*|void*
+F|port_tls_free|port_tls_free|void*|void*
+F|error_startup|error_startup|void*|void*
+F|error_shutdown|error_shutdown|void*|void*
+F|error_last_error_number|error_last_error_number|void*|void*
+F|error_last_error_message|error_last_error_message|void*|void*
+F|error_set_last_error|error_set_last_error|void*|void*
+F|error_set_last_error_with_message|error_set_last_error_with_message|void*|void*
+F|time_startup|time_startup|void*|void*
+F|time_shutdown|time_shutdown|void*|void*
+F|time_msec_clock|time_msec_clock|void*|void*
+F|time_usec_clock|time_usec_clock|void*|void*
+F|time_current_time_millis|time_current_time_millis|void*|void*
+F|time_hires_clock|time_hires_clock|void*|void*
+F|time_hires_frequency|time_hires_frequency|void*|void*
+F|time_hires_delta|time_hires_delta|void*|void*
+F|sysinfo_startup|sysinfo_startup|void*|void*
+F|sysinfo_shutdown|sysinfo_shutdown|void*|void*
+F|sysinfo_get_pid|sysinfo_get_pid|void*|void*
+F|sysinfo_get_physical_memory|sysinfo_get_physical_memory|void*|void*
+F|sysinfo_get_OS_version|sysinfo_get_OS_version|void*|void*
+F|sysinfo_get_env|sysinfo_get_env|void*|void*
+F|sysinfo_get_CPU_architecture|sysinfo_get_CPU_architecture|void*|void*
+F|sysinfo_get_OS_type|sysinfo_get_OS_type|void*|void*
+F|sysinfo_get_classpathSeparator|sysinfo_get_classpathSeparator|void*|void*
+F|sysinfo_get_executable_name|sysinfo_get_executable_name|void*|void*
+F|sysinfo_get_number_CPUs|sysinfo_get_number_CPUs|void*|void*
+F|sysinfo_get_username|sysinfo_get_username|void*|void*
+F|file_startup|file_startup|void*|void*
+F|file_shutdown|file_shutdown|void*|void*
+F|file_write|file_write|void*|void*
+F|file_write_text|file_write_text|void*|void*
+F|file_vprintf|file_vprintf|void*|void*
+F|file_printf|file_printf|void*|void*
+F|file_open|file_open|void*|void*
+F|file_close|file_close|void*|void*
+F|file_seek|file_seek|void*|void*
+F|file_read|file_read|void*|void*
+F|file_unlink|file_unlink|void*|void*
+F|file_attr|file_attr|void*|void*
+F|file_lastmod|file_lastmod|void*|void*
+F|file_length|file_length|void*|void*
+F|file_set_length|file_set_length|void*|void*
+F|file_sync|file_sync|void*|void*
+F|sl_startup|sl_startup|void*|void*
+F|sl_shutdown|sl_shutdown|void*|void*
+F|sl_close_shared_library|sl_close_shared_library|void*|void*
+F|sl_open_shared_library|sl_open_shared_library|void*|void*
+F|sl_lookup_name|sl_lookup_name|void*|void*
+F|tty_startup|tty_startup|void*|void*
+F|tty_shutdown|tty_shutdown|void*|void*
+F|tty_printf|tty_printf|void*|void*
+F|tty_vprintf|tty_vprintf|void*|void*
+F|tty_get_chars|tty_get_chars|void*|void*
+F|tty_err_printf|tty_err_printf|void*|void*
+F|tty_err_vprintf|tty_err_vprintf|void*|void*
+F|tty_available|tty_available|void*|void*
+F|mem_startup|mem_startup|void*|void*
+F|mem_shutdown|mem_shutdown|void*|void*
+F|mem_allocate_memory|mem_allocate_memory|void*|void*
+F|mem_allocate_memory_callSite|mem_allocate_memory_callSite|void*|void*
+F|mem_free_memory|mem_free_memory|void*|void*
+F|mem_reallocate_memory|mem_reallocate_memory|void*|void*
+F|cpu_startup|cpu_startup|void*|void*
+F|cpu_shutdown|cpu_shutdown|void*|void*
+F|cpu_flush_icache|cpu_flush_icache|void*|void*
+F|vmem_startup|vmem_startup|void*|void*
+F|vmem_shutdown|vmem_shutdown|void*|void*
+F|vmem_commit_memory|vmem_commit_memory|void*|void*
+F|vmem_decommit_memory|vmem_decommit_memory|void*|void*
+F|vmem_free_memory|vmem_free_memory|void*|void*
+F|vmem_reserve_memory|vmem_reserve_memory|void*|void*
+F|vmem_supported_page_sizes|vmem_supported_page_sizes|void*|void*
+F|sock_startup|sock_startup|void*|void*
+F|sock_shutdown|sock_shutdown|void*|void*
+F|sock_htons|sock_htons|void*|void*
+F|sock_write|sock_write|void*|void*
+F|sock_sockaddr|sock_sockaddr|void*|void*
+F|sock_read|sock_read|void*|void*
+F|sock_socket|sock_socket|void*|void*
+F|sock_close|sock_close|void*|void*
+F|sock_connect|sock_connect|void*|void*
+F|sock_inetaddr|sock_inetaddr|void*|void*
+F|sock_gethostbyname|sock_gethostbyname|void*|void*
+F|sock_hostent_addrlist|sock_hostent_addrlist|void*|void*
+F|sock_sockaddr_init|sock_sockaddr_init|void*|void*
+F|sock_linger_init|sock_linger_init|void*|void*
+F|sock_setopt_linger|sock_setopt_linger|void*|void*
+F|gp_startup|gp_startup|void*|void*
+F|gp_shutdown|gp_shutdown|void*|void*
+F|gp_protect|gp_protect|void*|void*
+F|gp_register_handler|gp_register_handler|void*|void*
+F|gp_info|gp_info|void*|void*
+F|gp_info_count|gp_info_count|void*|void*
+F|gp_handler_function|gp_handler_function|void*|void*
+F|str_startup|str_startup|void*|void*
+F|str_shutdown|str_shutdown|void*|void*
+F|str_printf|str_printf|void*|void*
+F|str_vprintf|str_vprintf|void*|void*
+F|exit_startup|exit_startup|void*|void*
+F|exit_shutdown|exit_shutdown|void*|void*
+F|exit_get_exit_code|exit_get_exit_code|void*|void*
+F|exit_shutdown_and_exit|exit_shutdown_and_exit|void*|void*
+F|self_handle|self_handle|void*|void*
+F|dump_create|dump_create|void*|void*
+F|nls_startup|nls_startup|void*|void*
+F|nls_shutdown|nls_shutdown|void*|void*
+F|nls_set_catalog|nls_set_catalog|void*|void*
+F|nls_set_locale|nls_set_locale|void*|void*
+F|nls_get_language|nls_get_language|void*|void*
+F|nls_get_region|nls_get_region|void*|void*
+F|nls_get_variant|nls_get_variant|void*|void*
+F|nls_printf|nls_printf|void*|void*
+F|nls_vprintf|nls_vprintf|void*|void*
+F|nls_lookup_message|nls_lookup_message|void*|void*
+F|ipcmutex_startup|ipcmutex_startup|void*|void*
+F|ipcmutex_shutdown|ipcmutex_shutdown|void*|void*
+F|ipcmutex_acquire|ipcmutex_acquire|void*|void*
+F|ipcmutex_release|ipcmutex_release|void*|void*
+F|port_control|port_control|void*|void*
+F|sig_startup|sig_startup|void*|void*
+F|sig_shutdown|sig_shutdown|void*|void*
+F|sig_protect|sig_protect|void*|void*
+F|sig_can_protect|sig_can_protect|void*|void*
+F|sig_set_async_signal_handler|sig_set_async_signal_handler|void*|void*
+F|sig_info|sig_info|void*|void*
+F|sig_info_count|sig_info_count|void*|void*
+F|sig_set_options|sig_set_options|void*|void*
+F|sig_get_options|sig_get_options|void*|void*
+F|attached_thread|attached_thread|struct J9Thread*|hythread_t
+F|sysinfo_DLPAR_enabled|sysinfo_DLPAR_enabled|void*|void*
+F|sysinfo_DLPAR_max_CPUs|sysinfo_DLPAR_max_CPUs|void*|void*
+F|sysinfo_weak_memory_consistency|sysinfo_weak_memory_consistency|void*|void*
+F|file_read_text|file_read_text|void*|void*
+F|file_mkdir|file_mkdir|void*|void*
+F|file_move|file_move|void*|void*
+F|file_unlinkdir|file_unlinkdir|void*|void*
+F|file_findfirst|file_findfirst|void*|void*
+F|file_findnext|file_findnext|void*|void*
+F|file_findclose|file_findclose|void*|void*
+F|file_error_message|file_error_message|void*|void*
+F|sock_htonl|sock_htonl|void*|void*
+F|sock_bind|sock_bind|void*|void*
+F|sock_accept|sock_accept|void*|void*
+F|sock_shutdown_input|sock_shutdown_input|void*|void*
+F|sock_shutdown_output|sock_shutdown_output|void*|void*
+F|sock_listen|sock_listen|void*|void*
+F|sock_ntohl|sock_ntohl|void*|void*
+F|sock_ntohs|sock_ntohs|void*|void*
+F|sock_getpeername|sock_getpeername|void*|void*
+F|sock_getsockname|sock_getsockname|void*|void*
+F|sock_readfrom|sock_readfrom|void*|void*
+F|sock_select|sock_select|void*|void*
+F|sock_writeto|sock_writeto|void*|void*
+F|sock_inetntoa|sock_inetntoa|void*|void*
+F|sock_gethostbyaddr|sock_gethostbyaddr|void*|void*
+F|sock_gethostname|sock_gethostname|void*|void*
+F|sock_hostent_aliaslist|sock_hostent_aliaslist|void*|void*
+F|sock_hostent_hostname|sock_hostent_hostname|void*|void*
+F|sock_sockaddr_port|sock_sockaddr_port|void*|void*
+F|sock_sockaddr_address|sock_sockaddr_address|void*|void*
+F|sock_fdset_init|sock_fdset_init|void*|void*
+F|sock_fdset_size|sock_fdset_size|void*|void*
+F|sock_timeval_init|sock_timeval_init|void*|void*
+F|sock_getopt_int|sock_getopt_int|void*|void*
+F|sock_setopt_int|sock_setopt_int|void*|void*
+F|sock_getopt_bool|sock_getopt_bool|void*|void*
+F|sock_setopt_bool|sock_setopt_bool|void*|void*
+F|sock_getopt_byte|sock_getopt_byte|void*|void*
+F|sock_setopt_byte|sock_setopt_byte|void*|void*
+F|sock_getopt_linger|sock_getopt_linger|void*|void*
+F|sock_getopt_sockaddr|sock_getopt_sockaddr|void*|void*
+F|sock_setopt_sockaddr|sock_setopt_sockaddr|void*|void*
+F|sock_setopt_ipmreq|sock_setopt_ipmreq|void*|void*
+F|sock_linger_enabled|sock_linger_enabled|void*|void*
+F|sock_linger_linger|sock_linger_linger|void*|void*
+F|sock_ipmreq_init|sock_ipmreq_init|void*|void*
+F|sock_setflag|sock_setflag|void*|void*
+F|sock_freeaddrinfo|sock_freeaddrinfo|void*|void*
+F|sock_getaddrinfo|sock_getaddrinfo|void*|void*
+F|sock_getaddrinfo_address|sock_getaddrinfo_address|void*|void*
+F|sock_getaddrinfo_create_hints|sock_getaddrinfo_create_hints|void*|void*
+F|sock_getaddrinfo_family|sock_getaddrinfo_family|void*|void*
+F|sock_getaddrinfo_length|sock_getaddrinfo_length|void*|void*
+F|sock_getaddrinfo_name|sock_getaddrinfo_name|void*|void*
+F|sock_getnameinfo|sock_getnameinfo|void*|void*
+F|sock_ipv6_mreq_init|sock_ipv6_mreq_init|void*|void*
+F|sock_setopt_ipv6_mreq|sock_setopt_ipv6_mreq|void*|void*
+F|sock_sockaddr_address6|sock_sockaddr_address6|void*|void*
+F|sock_sockaddr_family|sock_sockaddr_family|void*|void*
+F|sock_sockaddr_init6|sock_sockaddr_init6|void*|void*
+F|sock_socketIsValid|sock_socketIsValid|void*|void*
+F|sock_select_read|sock_select_read|void*|void*
+F|sock_set_nonblocking|sock_set_nonblocking|void*|void*
+F|sock_error_message|sock_error_message|void*|void*
+F|sock_get_network_interfaces|sock_get_network_interfaces|void*|void*
+F|sock_free_network_interface_struct|sock_free_network_interface_struct|void*|void*
+F|sock_connect_with_timeout|sock_connect_with_timeout|void*|void*
+F|str_ftime|str_ftime|void*|void*
+F|mmap_startup|mmap_startup|void*|void*
+F|mmap_shutdown|mmap_shutdown|void*|void*
+F|mmap_capabilities|mmap_capabilities|void*|void*
+F|mmap_map_file|mmap_map_file|void*|void*
+F|mmap_unmap_file|mmap_unmap_file|void*|void*
+F|shsem_startup|shsem_startup|void*|void*
+F|shsem_shutdown|shsem_shutdown|void*|void*
+F|shsem_open|shsem_open|void*|void*
+F|shsem_post|shsem_post|void*|void*
+F|shsem_wait|shsem_wait|void*|void*
+F|shsem_getVal|shsem_getVal|void*|void*
+F|shsem_setVal|shsem_setVal|void*|void*
+F|shsem_close|shsem_close|void*|void*
+F|shsem_destroy|shsem_destroy|void*|void*
+F|shmem_startup|shmem_startup|void*|void*
+F|shmem_shutdown|shmem_shutdown|void*|void*
+F|shmem_open|shmem_open|void*|void*
+F|shmem_attach|shmem_attach|void*|void*
+F|shmem_detach|shmem_detach|void*|void*
+F|shmem_close|shmem_close|void*|void*
+F|shmem_destroy|shmem_destroy|void*|void*
+F|shmem_findfirst|shmem_findfirst|void*|void*
+F|shmem_findnext|shmem_findnext|void*|void*
+F|shmem_findclose|shmem_findclose|void*|void*
+F|shmem_stat|shmem_stat|void*|void*
+F|sysinfo_get_processing_capacity|sysinfo_get_processing_capacity|void*|void*
+F|buf_write_text|buf_write_text|void*|void*
+F|port_get_thread_library|port_get_thread_library|void*|void*
+F|sock_fdset_zero|sock_fdset_zero|void*|void*
+F|sock_fdset_set|sock_fdset_set|void*|void*
+F|process_create|process_create|void*|void*
+F|process_getStream|process_getStream|void*|void*
+F|process_waitfor|process_waitfor|void*|void*
+F|process_close|process_close|void*|void*
+F|process_isComplete|process_isComplete|void*|void*
+F|process_terminate|process_terminate|void*|void*
+F|process_get_exitCode|process_get_exitCode|void*|void*
+F|process_get_available|process_get_available|void*|void*
+F|_hypadding039C|_hypadding039C|U8[]|char[]
+S|HyPortLibraryVersion|HyPortLibraryVersionPointer|
+F|majorVersionNumber|majorVersionNumber|U16|U16
+F|minorVersionNumber|minorVersionNumber|U16|U16
+F|padding|padding|U32|U32
+F|capabilities|capabilities|U64|U64
+S|HyPortShmemStatistic|HyPortShmemStatisticPointer|
+F|shmid|shmid|UDATA|UDATA
+F|nattach|nattach|UDATA|UDATA
+F|key|key|UDATA|UDATA
+F|perm|perm|UDATA|UDATA
+F|file|file|U8*|char*
+F|pad|pad|UDATA|UDATA
+F|atime|atime|I64|I64
+F|dtime|dtime|I64|I64
+F|chtime|chtime|I64|I64
+S|HyPortVmemIdentifier|HyPortVmemIdentifierPointer|
+F|address|address|void*|void*
+F|handle|handle|void*|void*
 F|size|size|UDATA|UDATA
-F|maxGeneration|maxGeneration|UDATA|UDATA
-F|available|available|UDATA|UDATA
-S|OSCache_sysv_header2|OSCache_sysv_header2Pointer|
-F|eyecatcher|eyecatcher|U8[]|char[]
-F|oscHdr|oscHdr|struct OSCache_header1|struct OSCache_header1
-F|inDefaultControlDir|inDefaultControlDir|UDATA|UDATA
-F|cacheInitComplete|cacheInitComplete|UDATA|UDATA
-F|unused|unused|UDATA[]|UDATA[]
-S|OSCache_sysv_header3|OSCache_sysv_header3Pointer|
-F|eyecatcher|eyecatcher|U8[]|char[]
-F|oscHdr|oscHdr|struct OSCache_header2|struct OSCache_header2
-F|inDefaultControlDir|inDefaultControlDir|U32|U32
-F|attachedSemid|attachedSemid|I32|I32
-F|unused32|unused32|U32[]|U32[]
-F|unused64|unused64|U64[]|U64[]
-S|OSCache_vmem_header1|OSCache_vmem_header1Pointer|
-F|oscHdr|oscHdr|struct OSCache_header2|struct OSCache_header2
-F|unused32|unused32|U32[]|U32[]
-F|unused64|unused64|U64[]|U64[]
-S|OSCache_vmem_header2|OSCache_vmem_header2Pointer|
-F|oscHdr|oscHdr|struct OSCache_header2|struct OSCache_header2
-F|unused32|unused32|U32[]|U32[]
-F|unused64|unused64|U64[]|U64[]
-S|OSCachemmapConstants|OSCachemmapConstantsPointer|
-C|J9SH_OSCACHE_MMAP_HEADER_LOCK_RETRY_COUNT
-C|J9SH_OSCACHE_MMAP_HEADER_LOCK_RETRY_SLEEP_MILLIS
-S|OSCachemmap_header_version_G03|OSCachemmap_header_version_G03Pointer|
-F|eyecatcher|eyecatcher|U8[]|char[]
-F|oscHdr|oscHdr|struct OSCache_header1|struct OSCache_header1
-F|cacheInitComplete|cacheInitComplete|UDATA|UDATA
-F|unused|unused|UDATA[]|UDATA[]
-F|createTime|createTime|I64|I64
-F|lastAttachedTime|lastAttachedTime|I64|I64
-F|lastDetachedTime|lastDetachedTime|I64|I64
-F|headerLock|headerLock|I32|I32
-F|attachLock|attachLock|I32|I32
-F|dataLocks|dataLocks|I32[]|I32[]
-S|OSCachemmap_header_version_G04|OSCachemmap_header_version_G04Pointer|
-F|eyecatcher|eyecatcher|U8[]|char[]
-F|oscHdr|oscHdr|struct OSCache_header2|struct OSCache_header2
-F|createTime|createTime|I64|I64
-F|lastAttachedTime|lastAttachedTime|I64|I64
-F|lastDetachedTime|lastDetachedTime|I64|I64
-F|headerLock|headerLock|I32|I32
-F|attachLock|attachLock|I32|I32
-F|dataLocks|dataLocks|I32[]|I32[]
-F|unused32|unused32|U32[]|U32[]
-F|unused64|unused64|U64[]|U64[]
-S|OSCachemmap_header_version_current|OSCachemmap_header_version_currentPointer|
-F|eyecatcher|eyecatcher|U8[]|char[]
-F|oscHdr|oscHdr|struct OSCache_header2|struct OSCache_header2
-F|createTime|createTime|I64|I64
-F|lastAttachedTime|lastAttachedTime|I64|I64
-F|lastDetachedTime|lastDetachedTime|I64|I64
-F|headerLock|headerLock|I32|I32
-F|attachLock|attachLock|I32|I32
-F|dataLocks|dataLocks|I32[]|I32[]
-F|unused32|unused32|U32[]|U32[]
-F|unused64|unused64|U64[]|U64[]
-S|OSCachesysvConstants|OSCachesysvConstantsPointer|
-C|OSCACHESYSV_HEADER_FIELD_CACHE_INIT_COMPLETE
-C|OSCACHESYSV_HEADER_FIELD_IN_DEFAULT_CONTROL_DIR
-S|OSCachesysv_header_version_G01|OSCachesysv_header_version_G01Pointer|
-F|eyecatcher|eyecatcher|U8[]|char[]
-F|version|version|UDATA|UDATA
-F|modlevel|modlevel|U64|U64
-F|size|size|UDATA|UDATA
-F|maxGeneration|maxGeneration|UDATA|UDATA
-F|available|available|UDATA|UDATA
-S|OSCachesysv_header_version_G03|OSCachesysv_header_version_G03Pointer|
-F|eyecatcher|eyecatcher|U8[]|char[]
-F|oscHdr|oscHdr|struct OSCache_header1|struct OSCache_header1
-F|inDefaultControlDir|inDefaultControlDir|UDATA|UDATA
-F|cacheInitComplete|cacheInitComplete|UDATA|UDATA
-F|unused|unused|UDATA[]|UDATA[]
-S|OSCachesysv_header_version_G04|OSCachesysv_header_version_G04Pointer|
-F|eyecatcher|eyecatcher|U8[]|char[]
-F|oscHdr|oscHdr|struct OSCache_header2|struct OSCache_header2
-F|inDefaultControlDir|inDefaultControlDir|U32|U32
-F|attachedSemid|attachedSemid|I32|I32
-F|unused32|unused32|U32[]|U32[]
-F|unused64|unused64|U64[]|U64[]
-S|OSCachesysv_header_version_current|OSCachesysv_header_version_currentPointer|
-F|eyecatcher|eyecatcher|U8[]|char[]
-F|oscHdr|oscHdr|struct OSCache_header2|struct OSCache_header2
-F|inDefaultControlDir|inDefaultControlDir|U32|U32
-F|attachedSemid|attachedSemid|I32|I32
-F|unused32|unused32|U32[]|U32[]
-F|unused64|unused64|U64[]|U64[]
-S|OSCachevmemConstants|OSCachevmemConstantsPointer|
-C|J9SH_OSCACHE_VMEM_LOCK_COUNT
-S|OSCachevmem_header_version_current|OSCachevmem_header_version_currentPointer|
-F|oscHdr|oscHdr|struct OSCache_header2|struct OSCache_header2
-F|unused32|unused32|U32[]|U32[]
-F|unused64|unused64|U64[]|U64[]
-S|OmragentConstants|OmragentConstantsPointer|
-C|OMR_TI_VERSION_0
-S|ROMClassBuilder|ROMClassBuilderPointer|
-F|_javaVM|_javaVM|struct J9JavaVM*|struct J9JavaVM*
-F|_portLibrary|_portLibrary|struct J9PortLibrary*|struct J9PortLibrary*
-F|_verifyExcludeAttribute|_verifyExcludeAttribute|U8*|U8*
-F|_verifyClassFunction|_verifyClassFunction|void*|void*
-F|_classFileParserBufferSize|_classFileParserBufferSize|UDATA|UDATA
-F|_bufferManagerSize|_bufferManagerSize|UDATA|UDATA
-F|_classFileBuffer|_classFileBuffer|U8*|U8*
-F|_bufferManagerBuffer|_bufferManagerBuffer|U8*|U8*
-F|_stringInternTable|_stringInternTable|class StringInternTable|class StringInternTable
-S|ROMClassBuilder$CursorTag|ROMClassBuilder$CursorTagPointer|
-C|INTERMEDIATE_TAG
-C|LINE_NUMBER_TAG
-C|MAX_TAG
-C|RC_TAG
-C|UTF8_TAG
-C|VARIABLE_INFO_TAG
-S|ROMClassBuilder$SizeInformation|ROMClassBuilder$SizeInformationPointer|
-F|rcWithOutUTF8sSize|rcWithOutUTF8sSize|UDATA|UDATA
-F|lineNumberSize|lineNumberSize|UDATA|UDATA
-F|variableInfoSize|variableInfoSize|UDATA|UDATA
-F|utf8sSize|utf8sSize|UDATA|UDATA
-F|rawClassDataSize|rawClassDataSize|UDATA|UDATA
-F|varHandleMethodTypeLookupTableSize|varHandleMethodTypeLookupTableSize|UDATA|UDATA
-S|ROMClassCreationContext|ROMClassCreationContextPointer|
-F|_portLibrary|_portLibrary|struct J9PortLibrary*|struct J9PortLibrary*
-F|_javaVM|_javaVM|struct J9JavaVM*|struct J9JavaVM*
-F|_classFileBytes|_classFileBytes|U8*|U8*
-F|_classFileSize|_classFileSize|UDATA|UDATA
-F|_bctFlags|_bctFlags|UDATA|UDATA
-F|_bcuFlags|_bcuFlags|UDATA|UDATA
-F|_findClassFlags|_findClassFlags|UDATA|UDATA
-F|_allocationStrategy|_allocationStrategy|class AllocationStrategy*|class AllocationStrategy*
-F|_romClass|_romClass|struct J9ROMClass*|struct J9ROMClass*
-F|_clazz|_clazz|struct J9Class*|struct J9Class*
-F|_className|_className|U8*|U8*
-F|_classNameLength|_classNameLength|UDATA|UDATA
-F|_intermediateClassData|_intermediateClassData|U8*|U8*
-F|_intermediateClassDataLength|_intermediateClassDataLength|U32|U32
-F|_classLoader|_classLoader|struct J9ClassLoader*|struct J9ClassLoader*
-F|_cpIndex|_cpIndex|UDATA|UDATA
-F|_loadLocation|_loadLocation|UDATA|UDATA
-F|_dynamicLoadStats|_dynamicLoadStats|struct J9DynamicLoadStats*|struct J9DynamicLoadStats*
-F|_sharedStringInternTable|_sharedStringInternTable|struct J9SharedInvariantInternTable*|struct J9SharedInvariantInternTable*
-F|_classFileBytesReplaced|_classFileBytesReplaced|bool|bool
-F|_retransformAllowed|_retransformAllowed|bool|bool
-F|_interningEnabled|_interningEnabled|bool|bool
-F|_verboseROMClass|_verboseROMClass|bool|bool
-F|_verboseLastBufferSizeExceeded|_verboseLastBufferSizeExceeded|UDATA|UDATA
-F|_verboseOutOfMemoryCount|_verboseOutOfMemoryCount|UDATA|UDATA
-F|_verboseCurrentPhase|_verboseCurrentPhase|enum ROMClassCreationPhase|enum ROMClassCreationPhase
-F|_buildResult|_buildResult|enum BuildResult|enum BuildResult
-F|_verboseRecords|_verboseRecords|struct ROMClassCreationContext$VerboseRecord[]|struct ROMClassCreationContext::VerboseRecord[]
-F|_forceDebugDataInLine|_forceDebugDataInLine|bool|bool
-F|_doDebugCompare|_doDebugCompare|bool|bool
-F|_existingRomMethod|_existingRomMethod|struct J9ROMMethod*|struct J9ROMMethod*
-F|_reusingIntermediateClassData|_reusingIntermediateClassData|bool|bool
-F|_creatingIntermediateROMClass|_creatingIntermediateROMClass|bool|bool
-S|ROMClassCreationContext$VerboseRecord|ROMClassCreationContext$VerboseRecordPointer|
-F|lastStartTime|lastStartTime|UDATA|UDATA
-F|accumulatedTime|accumulatedTime|UDATA|UDATA
-F|failureTime|failureTime|UDATA|UDATA
-F|buildResult|buildResult|enum BuildResult|enum BuildResult
-F|parentPhase|parentPhase|enum ROMClassCreationPhase|enum ROMClassCreationPhase
-S|ROMClassCreationPhase|ROMClassCreationPhasePointer|
-C|CheckForLoop
-C|ClassFileAnalysis
-C|ClassFileAnnotationElementAnalysis
-C|ClassFileAnnotationsAnalysis
-C|ClassFileAttributesAnalysis
-C|ClassFileFieldsAnalysis
-C|ClassFileHeaderAnalysis
-C|ClassFileInterfacesAnalysis
-C|ClassFileMethodAttributesAnalysis
-C|ClassFileMethodCodeAttributeAnalysis
-C|ClassFileMethodCodeAttributeAttributesAnalysis
-C|ClassFileMethodCodeAttributeCaughtExceptionsAnalysis
-C|ClassFileMethodCodeAttributeCodeAnalysis
-C|ClassFileMethodMethodParametersAttributeAnalysis
-C|ClassFileMethodThrownExceptionsAnalysis
-C|ClassFileMethodsAnalysis
-C|ClassFileStackMapSlotsAnalysis
-C|CompareHashtableROMClass
-C|CompareSharedROMClass
-C|CompressLineNumbers
-C|ComputeExtraModifiers
-C|ComputeOptionalFlags
-C|ComputeSendSlotCount
-C|ConstantPoolMapping
-C|CreateSharedClass
-C|LayDownROMClass
-C|MarkAndCountUTF8s
-C|MethodIsEmpty
-C|MethodIsFinalize
-C|MethodIsForwarder
-C|MethodIsGetter
-C|MethodIsNonStaticNonAbstract
-C|MethodIsObjectConstructor
-C|MethodIsVirtual
-C|ParseClassFile
-C|ParseClassFileAttributes
-C|ParseClassFileCheckClass
-C|ParseClassFileConstantPool
-C|ParseClassFileFields
-C|ParseClassFileInlineJSRs
-C|ParseClassFileMethods
-C|ParseClassFileVerifyClass
-C|PrepareROMClass
-C|PrepareUTF8sAfterInternsMarked
-C|ROMClassCreation
-C|ROMClassCreationPhaseCount
-C|ROMClassPrepareAndLayDown
-C|ROMClassTranslation
-C|SRPOffsetTableCreation
-C|ShouldConvertInvokeVirtualToInvokeSpecial
-C|VisitUTF8Block
-C|WalkUTF8sAndMarkInterns
-C|WriteUTF8s
-S|ROMClassManagerConstants|ROMClassManagerConstantsPointer|
-C|LOCATE_ROMCLASS_RETURN_DO_MARK_CPEI_STALE
-C|LOCATE_ROMCLASS_RETURN_DO_TRY_WAIT
-C|LOCATE_ROMCLASS_RETURN_FOUND
-C|LOCATE_ROMCLASS_RETURN_FOUND_SHADOW
-C|LOCATE_ROMCLASS_RETURN_MARKED_ITEM_STALE
-C|LOCATE_ROMCLASS_RETURN_NOTFOUND
-S|ROMClassSegmentAllocationStrategy|ROMClassSegmentAllocationStrategyPointer|AllocationStrategy
-F|_javaVM|_javaVM|struct J9JavaVM*|struct J9JavaVM*
-F|_classLoader|_classLoader|struct J9ClassLoader*|struct J9ClassLoader*
-F|_segment|_segment|struct J9MemorySegment*|struct J9MemorySegment*
-F|_bytesRequested|_bytesRequested|UDATA|UDATA
-S|ROMClassStringInternManager|ROMClassStringInternManagerPointer|
-F|_context|_context|class ROMClassCreationContext*|class ROMClassCreationContext*
-F|_stringInternTable|_stringInternTable|class StringInternTable*|class StringInternTable*
-F|_srpOffsetTable|_srpOffsetTable|class SRPOffsetTable*|class SRPOffsetTable*
-F|_srpKeyProducer|_srpKeyProducer|class SRPKeyProducer*|class SRPKeyProducer*
-F|_baseAddress|_baseAddress|IDATA|IDATA
-F|_endAddress|_endAddress|IDATA|IDATA
-F|_hasStringTableLock|_hasStringTableLock|bool|bool
-F|_isSharedROMClass|_isSharedROMClass|bool|bool
-S|ROMClassVerbosePhase|ROMClassVerbosePhasePointer|
-F|_context|_context|class ROMClassCreationContext*|class ROMClassCreationContext*
-F|_phase|_phase|enum ROMClassCreationPhase|enum ROMClassCreationPhase
-F|_result|_result|enum BuildResult*|enum BuildResult*
-S|ROMClassVerbosePhaseConstants|ROMClassVerbosePhaseConstantsPointer|
-C|RECORD_HOT_PHASES
-S|ROMClassWriter|ROMClassWriterPointer|
-F|_bufferManager|_bufferManager|class BufferManager*|class BufferManager*
-F|_classFileOracle|_classFileOracle|class ClassFileOracle*|class ClassFileOracle*
-F|_srpKeyProducer|_srpKeyProducer|class SRPKeyProducer*|class SRPKeyProducer*
-F|_constantPoolMap|_constantPoolMap|class ConstantPoolMap*|class ConstantPoolMap*
-F|_srpOffsetTable|_srpOffsetTable|class SRPOffsetTable*|class SRPOffsetTable*
-F|_context|_context|class ROMClassCreationContext*|class ROMClassCreationContext*
-F|_methodNotes|_methodNotes|struct ROMClassWriter$MethodNotes*|struct ROMClassWriter::MethodNotes*
-F|_buildResult|_buildResult|enum BuildResult|enum BuildResult
-F|_interfacesSRPKey|_interfacesSRPKey|UDATA|UDATA
-F|_methodsSRPKey|_methodsSRPKey|UDATA|UDATA
-F|_fieldsSRPKey|_fieldsSRPKey|UDATA|UDATA
-F|_cpDescriptionShapeSRPKey|_cpDescriptionShapeSRPKey|UDATA|UDATA
-F|_innerClassesSRPKey|_innerClassesSRPKey|UDATA|UDATA
-F|_optionalInfoSRPKey|_optionalInfoSRPKey|UDATA|UDATA
-F|_stackMapsSRPKey|_stackMapsSRPKey|UDATA|UDATA
-F|_enclosingMethodSRPKey|_enclosingMethodSRPKey|UDATA|UDATA
-F|_sourceDebugExtensionSRPKey|_sourceDebugExtensionSRPKey|UDATA|UDATA
-F|_intermediateClassDataSRPKey|_intermediateClassDataSRPKey|UDATA|UDATA
-F|_annotationInfoClassSRPKey|_annotationInfoClassSRPKey|UDATA|UDATA
-F|_typeAnnotationInfoSRPKey|_typeAnnotationInfoSRPKey|UDATA|UDATA
-F|_callSiteDataSRPKey|_callSiteDataSRPKey|UDATA|UDATA
-F|_varHandleMethodTypeLookupTableSRPKey|_varHandleMethodTypeLookupTableSRPKey|UDATA|UDATA
-F|_staticSplitTableSRPKey|_staticSplitTableSRPKey|UDATA|UDATA
-F|_specialSplitTableSRPKey|_specialSplitTableSRPKey|UDATA|UDATA
-S|ROMClassWriter$MarkOrWrite|ROMClassWriter$MarkOrWritePointer|
-C|MARK_AND_COUNT_ONLY
-C|WRITE
-S|ROMClassWriter$MethodNotes|ROMClassWriter$MethodNotesPointer|
-F|debugInfoSize|debugInfoSize|U32|U32
-F|stackMapSize|stackMapSize|U32|U32
-S|SH_AttachedDataManager|SH_AttachedDataManagerPointer|SH_ROMClassResourceManager
-S|SH_AttachedDataManager$SH_AttachedDataResourceDescriptor|SH_AttachedDataManager$SH_AttachedDataResourceDescriptorPointer|SH_ROMClassResourceManager$SH_ResourceDescriptor
-F|_dataStart|_dataStart|U8*|const U8*
-F|_dataSize|_dataSize|U32|const U32
-F|_type|_type|U16|const U16
-S|SH_AttachedDataManagerImpl|SH_AttachedDataManagerImplPointer|SH_AttachedDataManager
-F|_numBytesByType|_numBytesByType|UDATA[]|UDATA[]
-F|_bytesByType|_bytesByType|UDATA[]|UDATA[]
-S|SH_ByteDataManager|SH_ByteDataManagerPointer|SH_Manager
-S|SH_ByteDataManagerImpl|SH_ByteDataManagerImplPointer|SH_ByteDataManager
-F|_linkedListImplPool|_linkedListImplPool|struct J9Pool*|struct J9Pool*
-F|_unindexedBytes|_unindexedBytes|UDATA|UDATA
-F|_indexedBytesByType|_indexedBytesByType|UDATA[]|UDATA[]
-F|_numIndexedBytesByType|_numIndexedBytesByType|UDATA[]|UDATA[]
-S|SH_ByteDataManagerImpl$BdLinkedListImpl|SH_ByteDataManagerImpl$BdLinkedListImplPointer|SH_Manager$HashLinkedListImpl
-S|SH_CacheFileAccess|SH_CacheFileAccessPointer|
-C|J9SH_CACHE_FILE_ACCESS_ALLOWED
-C|J9SH_CACHE_FILE_ACCESS_CANNOT_BE_DETERMINED
-C|J9SH_CACHE_FILE_ACCESS_GROUP_ACCESS_REQUIRED
-C|J9SH_CACHE_FILE_ACCESS_OTHERS_NOT_ALLOWED
-S|SH_CacheMap|SH_CacheMapPointer|SH_CacheMapStats
-F|_cc|_cc|class SH_CompositeCacheImpl*|class SH_CompositeCacheImpl*
-F|_writeHashStartTime|_writeHashStartTime|U64|U64
-F|_sharedClassConfig|_sharedClassConfig|struct J9SharedClassConfig*|struct J9SharedClassConfig*
-F|_ccHead|_ccHead|class SH_CompositeCacheImpl*|class SH_CompositeCacheImpl*
-F|_cacheletHead|_cacheletHead|class SH_CompositeCacheImpl*|class SH_CompositeCacheImpl*
-F|_ccCacheletHead|_ccCacheletHead|class SH_CompositeCacheImpl*|class SH_CompositeCacheImpl*
-F|_cacheletTail|_cacheletTail|class SH_CompositeCacheImpl*|class SH_CompositeCacheImpl*
-F|_prevCClastCachelet|_prevCClastCachelet|class SH_CompositeCacheImpl*|class SH_CompositeCacheImpl*
-F|_cpm|_cpm|class SH_ClasspathManager*|class SH_ClasspathManager*
-F|_tsm|_tsm|class SH_TimestampManager*|class SH_TimestampManager*
-F|_rcm|_rcm|class SH_ROMClassManager*|class SH_ROMClassManager*
-F|_scm|_scm|class SH_ScopeManager*|class SH_ScopeManager*
-F|_cmm|_cmm|class SH_CompiledMethodManager*|class SH_CompiledMethodManager*
-F|_bdm|_bdm|class SH_ByteDataManager*|class SH_ByteDataManager*
-F|_adm|_adm|class SH_AttachedDataManager*|class SH_AttachedDataManager*
-F|_portlib|_portlib|struct J9PortLibrary*|struct J9PortLibrary*
-F|_refreshMutex|_refreshMutex|struct J9ThreadMonitor*|omrthread_monitor_t
-F|_cacheCorruptReported|_cacheCorruptReported|bool|bool
-F|_runtimeFlags|_runtimeFlags|U64*|U64*
-F|_cacheName|_cacheName|U8*|const char*
-F|_cacheDir|_cacheDir|U8*|const char*
-F|_localCrashCntr|_localCrashCntr|UDATA|UDATA
-F|_writeHashAverageTimeMicros|_writeHashAverageTimeMicros|UDATA|UDATA
-F|_writeHashMaxWaitMicros|_writeHashMaxWaitMicros|UDATA|UDATA
-F|_writeHashSavedMaxWaitMicros|_writeHashSavedMaxWaitMicros|UDATA|UDATA
-F|_writeHashContendedResetHash|_writeHashContendedResetHash|UDATA|UDATA
-F|_verboseFlags|_verboseFlags|UDATA|UDATA
-F|_bytesRead|_bytesRead|UDATA|UDATA
-F|_actualSize|_actualSize|U32|U32
-F|_cacheletCntr|_cacheletCntr|UDATA|UDATA
-F|_ccPool|_ccPool|struct J9Pool*|struct J9Pool*
-F|_minimumAccessedShrCacheMetadata|_minimumAccessedShrCacheMetadata|UDATA|uintptr_t
-F|_maximumAccessedShrCacheMetadata|_maximumAccessedShrCacheMetadata|UDATA|uintptr_t
-F|_metadataReleased|_metadataReleased|bool|bool
-F|_runningNested|_runningNested|bool|bool
-F|_growEnabled|_growEnabled|bool|bool
-F|_isSerialized|_isSerialized|bool|bool
-F|_isAssertEnabled|_isAssertEnabled|bool|bool
-F|_managers|_managers|class SH_Managers*|class SH_Managers*
-S|SH_CacheMapStats|SH_CacheMapStatsPointer|
-S|SH_ClasspathManager|SH_ClasspathManagerPointer|SH_Manager
-S|SH_ClasspathManagerImpl2|SH_ClasspathManagerImpl2Pointer|SH_ClasspathManager
-F|_tsm|_tsm|class SH_TimestampManager*|class SH_TimestampManager*
-F|_identifiedMutex|_identifiedMutex|struct J9ThreadMonitor*|omrthread_monitor_t
-F|_linkedListImplPool|_linkedListImplPool|struct J9Pool*|struct J9Pool*
-F|_identifiedClasspaths|_identifiedClasspaths|struct J9ClasspathByIDArray*|struct J9ClasspathByIDArray*
-F|_classpathCount|_classpathCount|UDATA|UDATA
-F|_urlCount|_urlCount|UDATA|UDATA
-F|_tokenCount|_tokenCount|UDATA|UDATA
-F|_allCacheletsStarted|_allCacheletsStarted|bool|bool
-S|SH_ClasspathManagerImpl2$CpLinkedListHdr|SH_ClasspathManagerImpl2$CpLinkedListHdrPointer|
-F|_isToken|_isToken|U8|U8
-F|_flags|_flags|U8|U8
-F|_keySize|_keySize|U16|U16
-F|_key|_key|U8*|const char*
-F|_list|_list|class SH_ClasspathManagerImpl2$CpLinkedListImpl*|class SH_ClasspathManagerImpl2::CpLinkedListImpl*
-S|SH_ClasspathManagerImpl2$CpLinkedListImpl|SH_ClasspathManagerImpl2$CpLinkedListImplPointer|SH_Manager$LinkedListImpl
-F|_CPEIndex|_CPEIndex|I16|I16
-S|SH_CompiledMethodManager|SH_CompiledMethodManagerPointer|SH_ROMClassResourceManager
-S|SH_CompiledMethodManager$SH_CompiledMethodResourceDescriptor|SH_CompiledMethodManager$SH_CompiledMethodResourceDescriptorPointer|SH_ROMClassResourceManager$SH_ResourceDescriptor
-F|_dataStart|_dataStart|U8*|const U8*
-F|_codeStart|_codeStart|U8*|const U8*
-F|_dataSize|_dataSize|U32|const U32
-F|_codeSize|_codeSize|U32|const U32
-S|SH_CompiledMethodManagerImpl|SH_CompiledMethodManagerImplPointer|SH_CompiledMethodManager
-S|SH_CompositeCache|SH_CompositeCachePointer|
-S|SH_CompositeCacheImpl|SH_CompositeCacheImplPointer|AbstractMemoryPermission
-F|_sharedClassConfig|_sharedClassConfig|struct J9SharedClassConfig*|struct J9SharedClassConfig*
-F|_oscache|_oscache|class SH_OSCache*|class SH_OSCache*
-F|_utMutex|_utMutex|struct J9ThreadMonitor*|omrthread_monitor_t
-F|_headerProtectMutex|_headerProtectMutex|struct J9ThreadMonitor*|omrthread_monitor_t
-F|_runtimeFlagsProtectMutex|_runtimeFlagsProtectMutex|struct J9ThreadMonitor*|omrthread_monitor_t
-F|_portlib|_portlib|struct J9PortLibrary*|struct J9PortLibrary*
-F|_theca|_theca|struct J9SharedCacheHeader*|struct J9SharedCacheHeader*
-F|_started|_started|bool|bool
-F|_cacheName|_cacheName|U8*|const char*
-F|_next|_next|class SH_CompositeCacheImpl*|class SH_CompositeCacheImpl*
-F|_parent|_parent|class SH_CompositeCacheImpl*|class SH_CompositeCacheImpl*
-F|_ccHead|_ccHead|class SH_CompositeCacheImpl*|class SH_CompositeCacheImpl*
-F|_scan|_scan|struct ShcItemHdr*|struct ShcItemHdr*
-F|_prevScan|_prevScan|struct ShcItemHdr*|struct ShcItemHdr*
-F|_storedScan|_storedScan|struct ShcItemHdr*|struct ShcItemHdr*
-F|_storedPrevScan|_storedPrevScan|struct ShcItemHdr*|struct ShcItemHdr*
-F|_romClassProtectEnd|_romClassProtectEnd|SH_CompositeCacheImpl$BlockPtr|SH_CompositeCacheImpl::BlockPtr
-F|_oldUpdateCount|_oldUpdateCount|UDATA|UDATA
-F|_storedSegmentUsedBytes|_storedSegmentUsedBytes|U32|U32
-F|_storedMetaUsedBytes|_storedMetaUsedBytes|U32|U32
-F|_storedAOTUsedBytes|_storedAOTUsedBytes|U32|U32
-F|_storedJITUsedBytes|_storedJITUsedBytes|U32|U32
-F|_storedReadWriteUsedBytes|_storedReadWriteUsedBytes|U32|U32
-F|_softmxUnstoredBytes|_softmxUnstoredBytes|U32|U32
-F|_maxAOTUnstoredBytes|_maxAOTUnstoredBytes|U32|U32
-F|_maxJITUnstoredBytes|_maxJITUnstoredBytes|U32|U32
-F|_maxAOT|_maxAOT|I32|I32
-F|_maxJIT|_maxJIT|I32|I32
-F|_runtimeFlags|_runtimeFlags|U64*|U64*
-F|_verboseFlags|_verboseFlags|UDATA|UDATA
-F|_cacheFullFlags|_cacheFullFlags|UDATA|UDATA
-F|_totalStoredBytes|_totalStoredBytes|U32|U32
-F|_lastFailedWriteHash|_lastFailedWriteHash|UDATA|UDATA
-F|_lastFailedWHCount|_lastFailedWHCount|U32|U32
-F|_readWriteAreaStart|_readWriteAreaStart|SH_CompositeCacheImpl$BlockPtr|SH_CompositeCacheImpl::BlockPtr
-F|_readWriteAreaBytes|_readWriteAreaBytes|U32|U32
-F|_readWriteAreaPageStart|_readWriteAreaPageStart|SH_CompositeCacheImpl$BlockPtr|SH_CompositeCacheImpl::BlockPtr
-F|_readWriteAreaPageBytes|_readWriteAreaPageBytes|U32|U32
-F|_cacheHeaderPageStart|_cacheHeaderPageStart|SH_CompositeCacheImpl$BlockPtr|SH_CompositeCacheImpl::BlockPtr
-F|_cacheHeaderPageBytes|_cacheHeaderPageBytes|U32|U32
-F|_osPageSize|_osPageSize|UDATA|UDATA
-F|_nestedSize|_nestedSize|UDATA|UDATA
-F|_nestedMemory|_nestedMemory|SH_CompositeCacheImpl$BlockPtr|SH_CompositeCacheImpl::BlockPtr
-F|_localReadWriteCrashCntr|_localReadWriteCrashCntr|UDATA|UDATA
-F|_metadataSegmentPtr|_metadataSegmentPtr|struct J9MemorySegment**|struct J9MemorySegment**
-F|_currentROMSegment|_currentROMSegment|struct J9MemorySegment*|struct J9MemorySegment*
-F|_doReadWriteSync|_doReadWriteSync|bool|bool
-F|_doHeaderReadWriteProtect|_doHeaderReadWriteProtect|bool|bool
-F|_readWriteAreaHeaderIsReadOnly|_readWriteAreaHeaderIsReadOnly|bool|bool
-F|_doHeaderProtect|_doHeaderProtect|bool|bool
-F|_doSegmentProtect|_doSegmentProtect|bool|bool
-F|_doMetaProtect|_doMetaProtect|bool|bool
-F|_doPartialPagesProtect|_doPartialPagesProtect|bool|bool
-F|_readOnlyOSCache|_readOnlyOSCache|bool|bool
-F|_headerProtectCntr|_headerProtectCntr|IDATA|IDATA
-F|_readWriteProtectCntr|_readWriteProtectCntr|IDATA|IDATA
-F|_readOnlyReaderCount|_readOnlyReaderCount|IDATA|IDATA
-F|_incrementedRWCrashCntr|_incrementedRWCrashCntr|bool|bool
-F|_useWriteHash|_useWriteHash|bool|bool
-F|_canStoreClasspaths|_canStoreClasspaths|bool|bool
-F|_reduceStoreContentionDisabled|_reduceStoreContentionDisabled|bool|bool
-F|_debugData|_debugData|class ClassDebugDataProvider*|class ClassDebugDataProvider*
-F|_commonCCInfo|_commonCCInfo|struct J9ShrCompositeCacheCommonInfo*|struct J9ShrCompositeCacheCommonInfo*
-F|_newHdrPtr|_newHdrPtr|class SH_CompositeCacheImpl$SH_SharedCacheHeaderInit*|class SH_CompositeCacheImpl::SH_SharedCacheHeaderInit*
-S|SH_CompositeCacheImpl$SH_SharedCacheHeaderInit|SH_CompositeCacheImpl$SH_SharedCacheHeaderInitPointer|SH_OSCache$SH_OSCacheInitialiser
-S|SH_Manager|SH_ManagerPointer|
-F|_hashTable|_hashTable|struct J9HashTable*|struct J9HashTable*
-F|_cache|_cache|class SH_SharedCache*|class SH_SharedCache*
-F|_htMutex|_htMutex|struct J9ThreadMonitor*|omrthread_monitor_t
-F|_htMutexName|_htMutexName|U8*|const char*
-F|_portlib|_portlib|struct J9PortLibrary*|struct J9PortLibrary*
-F|_htEntries|_htEntries|U32|U32
-F|_runtimeFlagsPtr|_runtimeFlagsPtr|U64*|U64*
-F|_verboseFlags|_verboseFlags|UDATA|UDATA
-F|_hashTableGetNumItemsDoFn|_hashTableGetNumItemsDoFn|void*|void*
-F|_isRunningNested|_isRunningNested|bool|bool
-F|_dataTypesRepresented|_dataTypesRepresented|UDATA[]|UDATA[]
-F|_state|_state|UDATA|UDATA
-F|_allCacheletsStarted|_allCacheletsStarted|bool|bool
-F|_managerType|_managerType|U8*|const char*
-S|SH_Manager$CountData|SH_Manager$CountDataPointer|
-F|_nonStaleItems|_nonStaleItems|UDATA|UDATA
-F|_staleItems|_staleItems|UDATA|UDATA
-F|_cache|_cache|class SH_SharedCache*|class SH_SharedCache*
-S|SH_Manager$HashLinkedListImpl|SH_Manager$HashLinkedListImplPointer|SH_Manager$LinkedListImpl
-F|_key|_key|U8*|U8*
-F|_keySize|_keySize|U16|U16
-F|_hashValue|_hashValue|UDATA|UDATA
-S|SH_Manager$LinkedListImpl|SH_Manager$LinkedListImplPointer|
-F|_item|_item|struct ShcItem*|const struct ShcItem*
-F|_next|_next|class SH_Manager$LinkedListImpl*|class SH_Manager::LinkedListImpl*
-S|SH_Managers|SH_ManagersPointer|
-F|_initializedManagers|_initializedManagers|class SH_Manager*[]|class SH_Manager*[]
-F|_initializedManagersCntr|_initializedManagersCntr|UDATA|UDATA
-S|SH_Managers$ManagerWalkState|SH_Managers$ManagerWalkStatePointer|
-F|currentThread|currentThread|struct J9VMThread*|struct J9VMThread*
-F|limitState|limitState|UDATA|UDATA
-F|index|index|UDATA|UDATA
-S|SH_OSCache|SH_OSCachePointer|
-F|_cacheName|_cacheName|U8*|char*
-F|_runtimeFlags|_runtimeFlags|U64|U64
-F|_cacheSize|_cacheSize|U32|U32
-F|_headerStart|_headerStart|void*|void*
-F|_dataStart|_dataStart|void*|void*
-F|_dataLength|_dataLength|U32|U32
-F|_cacheNameWithVGen|_cacheNameWithVGen|U8*|char*
-F|_cachePathName|_cachePathName|U8*|char*
-F|_activeGeneration|_activeGeneration|UDATA|UDATA
-F|_createFlags|_createFlags|UDATA|UDATA
-F|_verboseFlags|_verboseFlags|UDATA|UDATA
-F|_errorCode|_errorCode|IDATA|IDATA
-F|_config|_config|struct J9SharedClassPreinitConfig*|const struct J9SharedClassPreinitConfig*
-F|_openMode|_openMode|I32|I32
-F|_runningReadOnly|_runningReadOnly|bool|bool
-F|_portLibrary|_portLibrary|struct J9PortLibrary*|struct J9PortLibrary*
-F|_cacheDirName|_cacheDirName|U8*|char*
-F|_startupCompleted|_startupCompleted|bool|bool
-F|_doCheckBuildID|_doCheckBuildID|bool|bool
-F|_corruptionCode|_corruptionCode|IDATA|IDATA
-F|_corruptValue|_corruptValue|UDATA|UDATA
-F|_isUserSpecifiedCacheDir|_isUserSpecifiedCacheDir|bool|bool
-S|SH_OSCache$SH_OSCacheInitialiser|SH_OSCache$SH_OSCacheInitialiserPointer|
-S|SH_OSCacheFile|SH_OSCacheFilePointer|SH_OSCache
-F|_fileHandle|_fileHandle|IDATA|IDATA
-S|SH_OSCache_Info|SH_OSCache_InfoPointer|
-F|name|name|U8[]|char[]
-F|os_shmid|os_shmid|UDATA|UDATA
-F|os_semid|os_semid|UDATA|UDATA
-F|lastattach|lastattach|I64|I64
-F|lastdetach|lastdetach|I64|I64
-F|createtime|createtime|I64|I64
-F|nattach|nattach|IDATA|IDATA
-F|versionData|versionData|struct J9PortShcVersion|struct J9PortShcVersion
-F|generation|generation|UDATA|UDATA
-F|isCompatible|isCompatible|UDATA|UDATA
-F|isCorrupt|isCorrupt|UDATA|UDATA
-F|isJavaCorePopulated|isJavaCorePopulated|UDATA|UDATA
-F|javacoreData|javacoreData|struct J9SharedClassJavacoreDataDescriptor|struct J9SharedClassJavacoreDataDescriptor
-S|SH_OSCachemmap|SH_OSCachemmapPointer|SH_OSCacheFile
-F|_actualFileLength|_actualFileLength|I64|I64
-F|_mapFileHandle|_mapFileHandle|struct J9MmapHandle*|struct J9MmapHandle*
-F|_finalised|_finalised|UDATA|UDATA
-F|_lockMutex|_lockMutex|struct J9ThreadMonitor*[]|omrthread_monitor_t[]
-F|_cacheFileAccess|_cacheFileAccess|enum SH_CacheFileAccess|enum SH_CacheFileAccess
-S|SH_OSCachesysv|SH_OSCachesysvPointer|SH_OSCache
-F|_shmhandle|_shmhandle|struct j9shmem_handle*|struct j9shmem_handle*
-F|_semhandle|_semhandle|struct j9shsem_handle*|struct j9shsem_handle*
-F|_attach_count|_attach_count|IDATA|IDATA
-F|_totalNumSems|_totalNumSems|UDATA|UDATA
-F|_userSemCntr|_userSemCntr|UDATA|UDATA
-F|_shmFileName|_shmFileName|U8*|char*
-F|_semFileName|_semFileName|U8*|char*
-F|_openSharedMemory|_openSharedMemory|bool|bool
-F|_storageKeyTesting|_storageKeyTesting|UDATA|UDATA
-F|config|config|struct J9SharedClassPreinitConfig*|const struct J9SharedClassPreinitConfig*
-F|_initialiser|_initialiser|class SH_OSCache$SH_OSCacheInitialiser*|class SH_OSCache::SH_OSCacheInitialiser*
-F|_groupPerm|_groupPerm|UDATA|UDATA
-F|_semid|_semid|I32|I32
-F|_semAccess|_semAccess|enum SH_SysvSemAccess|enum SH_SysvSemAccess
-F|_shmAccess|_shmAccess|enum SH_SysvShmAccess|enum SH_SysvShmAccess
-F|_controlFileStatus|_controlFileStatus|struct J9ControlFileStatus|struct J9ControlFileStatus
-S|SH_OSCachevmem|SH_OSCachevmemPointer|SH_OSCacheFile
-F|_actualFileLength|_actualFileLength|I64|I64
-F|_writeLockCounter|_writeLockCounter|UDATA|UDATA
-F|_lockMutex|_lockMutex|struct J9ThreadMonitor*[]|omrthread_monitor_t[]
-S|SH_ROMClassManager|SH_ROMClassManagerPointer|SH_Manager
-S|SH_ROMClassManagerImpl|SH_ROMClassManagerImplPointer|SH_ROMClassManager
-F|_tsm|_tsm|class SH_TimestampManager*|class SH_TimestampManager*
-F|_linkedListImplPool|_linkedListImplPool|struct J9Pool*|struct J9Pool*
-S|SH_ROMClassManagerImpl$RcLinkedListImpl|SH_ROMClassManagerImpl$RcLinkedListImplPointer|SH_Manager$HashLinkedListImpl
-F|_isOrphan|_isOrphan|bool|bool
-S|SH_ROMClassResourceManager|SH_ROMClassResourceManagerPointer|SH_Manager
-F|_rrmHashTableName|_rrmHashTableName|U8*|const char*
-F|_rrmLookupFnName|_rrmLookupFnName|U8*|const char*
-F|_rrmAddFnName|_rrmAddFnName|U8*|const char*
-F|_rrmRemoveFnName|_rrmRemoveFnName|U8*|const char*
-F|_accessPermitted|_accessPermitted|bool|bool
-F|_dataBytes|_dataBytes|UDATA|UDATA
-S|SH_ROMClassResourceManager$HashTableEntry|SH_ROMClassResourceManager$HashTableEntryPointer|
-F|_key|_key|UDATA|UDATA
-F|_item|_item|struct ShcItem*|const struct ShcItem*
-S|SH_ROMClassResourceManager$SH_ResourceDescriptor|SH_ROMClassResourceManager$SH_ResourceDescriptorPointer|
-S|SH_ScopeManager|SH_ScopeManagerPointer|SH_Manager
-S|SH_ScopeManagerImpl|SH_ScopeManagerImplPointer|SH_ScopeManager
-F|_allCacheletsStarted|_allCacheletsStarted|bool|bool
-S|SH_ScopeManagerImpl$HashEntry|SH_ScopeManagerImpl$HashEntryPointer|
-F|_value|_value|struct J9UTF8*|const struct J9UTF8*
-S|SH_SharedCache|SH_SharedCachePointer|
-S|SH_SysvSemAccess|SH_SysvSemAccessPointer|
-C|J9SH_SEM_ACCESS_ALLOWED
-C|J9SH_SEM_ACCESS_CANNOT_BE_DETERMINED
-C|J9SH_SEM_ACCESS_GROUP_ACCESS_REQUIRED
-C|J9SH_SEM_ACCESS_OTHERS_NOT_ALLOWED
-C|J9SH_SEM_ACCESS_OWNER_NOT_CREATOR
-S|SH_SysvShmAccess|SH_SysvShmAccessPointer|
-C|J9SH_SHM_ACCESS_ALLOWED
-C|J9SH_SHM_ACCESS_CANNOT_BE_DETERMINED
-C|J9SH_SHM_ACCESS_GROUP_ACCESS_READONLY_REQUIRED
-C|J9SH_SHM_ACCESS_GROUP_ACCESS_REQUIRED
-C|J9SH_SHM_ACCESS_OTHERS_NOT_ALLOWED
-C|J9SH_SHM_ACCESS_OWNER_NOT_CREATOR
-S|SH_TimestampManager|SH_TimestampManagerPointer|
-S|SH_TimestampManagerImpl|SH_TimestampManagerImplPointer|SH_TimestampManager
-F|_sharedClassConfig|_sharedClassConfig|struct J9SharedClassConfig*|struct J9SharedClassConfig*
-S|SRPKeyProducer|SRPKeyProducerPointer|
-F|_cfrConstantPoolCount|_cfrConstantPoolCount|U16|U16
-F|_methodCount|_methodCount|U16|U16
-F|_startStackMapKeys|_startStackMapKeys|UDATA|UDATA
-F|_startMethodDebugInfoKeys|_startMethodDebugInfoKeys|UDATA|UDATA
-F|_startVariableInfoKeys|_startVariableInfoKeys|UDATA|UDATA
-F|_maxKey|_maxKey|UDATA|UDATA
-F|_getMaxKeyWasCalled|_getMaxKeyWasCalled|bool|bool
-S|SRPOffsetTable|SRPOffsetTablePointer|
-F|_maxKey|_maxKey|UDATA|UDATA
-F|_maxTag|_maxTag|UDATA|UDATA
-F|_table|_table|struct SRPOffsetTable$Entry*|struct SRPOffsetTable::Entry*
-F|_baseAddresses|_baseAddresses|U8**|U8**
-F|_bufferManager|_bufferManager|class BufferManager*|class BufferManager*
-F|_buildResult|_buildResult|enum BuildResult|enum BuildResult
-S|SRPOffsetTable$Entry|SRPOffsetTable$EntryPointer|
-F|tag|tag|UDATA|UDATA
-F|offset|offset|UDATA|UDATA
-F|marked|marked|bool|bool
-F|interned|interned|bool|bool
-S|SharedCacheRangeInfo|SharedCacheRangeInfoPointer|
-C|SC_COMPLETELY_IN_THE_SRP_RANGE
-C|SC_COMPLETELY_OUT_OF_THE_SRP_RANGE
-C|SC_NO_RANGE_INFO
-C|SC_PARTIALLY_IN_THE_SRP_RANGE
-S|StringInternTable|StringInternTablePointer|
-F|_vm|_vm|struct J9JavaVM*|struct J9JavaVM*
-F|_portLibrary|_portLibrary|struct J9PortLibrary*|struct J9PortLibrary*
-F|_internHashTable|_internHashTable|struct J9HashTable*|struct J9HashTable*
-F|_headNode|_headNode|struct J9InternHashTableEntry*|struct J9InternHashTableEntry*
-F|_tailNode|_tailNode|struct J9InternHashTableEntry*|struct J9InternHashTableEntry*
-F|_nodeCount|_nodeCount|UDATA|UDATA
-F|_maximumNodeCount|_maximumNodeCount|UDATA|UDATA
-S|SuppliedBufferAllocationStrategy|SuppliedBufferAllocationStrategyPointer|AllocationStrategy
-F|_buffer|_buffer|U8*|U8*
-F|_bufferSize|_bufferSize|UDATA|UDATA
-F|_lineNumberBuffer|_lineNumberBuffer|U8*|U8*
-F|_lineNumberBufferSize|_lineNumberBufferSize|UDATA|UDATA
-F|_variableInfoBuffer|_variableInfoBuffer|U8*|U8*
-F|_variableInfoBufferSize|_variableInfoBufferSize|UDATA|UDATA
-S|WritingCursor|WritingCursorPointer|Cursor
-F|_baseAddress|_baseAddress|U8*|U8*
-F|_internManager|_internManager|class ROMClassStringInternManager*|class ROMClassStringInternManager*
-S|movedObjectHashCode|movedObjectHashCodePointer|
-F|originalHashCode|originalHashCode|U32|uint32_t
-F|hasBeenMoved|hasBeenMoved|BOOLEAN|BOOLEAN
-F|hasBeenHashed|hasBeenHashed|BOOLEAN|BOOLEAN
-S|omr_error_t|omr_error_tPointer|
-C|OMR_ERROR_FAILED_TO_ALLOCATE_MONITOR
-C|OMR_ERROR_FAILED_TO_ATTACH_NATIVE_THREAD
-C|OMR_ERROR_FILE_UNAVAILABLE
-C|OMR_ERROR_ILLEGAL_ARGUMENT
-C|OMR_ERROR_INTERNAL
-C|OMR_ERROR_MAXIMUM_THREAD_COUNT_EXCEEDED
-C|OMR_ERROR_MAXIMUM_VM_COUNT_EXCEEDED
-C|OMR_ERROR_NONE
-C|OMR_ERROR_NOT_AVAILABLE
-C|OMR_ERROR_OUT_OF_NATIVE_MEMORY
-C|OMR_ERROR_RETRY
-C|OMR_THREAD_NOT_ATTACHED
-C|OMR_THREAD_STILL_ATTACHED
-C|OMR_VM_STILL_ATTACHED
+F|pageSize|pageSize|UDATA|UDATA
+F|mode|mode|UDATA|UDATA
+S|HyportConstants|HyportConstantsPointer|
+C|HYPORT_CAPABILITY_BASE
+C|HYPORT_CAPABILITY_FILESYSTEM
+C|HYPORT_CAPABILITY_LARGE_PAGE_SUPPORT
+C|HYPORT_CAPABILITY_SOCKETS
+C|HYPORT_CAPABILITY_STANDARD
+C|HYPORT_MAJOR_VERSION_NUMBER
+C|HYPORT_MINOR_VERSION_NUMBER
+C|HYPORT_TTY_ERR
+C|HYPORT_TTY_IN
+C|HYPORT_TTY_OUT
+C|HyIsDir
+C|HyIsFile
+C|HyMaxPath
+C|HyOpenAppend
+C|HyOpenCreate
+C|HyOpenCreateAlways
+C|HyOpenCreateNew
+C|HyOpenForInherit
+C|HyOpenRead
+C|HyOpenSync
+C|HyOpenText
+C|HyOpenTruncate
+C|HyOpenWrite
+C|HyPORT_INVALID_FD
+C|HyPORT_PROCESS_DO_NOT_CLOSE_STREAMS
+C|HyPORT_PROCESS_IGNORE_OUTPUT
+C|HyPORT_PROCESS_INHERIT_STDERR
+C|HyPORT_PROCESS_INHERIT_STDIN
+C|HyPORT_PROCESS_INHERIT_STDOUT
+C|HyPORT_PROCESS_NONBLOCKING_IO
+C|HyPORT_PROCESS_PIPE_TO_PARENT
+C|HyPORT_PROCESS_REDIRECT_STDERR_TO_STDOUT
+C|HyPORT_PROCESS_STDERR
+C|HyPORT_PROCESS_STDIN
+C|HyPORT_PROCESS_STDOUT
+S|J9StackWalkConstants|J9StackWalkConstantsPointer|
+C|J9SW_ARGUMENT_REGISTER_COUNT
+C|J9SW_JIT_CALLEE_PRESERVED_SIZE
+C|J9SW_JIT_FIRST_RESOLVE_PARM_REGISTER
+C|J9SW_JIT_FLOATS_PASSED_AS_DOUBLES
+C|J9SW_JIT_FLOAT_ARGUMENT_REGISTER_COUNT
+C|J9SW_JIT_LOOKUP_INTERFACE_RESOLVE_OFFSET_TO_SAVED_RECEIVER
+C|J9SW_JIT_RECOMPILATION_RESOLVE_OFFSET_TO_SAVED_RECEIVER
+C|J9SW_JIT_RETURN_TABLE_SIZE
+C|J9SW_JIT_STACK_SLOTS_USED_BY_CALL
+C|J9SW_JIT_VIRTUAL_METHOD_RESOLVE_OFFSET_TO_SAVED_RECEIVER
+C|J9SW_POTENTIAL_SAVED_REGISTERS
+C|J9SW_REGISTER_MAP_MASK
+C|J9_JNI_PUSHED_REFERENCE_COUNT_MASK
+C|J9_STACK_FLAGS_ARGS_ALIGNED
+C|J9_STACK_FLAGS_CALL_OUT_FRAME_ALLOCATED
+C|J9_STACK_FLAGS_EXIT_TRACEPOINT_LEVEL3
+C|J9_STACK_FLAGS_J2_IFRAME
+C|J9_STACK_FLAGS_JIT_ALLOCATION_RESOLVE
+C|J9_STACK_FLAGS_JIT_ARGS_ALIGNED
+C|J9_STACK_FLAGS_JIT_BEFORE_ANEWARRAY_RESOLVE
+C|J9_STACK_FLAGS_JIT_BEFORE_MULTIANEWARRAY_RESOLVE
+C|J9_STACK_FLAGS_JIT_CALL_IN_FRAME
+C|J9_STACK_FLAGS_JIT_CALL_IN_TYPE_J2_I
+C|J9_STACK_FLAGS_JIT_CALL_IN_TYPE_METHODTYPE
+C|J9_STACK_FLAGS_JIT_DATA_RESOLVE
+C|J9_STACK_FLAGS_JIT_EXCEPTION_CATCH_RESOLVE
+C|J9_STACK_FLAGS_JIT_FAILED_METHOD_MONITOR_ENTER_RESOLVE
+C|J9_STACK_FLAGS_JIT_FRAME_SUB_TYPE_MASK
+C|J9_STACK_FLAGS_JIT_GENERIC_RESOLVE
+C|J9_STACK_FLAGS_JIT_INDUCE_OSR_RESOLVE
+C|J9_STACK_FLAGS_JIT_INTERFACE_METHOD_RESOLVE
+C|J9_STACK_FLAGS_JIT_JNI_CALL_OUT_FRAME
+C|J9_STACK_FLAGS_JIT_LOOKUP_RESOLVE
+C|J9_STACK_FLAGS_JIT_METHOD_MONITOR_ENTER_RESOLVE
+C|J9_STACK_FLAGS_JIT_MONITOR_ENTER_RESOLVE
+C|J9_STACK_FLAGS_JIT_NATIVE_TRANSITION
+C|J9_STACK_FLAGS_JIT_RECOMPILATION_RESOLVE
+C|J9_STACK_FLAGS_JIT_RESOLVE_FRAME
+C|J9_STACK_FLAGS_JIT_RUNTIME_HELPER_RESOLVE
+C|J9_STACK_FLAGS_JIT_SPECIAL_METHOD_RESOLVE
+C|J9_STACK_FLAGS_JIT_STACK_OVERFLOW_RESOLVE_FRAME
+C|J9_STACK_FLAGS_JIT_STATIC_METHOD_RESOLVE
+C|J9_STACK_FLAGS_JIT_TRANSITION_TO_INTERPRETER_MASK
+C|J9_STACK_FLAGS_JIT_VIRTUAL_METHOD_RESOLVE
+C|J9_STACK_FLAGS_JNI_REFS_REDIRECTED
+C|J9_STACK_FLAGS_METHOD_ENTRY
+C|J9_STACK_FLAGS_RELEASE_VMACCESS
+C|J9_STACK_FLAGS_RETURNS_OBJECT
+C|J9_STACK_FLAGS_UNUSED_0x80000000
+C|J9_STACK_FLAGS_USE_SPECIFIED_CLASS_LOADER
+C|J9_STACK_INVISIBLE_FRAME
+C|J9_STACK_REPORT_FRAME_POP
+S|J9StackWalkFlags|J9StackWalkFlagsPointer|
+C|DONT_REDIRECT_SRP_DEFINED
+C|J9SW_ARGUMENT_REGISTER_COUNT_DEFINED
+C|J9SW_JIT_CALLEE_PRESERVED_SIZE_DEFINED
+C|J9SW_JIT_FIRST_RESOLVE_PARM_REGISTER_DEFINED
+C|J9SW_JIT_FLOATS_PASSED_AS_DOUBLES_DEFINED
+C|J9SW_JIT_FLOAT_ARGUMENT_REGISTER_COUNT_DEFINED
+C|J9SW_JIT_HELPERS_PASS_PARAMETERS_ON_STACK
+C|J9SW_JIT_LOOKUP_INTERFACE_RESOLVE_OFFSET_TO_SAVED_RECEIVER_DEFINED
+C|J9SW_JIT_RECOMPILATION_RESOLVE_OFFSET_TO_SAVED_RECEIVER_DEFINED
+C|J9SW_JIT_RETURN_TABLE_SIZE_DEFINED
+C|J9SW_JIT_STACK_SLOTS_USED_BY_CALL_DEFINED
+C|J9SW_JIT_VIRTUAL_METHOD_RESOLVE_OFFSET_TO_SAVED_RECEIVER_DEFINED
+C|J9SW_NEEDS_JIT_2_INTERP_CALLEE_ARG_POP
+C|J9SW_NEEDS_JIT_2_INTERP_THUNKS
+C|J9SW_PARAMETERS_IN_REGISTERS
+C|J9SW_POTENTIAL_SAVED_REGISTERS_DEFINED
+C|J9SW_REGISTER_MAP_MASK_DEFINED
+C|J9SW_REGISTER_MAP_WALK_REGISTERS_LOW_TO_HIGH
+C|J9_JNI_PUSHED_REFERENCE_COUNT_MASK_DEFINED
+C|J9_STACK_FLAGS_ARGS_ALIGNED_DEFINED
+C|J9_STACK_FLAGS_CALL_OUT_FRAME_ALLOCATED_DEFINED
+C|J9_STACK_FLAGS_EXIT_TRACEPOINT_LEVEL3_DEFINED
+C|J9_STACK_FLAGS_J2_IFRAME_DEFINED
+C|J9_STACK_FLAGS_JIT_ALLOCATION_RESOLVE_DEFINED
+C|J9_STACK_FLAGS_JIT_ARGS_ALIGNED_DEFINED
+C|J9_STACK_FLAGS_JIT_BEFORE_ANEWARRAY_RESOLVE_DEFINED
+C|J9_STACK_FLAGS_JIT_BEFORE_MULTIANEWARRAY_RESOLVE_DEFINED
+C|J9_STACK_FLAGS_JIT_CALL_IN_FRAME_DEFINED
+C|J9_STACK_FLAGS_JIT_CALL_IN_TYPE_J2_I_DEFINED
+C|J9_STACK_FLAGS_JIT_CALL_IN_TYPE_METHODTYPE_DEFINED
+C|J9_STACK_FLAGS_JIT_DATA_RESOLVE_DEFINED
+C|J9_STACK_FLAGS_JIT_EXCEPTION_CATCH_RESOLVE_DEFINED
+C|J9_STACK_FLAGS_JIT_FAILED_METHOD_MONITOR_ENTER_RESOLVE_DEFINED
+C|J9_STACK_FLAGS_JIT_FRAME_SUB_TYPE_MASK_DEFINED
+C|J9_STACK_FLAGS_JIT_GENERIC_RESOLVE_DEFINED
+C|J9_STACK_FLAGS_JIT_INDUCE_OSR_RESOLVE_DEFINED
+C|J9_STACK_FLAGS_JIT_INTERFACE_METHOD_RESOLVE_DEFINED
+C|J9_STACK_FLAGS_JIT_JNI_CALL_OUT_FRAME_DEFINED
+C|J9_STACK_FLAGS_JIT_LOOKUP_RESOLVE_DEFINED
+C|J9_STACK_FLAGS_JIT_METHOD_MONITOR_ENTER_RESOLVE_DEFINED
+C|J9_STACK_FLAGS_JIT_MONITOR_ENTER_RESOLVE_DEFINED
+C|J9_STACK_FLAGS_JIT_NATIVE_TRANSITION_DEFINED
+C|J9_STACK_FLAGS_JIT_RECOMPILATION_RESOLVE_DEFINED
+C|J9_STACK_FLAGS_JIT_RESOLVE_FRAME_DEFINED
+C|J9_STACK_FLAGS_JIT_RUNTIME_HELPER_RESOLVE_DEFINED
+C|J9_STACK_FLAGS_JIT_SPECIAL_METHOD_RESOLVE_DEFINED
+C|J9_STACK_FLAGS_JIT_STACK_OVERFLOW_RESOLVE_FRAME_DEFINED
+C|J9_STACK_FLAGS_JIT_STATIC_METHOD_RESOLVE_DEFINED
+C|J9_STACK_FLAGS_JIT_TRANSITION_TO_INTERPRETER_MASK_DEFINED
+C|J9_STACK_FLAGS_JIT_VIRTUAL_METHOD_RESOLVE_DEFINED
+C|J9_STACK_FLAGS_JNI_REFS_REDIRECTED_DEFINED
+C|J9_STACK_FLAGS_METHOD_ENTRY_DEFINED
+C|J9_STACK_FLAGS_RELEASE_VMACCESS_DEFINED
+C|J9_STACK_FLAGS_RETURNS_OBJECT_DEFINED
+C|J9_STACK_FLAGS_UNUSED_0x80000000_DEFINED
+C|J9_STACK_FLAGS_USE_SPECIFIED_CLASS_LOADER_DEFINED
+C|J9_STACK_INVISIBLE_FRAME_DEFINED
+C|J9_STACK_REPORT_FRAME_POP_DEFINED
+C|STACKWALK_H_DEFINED
 S|AttachedDataWrapper|AttachedDataWrapperPointer|
 F|cacheOffset|cacheOffset|J9SRP|J9SRP
 F|dataLength|dataLength|U32|U32
