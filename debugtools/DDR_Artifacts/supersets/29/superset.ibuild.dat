@@ -16411,7 +16411,7 @@ F|_maximum_vm_count|_maximum_vm_count|UDATA|uintptr_t
 S|OMR_Runtime|OMR_RuntimePointer|
 F|_configuration|_configuration|struct OMR_RuntimeConfiguration|struct OMR_RuntimeConfiguration
 F|_initialized|_initialized|UDATA|uintptr_t
-F|_portLibrary|_portLibrary|OMRPortLibrary*|OMRPortLibrary*|struct OMRPortLibrary*|struct OMRPortLibrary*
+F|_portLibrary|_portLibrary|struct OMRPortLibrary*|struct OMRPortLibrary*|OMRPortLibrary*|OMRPortLibrary*
 F|_rootVM|_rootVM|struct OMR_VM*|struct OMR_VM*
 F|_vmCount|_vmCount|UDATA|uintptr_t
 F|_vmListMutex|_vmListMutex|struct J9ThreadMonitor*|omrthread_monitor_t
@@ -16513,8 +16513,8 @@ F|_os_thread|_os_thread|struct J9Thread*|omrthread_t
 F|_sampleStackBackoff|_sampleStackBackoff|U32|uint32_t
 F|_savedObject1|_savedObject1|void*|void*
 F|_savedObject2|_savedObject2|void*|void*
-F|_trace$omrTraceThread|_trace.omrTraceThread|struct OMR_TraceThread*|struct OMR_TraceThread*|OMR_TraceThread*|OMR_TraceThread*
-F|_trace$uteThread|_trace.uteThread|struct UtThreadData*|struct UtThreadData*|UtThreadData*|UtThreadData*
+F|_trace$omrTraceThread|_trace.omrTraceThread|OMR_TraceThread*|OMR_TraceThread*|struct OMR_TraceThread*|struct OMR_TraceThread*
+F|_trace$uteThread|_trace.uteThread|UtThreadData*|UtThreadData*|struct UtThreadData*|struct UtThreadData*
 F|_vm|_vm|struct OMR_VM*|struct OMR_VM*
 F|exclusiveCount|exclusiveCount|UDATA|uintptr_t
 F|heapBaseForBarrierRange0|heapBaseForBarrierRange0|void*|void*
