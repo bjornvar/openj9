@@ -9853,7 +9853,7 @@ F|AddModuleExports|AddModuleExports|void*|void*
 F|AddModuleOpens|AddModuleOpens|void*|void*
 F|AddModuleUses|AddModuleUses|void*|void*
 F|AddModuleProvides|AddModuleProvides|void*|void*
-F|reserved99|reserved99|void*|void*
+F|IsModifiableModule|IsModifiableModule|void*|void*
 F|GetAllStackTraces|GetAllStackTraces|void*|void*
 F|GetThreadListStackTraces|GetThreadListStackTraces|void*|void*
 F|GetThreadLocalStorage|GetThreadLocalStorage|void*|void*
@@ -11785,6 +11785,7 @@ C|JVMTI_ERROR_THREAD_SUSPENDED
 C|JVMTI_ERROR_TYPE_MISMATCH
 C|JVMTI_ERROR_UNATTACHED_THREAD
 C|JVMTI_ERROR_UNMODIFIABLE_CLASS
+C|JVMTI_ERROR_UNMODIFIABLE_MODULE
 C|JVMTI_ERROR_UNSUPPORTED_REDEFINITION_CLASS_MODIFIERS_CHANGED
 C|JVMTI_ERROR_UNSUPPORTED_REDEFINITION_HIERARCHY_CHANGED
 C|JVMTI_ERROR_UNSUPPORTED_REDEFINITION_METHOD_ADDED
@@ -12129,7 +12130,7 @@ F|AddModuleExports|AddModuleExports|void*|void*
 F|AddModuleOpens|AddModuleOpens|void*|void*
 F|AddModuleUses|AddModuleUses|void*|void*
 F|AddModuleProvides|AddModuleProvides|void*|void*
-F|reserved99|reserved99|void*|void*
+F|IsModifiableModule|IsModifiableModule|void*|void*
 F|GetAllStackTraces|GetAllStackTraces|void*|void*
 F|GetThreadListStackTraces|GetThreadListStackTraces|void*|void*
 F|GetThreadLocalStorage|GetThreadLocalStorage|void*|void*
