@@ -24,8 +24,6 @@ package java.lang.invoke;
 
 import static java.lang.invoke.MethodType.methodType;
 
-import java.lang.invoke.ArrayVarHandle.ArrayVarHandleOperations;
-
 /**
  * {@link VarHandle} subclass for array element {@link VarHandle} instances.
  */
@@ -107,9 +105,6 @@ final class ArrayVarHandle extends VarHandle {
 		
 		return populateMTs(getter, setter, compareAndSet, compareAndExchange, getAndSet);
 	}
-
-	final int indexOffset;
-	final int indexScale;
 	
 	/**
 	 * Constructs a VarHandle that can access elements of an array
@@ -118,18 +113,6 @@ final class ArrayVarHandle extends VarHandle {
 	 */
 	ArrayVarHandle(Class<?> arrayType) {
 		super(arrayType.getComponentType(), new Class<?>[] {arrayType, int.class}, populateMHs(arrayType), populateMTs(arrayType), 0);
-		this.indexOffset = _unsafe.arrayBaseOffset(arrayType);
-		this.indexScale = _unsafe.arrayIndexScale(arrayType);
-	}
-	
-	/**
-	 * Calculates the offset for the given array index.
-	 * 
-	 * @param index The array index to be accessed
-	 * @return The computed offset
-	 */
-	final long computeIndex(int index) {
-		return indexOffset + ((long)index * indexScale);
 	}
 
 	/**
@@ -141,6 +124,10 @@ final class ArrayVarHandle extends VarHandle {
 			if ((index < 0) || (index >= arrayLength)) {
 				throw newArrayIndexOutOfBoundsException(arrayLength, index);
 			}
+		}
+		
+		static final long computeIndex(int index, int indexOffset, int indexScale) {
+			return indexOffset + ((long)index * indexScale);
 		}
 		
 		private static final ArrayIndexOutOfBoundsException newArrayIndexOutOfBoundsException(int arrayLength, long index) {
@@ -163,23 +150,26 @@ final class ArrayVarHandle extends VarHandle {
 		}
 
 		static final class OpObject extends ArrayVarHandleOperations {
+			private static final int OFFSET = _unsafe.arrayBaseOffset(Object[].class);
+			private static final int SCALE = _unsafe.arrayIndexScale(Object[].class);
+			
 			private static final Object get(Object receiver, int index, ArrayVarHandle varHandle) {
 				receiver.getClass();
 				boundsCheck(((Object[])receiver).length, index);
-				return _unsafe.getObject(receiver, varHandle.computeIndex(index));
+				return _unsafe.getObject(receiver, computeIndex(index, OFFSET, SCALE));
 			}
 
 			private static final void set(Object receiver, int index, Object value, ArrayVarHandle varHandle) {
 				receiver.getClass();
 				boundsCheck(((Object[])receiver).length, index);
 				storeCheck(value, receiver.getClass().getComponentType());
-				_unsafe.putObject(receiver, varHandle.computeIndex(index), value);
+				_unsafe.putObject(receiver, computeIndex(index, OFFSET, SCALE), value);
 			}
 
 			private static final Object getVolatile(Object receiver, int index, ArrayVarHandle varHandle) {
 				receiver.getClass();
 				boundsCheck(((Object[])receiver).length, index);
-				return _unsafe.getObjectVolatile(receiver, varHandle.computeIndex(index));
+				return _unsafe.getObjectVolatile(receiver, computeIndex(index, OFFSET, SCALE));
 			}
 
 			private static final void setVolatile(Object receiver, int index, Object value, ArrayVarHandle varHandle) {
@@ -366,6 +356,9 @@ final class ArrayVarHandle extends VarHandle {
 		}
 
 		static final class OpByte extends ArrayVarHandleOperations {
+			private static final int OFFSET = _unsafe.arrayBaseOffset(byte[].class);
+			private static final int SCALE = _unsafe.arrayIndexScale(byte[].class);
+			
 			private static final byte get(Object receiver, int index, ArrayVarHandle varHandle) {
 				receiver.getClass();
 				boundsCheck(((byte[])receiver).length, index);
@@ -578,6 +571,9 @@ final class ArrayVarHandle extends VarHandle {
 		}
 
 		static final class OpChar extends ArrayVarHandleOperations {
+			private static final int OFFSET = _unsafe.arrayBaseOffset(char[].class);
+			private static final int SCALE = _unsafe.arrayIndexScale(char[].class);
+			
 			private static final char get(Object receiver, int index, ArrayVarHandle varHandle) {
 				receiver.getClass();
 				boundsCheck(((char[])receiver).length, index);
@@ -790,6 +786,9 @@ final class ArrayVarHandle extends VarHandle {
 		}
 
 		static final class OpDouble extends ArrayVarHandleOperations {
+			private static final int OFFSET = _unsafe.arrayBaseOffset(double[].class);
+			private static final int SCALE = _unsafe.arrayIndexScale(double[].class);
+			
 			private static final double get(Object receiver, int index, ArrayVarHandle varHandle) {
 				receiver.getClass();
 				boundsCheck(((double[])receiver).length, index);
@@ -984,6 +983,9 @@ final class ArrayVarHandle extends VarHandle {
 		}
 
 		static final class OpFloat extends ArrayVarHandleOperations {
+			private static final int OFFSET = _unsafe.arrayBaseOffset(float[].class);
+			private static final int SCALE = _unsafe.arrayIndexScale(float[].class);
+			
 			private static final float get(Object receiver, int index, ArrayVarHandle varHandle) {
 				receiver.getClass();
 				boundsCheck(((float[])receiver).length, index);
@@ -1178,6 +1180,9 @@ final class ArrayVarHandle extends VarHandle {
 		}
 
 		static final class OpInt extends ArrayVarHandleOperations {
+			private static final int OFFSET = _unsafe.arrayBaseOffset(int[].class);
+			private static final int SCALE = _unsafe.arrayIndexScale(int[].class);
+			
 			private static final int get(Object receiver, int index, ArrayVarHandle varHandle) {
 				receiver.getClass();
 				boundsCheck(((int[])receiver).length, index);
@@ -1390,6 +1395,9 @@ final class ArrayVarHandle extends VarHandle {
 		}
 
 		static final class OpLong extends ArrayVarHandleOperations {
+			private static final int OFFSET = _unsafe.arrayBaseOffset(long[].class);
+			private static final int SCALE = _unsafe.arrayIndexScale(long[].class);
+			
 			private static final long get(Object receiver, int index, ArrayVarHandle varHandle) {
 				receiver.getClass();
 				boundsCheck(((long[])receiver).length, index);
@@ -1602,6 +1610,9 @@ final class ArrayVarHandle extends VarHandle {
 		}
 
 		static final class OpShort extends ArrayVarHandleOperations {
+			private static final int OFFSET = _unsafe.arrayBaseOffset(short[].class);
+			private static final int SCALE = _unsafe.arrayIndexScale(short[].class);
+			
 			private static final short get(Object receiver, int index, ArrayVarHandle varHandle) {
 				receiver.getClass();
 				boundsCheck(((short[])receiver).length, index);
@@ -1814,6 +1825,9 @@ final class ArrayVarHandle extends VarHandle {
 		}
 
 		static final class OpBoolean extends ArrayVarHandleOperations {
+			private static final int OFFSET = _unsafe.arrayBaseOffset(boolean[].class);
+			private static final int SCALE = _unsafe.arrayIndexScale(boolean[].class);
+			
 			private static final boolean get(Object receiver, int index, ArrayVarHandle varHandle) {
 				receiver.getClass();
 				boundsCheck(((boolean[])receiver).length, index);
