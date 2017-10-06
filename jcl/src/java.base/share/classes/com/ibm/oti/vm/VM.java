@@ -79,10 +79,13 @@ public final class VM {
 	public static final int J9CLASS_SIZE;
 	
 	public static final int J9_JAVA_CLASS_DEPTH_MASK;
+	public static final int J9_JAVA_CLASS_MASK;
 	
 	public static final int J9ROMCLASS_MODIFIERS_OFFSET;
 	
 	public static final int ADDRESS_SIZE;
+
+	public static final int J9_ACC_CLASS_ARRAY;
 	
 	public static final int J9_ACC_CLASS_INTERNAL_PRIMITIVE_TYPE;
 
@@ -150,12 +153,14 @@ public final class VM {
 		J9CLASS_SIZE = 0;
 		
 		J9_JAVA_CLASS_DEPTH_MASK = 0;
+		J9_JAVA_CLASS_MASK = 0;
 		
 		J9ROMCLASS_MODIFIERS_OFFSET = 0;
 		
 		ADDRESS_SIZE = 0;
 		
 		J9_ACC_CLASS_INTERNAL_PRIMITIVE_TYPE = 0;
+		J9_ACC_CLASS_ARRAY = 0;
 		
 		J9_JIT_STRING_DEDUP_POLICY = 0;
 		
@@ -225,23 +230,6 @@ public final static native long getUid();
  * @return	true if the specified ClassLoader is the bootstrap ClassLoader
  */
 static private final native boolean isBootstrapClassLoader(ClassLoader loader); 
-
-/*[IF Sidecar19-SE]*/
-/**
- * Native used to find and load a class in a module using the VM. 
- * If it fails to find the class or any exception occurs in finding the class then it returns null. 
- *
- * @return 		java.lang.Class
- *					the class or null.
- * @param		moduleName String
- * 					the name of the module from which to load the class
- * @param 		className String
- *					the name of the class to search for.
- * @param		classLoader
- *					the classloader to do the work
- */
-static native Class findClassInModuleOrNull(String moduleName, String className, ClassLoader classLoader);
-/*[ENDIF]*/
 
 /**
  * Ensures that the caller of the method where this check is made is a bootstrap class. 

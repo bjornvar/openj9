@@ -1150,6 +1150,7 @@ VersionSetting SHAPE_SETTINGS[] = {
 		{"b135", J2SE_SHAPE_B136},
 		{"b148", J2SE_SHAPE_B148},
 		{"b165", J2SE_SHAPE_B165},
+		{"b1803", J2SE_SHAPE_B1803},
 };
 #define NUM_SHAPE_SETTINGS (sizeof(SHAPE_SETTINGS) / sizeof(VersionSetting))
 
@@ -2210,8 +2211,9 @@ JNI_a2e_vsprintf(char *target, const char *format, va_list args)
 
 int isFileInDir(char *dir, char *file){
 	size_t length, dirLength;
-	char *fullpath;
-	FILE *f;
+	char *fullpath = NULL;
+	FILE *f = NULL;
+	int foundFile = 0;
 
 	dirLength = strlen(dir);
 	/* Constuct 'full' path */
@@ -2223,17 +2225,20 @@ int isFileInDir(char *dir, char *file){
 
 	length = dirLength + strlen(file) + 2; /* 2= '/' + null char */
 	fullpath = malloc(length);
-	strcpy(fullpath, dir);
-	fullpath[dirLength] = DIR_SEPARATOR;
-	strcpy(fullpath+dirLength+1, file);
+	if (NULL != fullpath) {
+		strcpy(fullpath, dir);
+		fullpath[dirLength] = DIR_SEPARATOR;
+		strcpy(fullpath+dirLength+1, file);
 
-	/* See if file exists - use fopen() for portability */
-	f = fopen(fullpath, "rb");
-	if (f) {
-		fclose(f);
+		/* See if file exists - use fopen() for portability */
+		f = fopen(fullpath, "rb");
+		if (NULL != f) {
+			foundFile = 1;
+			fclose(f);
+		}
+		free(fullpath);
 	}
-	free(fullpath);
-	return f!=0;
+	return foundFile;
 }
 
 
@@ -5360,7 +5365,7 @@ JVM_DefineClassWithSource(JNIEnv *env, const char * className, jobject classLoad
 
 	vmFuncs->internalEnterVMFromJNI(currentThread);
 
-	if (!vmFuncs->verifyQualifiedName(currentThread, J9_JNI_UNWRAP_REFERENCE(classNameString))) {
+	if (CLASSNAME_INVALID == vmFuncs->verifyQualifiedName(currentThread, J9_JNI_UNWRAP_REFERENCE(classNameString))) {
 		vmFuncs->setCurrentException(currentThread, J9VMCONSTANTPOOL_JAVALANGNOCLASSDEFFOUNDERROR, (UDATA *)*(j9object_t*)classNameString);
 		vmFuncs->internalReleaseVMAccess(currentThread);
 		return NULL;
