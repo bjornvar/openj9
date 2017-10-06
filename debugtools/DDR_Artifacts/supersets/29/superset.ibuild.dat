@@ -6799,6 +6799,9 @@ F|preCollectionUsed|preCollectionUsed|U64|U64
 S|J9NonIndexableObject|J9NonIndexableObjectPointer|
 F|clazz|clazz|j9objectclass_t|j9objectclass_t
 S|J9NonbuilderConstants|J9NonbuilderConstantsPointer|
+C|CLASSNAME_INVALID
+C|CLASSNAME_VALID_ARRARY
+C|CLASSNAME_VALID_NON_ARRARY
 C|J9InitInstanceFields
 C|J9InitInstanceFieldsW
 C|J9InitInterfaces
@@ -9940,6 +9943,7 @@ C|J9VMCONSTANTPOOL_COMIBMOTIVMVM_J9CLASS_ROMCLASS_OFFSET
 C|J9VMCONSTANTPOOL_COMIBMOTIVMVM_J9CLASS_SIZE
 C|J9VMCONSTANTPOOL_COMIBMOTIVMVM_J9CLASS_SUPERCLASSES_OFFSET
 C|J9VMCONSTANTPOOL_COMIBMOTIVMVM_J9ROMCLASS_MODIFIERS_OFFSET
+C|J9VMCONSTANTPOOL_COMIBMOTIVMVM_J9_ACC_CLASS_ARRAY
 C|J9VMCONSTANTPOOL_COMIBMOTIVMVM_J9_ACC_CLASS_INTERNAL_PRIMITIVE_TYPE
 C|J9VMCONSTANTPOOL_COMIBMOTIVMVM_J9_GC_ALLOCATION_TYPE
 C|J9VMCONSTANTPOOL_COMIBMOTIVMVM_J9_GC_ALLOCATION_TYPE_SEGREGATED
@@ -9959,6 +9963,7 @@ C|J9VMCONSTANTPOOL_COMIBMOTIVMVM_J9_GC_WRITE_BARRIER_TYPE_NONE
 C|J9VMCONSTANTPOOL_COMIBMOTIVMVM_J9_GC_WRITE_BARRIER_TYPE_OLDCHECK
 C|J9VMCONSTANTPOOL_COMIBMOTIVMVM_J9_GC_WRITE_BARRIER_TYPE_REALTIME
 C|J9VMCONSTANTPOOL_COMIBMOTIVMVM_J9_JAVA_CLASS_DEPTH_MASK
+C|J9VMCONSTANTPOOL_COMIBMOTIVMVM_J9_JAVA_CLASS_MASK
 C|J9VMCONSTANTPOOL_COMIBMOTIVMVM_J9_JAVA_CLASS_RAM_SHAPE_SHIFT
 C|J9VMCONSTANTPOOL_COMIBMOTIVMVM_J9_JIT_STRING_DEDUP_POLICY
 C|J9VMCONSTANTPOOL_COMIBMOTIVMVM_J9_STRING_COMPRESSION_ENABLED
@@ -16411,7 +16416,7 @@ F|_maximum_vm_count|_maximum_vm_count|UDATA|uintptr_t
 S|OMR_Runtime|OMR_RuntimePointer|
 F|_configuration|_configuration|struct OMR_RuntimeConfiguration|struct OMR_RuntimeConfiguration
 F|_initialized|_initialized|UDATA|uintptr_t
-F|_portLibrary|_portLibrary|struct OMRPortLibrary*|struct OMRPortLibrary*|OMRPortLibrary*|OMRPortLibrary*
+F|_portLibrary|_portLibrary|OMRPortLibrary*|OMRPortLibrary*|struct OMRPortLibrary*|struct OMRPortLibrary*
 F|_rootVM|_rootVM|struct OMR_VM*|struct OMR_VM*
 F|_vmCount|_vmCount|UDATA|uintptr_t
 F|_vmListMutex|_vmListMutex|struct J9ThreadMonitor*|omrthread_monitor_t
@@ -16513,8 +16518,8 @@ F|_os_thread|_os_thread|struct J9Thread*|omrthread_t
 F|_sampleStackBackoff|_sampleStackBackoff|U32|uint32_t
 F|_savedObject1|_savedObject1|void*|void*
 F|_savedObject2|_savedObject2|void*|void*
-F|_trace$omrTraceThread|_trace.omrTraceThread|OMR_TraceThread*|OMR_TraceThread*|struct OMR_TraceThread*|struct OMR_TraceThread*
-F|_trace$uteThread|_trace.uteThread|UtThreadData*|UtThreadData*|struct UtThreadData*|struct UtThreadData*
+F|_trace$omrTraceThread|_trace.omrTraceThread|struct OMR_TraceThread*|struct OMR_TraceThread*|OMR_TraceThread*|OMR_TraceThread*
+F|_trace$uteThread|_trace.uteThread|struct UtThreadData*|struct UtThreadData*|UtThreadData*|UtThreadData*
 F|_vm|_vm|struct OMR_VM*|struct OMR_VM*
 F|exclusiveCount|exclusiveCount|UDATA|uintptr_t
 F|heapBaseForBarrierRange0|heapBaseForBarrierRange0|void*|void*
